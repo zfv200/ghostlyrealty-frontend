@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, combineReducers } from 'redux'
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
 import userReducer from './reducers/users'
+import houseReducer from './reducers/houses'
 
-const rootReducer = combineReducers({userReducer})
+const rootReducer = combineReducers({userReducer, houseReducer})
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}><App store={store}/></Provider>, document.getElementById('root'));
