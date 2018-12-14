@@ -1,5 +1,6 @@
 const defaultState = {
-  featuredHouses: []
+  featuredHouses: [],
+  featuredHouseIndex: 0
 }
 
 export default function houseReducer(state=defaultState, action){

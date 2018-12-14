@@ -5,7 +5,7 @@ export function fetchFeaturedHouses(){
     fetch(`${apiUrl}/featured`)
     .then(res=>res.json())
     .then(json=>{
-      dispatch(addFeaturedHouses(json))
+      dispatch(addFeaturedHouses(json.data))
     })
   }
 }
