@@ -3,11 +3,16 @@ import CarouselTile from '../components/CarouselTile'
 import { connect } from 'react-redux'
 import { changeCarousel } from '../actions/actions'
 
+// TODO: have the carousel slide back and forth
 class Carousel extends React.Component{
 
   renderCarousel = () =>{
     let house = this.props.featuredHouses[this.props.featuredHouseIndex]
-    return <CarouselTile {...house}/>
+    return (
+      <React.Fragment>
+        <CarouselTile {...house}/>
+      </React.Fragment>
+    )
   }
 
   carouselClick = (e) => {

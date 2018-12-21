@@ -3,7 +3,6 @@ const defaultState = {
   featuredHouseIndex: 0
 }
 
-// TODO: debug this
 function changeIndexForward(currentIndex, length){
   if (currentIndex===length-1){
     return 0
