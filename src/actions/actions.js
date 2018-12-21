@@ -5,8 +5,27 @@ export function fetchFeaturedHouses(){
     fetch(`${apiUrl}/featured`)
     .then(res=>res.json())
     .then(json=>{
-      dispatch(addFeaturedHouses(json.data))
+      let payload = json.data.map(house=>house.attributes)
+      dispatch(addFeaturedHouses(payload))
     })
+  }
+}
+
+export function changeCarousel(direction){
+  return (dispatch) => {
+    dispatch(changeCarouselTile(direction))
+  }
+}
+
+export function changeCarouselTile(direction){
+  if (direction==="foward"){
+    return {
+      type: "CHANGE_CAROUSEL_TILE_FORWARD",
+    }
+  } else {
+    return {
+      type: "CHANGE_CAROUSEL_TILE_BACK"
+    }
   }
 }
 

@@ -1,19 +1,25 @@
 import React from 'react'
 import CarouselTile from '../components/CarouselTile'
 import { connect } from 'react-redux'
+import { changeCarousel } from '../actions/actions'
 
 class Carousel extends React.Component{
 
   renderCarousel = () =>{
-    // console.log(this.props.featuredHouses[this.props.featuredHouseIndex]);
     let house = this.props.featuredHouses[this.props.featuredHouseIndex]
     return <CarouselTile {...house}/>
+  }
+
+  carouselClick = (e) => {
+    this.props.changeCarousel(e.target.value)
   }
 
   render(){
     return (
       <div>
-        {this.renderCarousel()}
+        <button value="back" onClick={this.carouselClick}>back</button>
+        <button value="foward" onClick={this.carouselClick}>forward</button>
+          {this.renderCarousel()}
       </div>
     )
   }
@@ -26,4 +32,4 @@ const mapStateToProps = (state) =>{
   }
 }
 
-export default connect(mapStateToProps)(Carousel)
+export default connect(mapStateToProps, {changeCarousel})(Carousel)
