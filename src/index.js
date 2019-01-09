@@ -9,8 +9,9 @@ import { Provider } from 'react-redux'
 
 import userReducer from './reducers/users'
 import houseReducer from './reducers/houses'
+import agentReducer from './reducers/agents'
 
-const rootReducer = combineReducers({userReducer, houseReducer})
+const rootReducer = combineReducers({userReducer, houseReducer, agentReducer})
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
