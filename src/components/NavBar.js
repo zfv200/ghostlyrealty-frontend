@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <div className="navbar">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/agents">Agents</NavLink>
+    <div className="container">
+      <div className="navbar, homepagecomps">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/agents">Agents</NavLink>
+      </div>
     </div>
   );
 };
