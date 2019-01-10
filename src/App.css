@@ -1,4 +1,34 @@
-.App {
+#homepage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.homepagecomps {
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.child {
+  margin: auto;
+}
+
+.header {
+  width: 100%;
+  height: 40px;
+  color: white;
+  background: black;
+  text-indent: 150px;
+  font-style: italic;
+}
+
+
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +59,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

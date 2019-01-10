@@ -3,7 +3,9 @@ import NavBar from '../components/NavBar'
 import { connect } from 'react-redux'
 import { fetchFeaturedHouses } from '../actions/actions.js'
 import Carousel from './Carousel'
-import AgentCard from '../components/AgentCard'
+import FeaturedAgent from '../components/FeaturedAgent'
+import '../App.css';
+
 
 class HomePage extends React.Component {
 
@@ -13,10 +15,11 @@ class HomePage extends React.Component {
 
   render(){
     return (
-      <div>
-        <NavBar />
-        <Carousel />
-        <AgentCard />
+      <div id="homepage">
+        <div className="homepagecomps">
+          <Carousel />
+          <FeaturedAgent />
+        </div>
       </div>
     )
   }
