@@ -35,3 +35,31 @@ export function addFeaturedHouses(houses){
     payload: houses
   }
 }
+
+export function searchSite(searchTerm){
+  return (dispatch) => {
+    fetch(`${apiUrl}/search`, {
+      method: 'POST',
+      headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        searchTerm: searchTerm
+      })
+    }).then(res=>res.json())
+      .then(json=>{
+        console.log(json.data);
+        let results = json.data.map(ghost=>ghost.attributes)
+        dispatch(searchSiteAction(results))
+      })
+  }
+}
+
+//this is front end results of the fetch from searchSite
+export function searchSiteAction(results){
+  return {
+    type: "SEARCH_SITE",
+    payload: results
+  }
+}
