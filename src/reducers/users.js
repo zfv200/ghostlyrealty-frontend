@@ -1,7 +1,7 @@
 const defaultState = {
   currentUser: "casper",
   userId: "1",
-  loggedIn: true
+  loggedIn: true,
 }
 
 export default function userReducer(state=defaultState, action){
