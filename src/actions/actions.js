@@ -49,9 +49,7 @@ export function searchSite(searchTerm){
       })
     }).then(res=>res.json())
       .then(json=>{
-        console.log(json.data);
-        let results = json.data.map(ghost=>ghost.attributes)
-        dispatch(searchSiteAction(results))
+        dispatch(searchSiteAction(json))
       })
   }
 }
@@ -62,4 +60,11 @@ export function searchSiteAction(results){
     type: "SEARCH_SITE",
     payload: results
   }
+}
+
+export function searchProperties(searchObj){
+  // debugger
+  // return (dispatch) => {
+  //   fetch(`${apiUrl}/search/${searchTerm}`)
+  // }
 }

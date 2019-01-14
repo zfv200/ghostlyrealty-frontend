@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import { connect } from 'react-redux'
 import { fetchFeaturedHouses } from '../actions/actions.js'
+import HouseSearch from './HouseSearch'
 import Carousel from './Carousel'
 import FeaturedAgent from '../components/FeaturedAgent'
 import '../App.css';
@@ -18,6 +19,7 @@ class HomePage extends React.Component {
       <div id="homepage">
         <div className="homepagecomps">
           <Carousel />
+          <HouseSearch />
           <FeaturedAgent />
         </div>
       </div>
