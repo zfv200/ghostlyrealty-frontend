@@ -9,18 +9,25 @@ class HouseSearchForm extends React.Component{
     super()
 
     this.state={
-      typedSearch: ''
+      typedSearch: '',
+      soloHaunt: false
     }
   }
 
   handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
+    if (e.target.id==="soloHaunt"){
+      let currentState = this.state.soloHaunt
+      this.setState({soloHaunt: !currentState})
+    } else {
+      this.setState({
+        [e.target.id]: e.target.value
+      })
+    }
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
+    // TODO: incorporate the whole state object into properties search, pick up here tomorrow
     this.props.searchSite(this.state.typedSearch)
     this.props.history.push('/results')
   }
@@ -30,6 +37,7 @@ class HouseSearchForm extends React.Component{
       <div>
         <form onSubmit={this.handleSubmit}>
           <input id="typedSearch" onChange={this.handleChange} placeholder="House or building name"/>
+          <input id="soloHaunt" type="checkbox" value={this.state.soloHaunt} onChange={this.handleChange}/>Solo Haunt
           <button type="submit">Search</button>
         </form>
       </div>
