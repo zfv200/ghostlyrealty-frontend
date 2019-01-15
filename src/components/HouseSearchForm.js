@@ -10,14 +10,15 @@ class HouseSearchForm extends React.Component{
 
     this.state={
       typedSearch: '',
-      soloHaunt: false
+      solo_haunt: false,
+      complexSearch: false
     }
   }
 
   handleChange = (e) => {
     if (e.target.id==="soloHaunt"){
-      let currentState = this.state.soloHaunt
-      this.setState({soloHaunt: !currentState})
+      let currentState = this.state.solo_haunt
+      this.setState({solo_haunt: !currentState, complexSearch: !currentState})
     } else {
       this.setState({
         [e.target.id]: e.target.value
@@ -27,9 +28,14 @@ class HouseSearchForm extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: incorporate the whole state object into properties search, pick up here tomorrow
-    this.props.searchSite(this.state.typedSearch)
-    this.props.history.push('/results')
+    // TODO: "please enter something to search for! error"
+    if (this.state.complexSearch){
+      this.props.searchProperties(this.state)
+      this.props.history.push('/houses')
+    } else {
+      this.props.searchSite(this.state.typedSearch)
+      this.props.history.push('/results')
+    }
   }
 
   render(){
@@ -37,7 +43,7 @@ class HouseSearchForm extends React.Component{
       <div>
         <form onSubmit={this.handleSubmit}>
           <input id="typedSearch" onChange={this.handleChange} placeholder="House or building name"/>
-          <input id="soloHaunt" type="checkbox" value={this.state.soloHaunt} onChange={this.handleChange}/>Solo Haunt
+          <input id="soloHaunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/>Solo Haunt
           <button type="submit">Search</button>
         </form>
       </div>

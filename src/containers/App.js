@@ -5,6 +5,7 @@ import HomePage from './HomePage'
 import AgentsPage from './AgentPage'
 import NavBar from '../components/NavBar'
 import SearchResults from './SearchResults'
+import HouseSearchResults from './HouseSearchResults'
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage}/>
           <Route path="/agents" component={AgentsPage}/>
           <Route path="/results" component={SearchResults}/>
+          <Route path="/houses" component={HouseSearchResults}/>
         </div>
       </Router>
     );

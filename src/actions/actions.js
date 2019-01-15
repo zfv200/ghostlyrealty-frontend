@@ -63,8 +63,25 @@ export function searchSiteAction(results){
 }
 
 export function searchProperties(searchObj){
-  // debugger
-  // return (dispatch) => {
-  //   fetch(`${apiUrl}/search/${searchTerm}`)
-  // }
+  return (dispatch) => {
+    fetch(`${apiUrl}/search_properties`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(searchObj)
+    }).then(res=>res.json())
+      .then(json=>{
+        let payload = json.data.map(house=>house.attributes)
+        dispatch(searchPropertiesAction(payload))
+      })
+  }
+}
+
+export function searchPropertiesAction(results){
+  return {
+    type: "SEARCH_PROPERTIES",
+    payload: results
+  }
 }
