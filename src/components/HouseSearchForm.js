@@ -1,7 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { searchProperties, searchSite } from '../actions/actions'
+import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from '../actions/actions'
+import isEqual from 'lodash.isequal'
+import BlankSearch from './BlankSearch'
+// var isEqual = require('lodash.isequal');
 
 class HouseSearchForm extends React.Component{
 
@@ -11,11 +14,18 @@ class HouseSearchForm extends React.Component{
     this.state={
       typedSearch: '',
       solo_haunt: false,
-      complexSearch: false
+      complexSearch: false,
     }
+
+    // this.blankState={
+    //   typedSearch: '',
+    //   solo_haunt: false,
+    //   complexSearch: false,
+    // }
   }
 
   handleChange = (e) => {
+    // this.props.clearBlankSearchError()
     if (e.target.id==="soloHaunt"){
       let currentState = this.state.solo_haunt
       this.setState({solo_haunt: !currentState, complexSearch: !currentState})
@@ -26,9 +36,15 @@ class HouseSearchForm extends React.Component{
     }
   }
 
+  // nothingEnteredYet = () => {
+  //   return isEqual(this.state, this.blankState)
+  // }
+
   handleSubmit = (e) => {
     e.preventDefault()
-    // TODO: "please enter something to search for! error"
+    // if (this.nothingEnteredYet()){
+    //   return this.props.addBlankSearchError()
+    // }
     if (this.state.complexSearch){
       this.props.searchProperties(this.state)
       this.props.history.push('/houses')
@@ -37,6 +53,10 @@ class HouseSearchForm extends React.Component{
       this.props.history.push('/results')
     }
   }
+
+  // renderBlankSearchError = () => {
+  //   return this.props.blankSearchError ? <BlankSearch /> : null
+  // }
 
   render(){
     return (
@@ -51,4 +71,11 @@ class HouseSearchForm extends React.Component{
   }
 }
 
-export default connect(null, {searchProperties, searchSite})(withRouter(HouseSearchForm))
+// const mapStateToProps = (state) => {
+//   return {
+//     blankSearchError: state.searchReducer.blankSearch
+//   }
+// }
+
+
+export default connect(null, {searchProperties, searchSite, addBlankSearchError, clearBlankSearchError})(withRouter(HouseSearchForm))

@@ -85,3 +85,17 @@ export function searchPropertiesAction(results){
     payload: results
   }
 }
+
+export function addBlankSearchError(){
+  return {
+    type: "ADD_BLANK_SEARCH_ERROR",
+    payload: true
+  }
+}
+
+export function clearBlankSearchError(){
+  return {
+    type: "CLEAR_BLANK_SEARCH_ERROR",
+    payload: false
+  }
+}
