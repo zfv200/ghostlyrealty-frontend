@@ -14,6 +14,7 @@ class HouseSearchForm extends React.Component{
     this.state={
       typedSearch: '',
       solo_haunt: false,
+      burial_ground: false,
       complexSearch: false,
     }
 
@@ -26,9 +27,9 @@ class HouseSearchForm extends React.Component{
 
   handleChange = (e) => {
     // this.props.clearBlankSearchError()
-    if (e.target.id==="soloHaunt"){
-      let currentState = this.state.solo_haunt
-      this.setState({solo_haunt: !currentState, complexSearch: !currentState})
+    if (e.target.id!=="typedSearch"){
+      let currentState = this.state[e.target.id]
+      this.setState({[e.target.id]: !currentState, complexSearch: !currentState})
     } else {
       this.setState({
         [e.target.id]: e.target.value
@@ -63,7 +64,8 @@ class HouseSearchForm extends React.Component{
       <div>
         <form onSubmit={this.handleSubmit}>
           <input id="typedSearch" onChange={this.handleChange} placeholder="House or building name"/>
-          <input id="soloHaunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/>Solo Haunt
+          <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/>Solo Haunt
+          <input id="burial_ground" type="checkbox" value={this.state.burial_ground} onChange={this.handleChange}/>Built on top of Burial Ground
           <button type="submit">Search</button>
         </form>
       </div>
