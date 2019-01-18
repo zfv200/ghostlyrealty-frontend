@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const FeaturedAgent = (props) =>{
   return (
-    <div>
+    <div className="homepagecomp">
       <h1>{props.agent.name}</h1>
       <img src={props.agent.image}/>
       <h3>"{props.agent.motto}"</h3>

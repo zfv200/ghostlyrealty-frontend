@@ -1,31 +1,50 @@
-#homepage {
+/* #homepage {
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
+} */
 
-.homepagecomps {
+/* .homepagecomps {
   margin: auto;
+} */
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 
-.child {
+.bannerType {
+  height: 70px;
+  width: 100%;
+  /* TODO: make it different if you shrink it */
+}
+
+.homePageComp {
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%;
+}
+
+/* .child {
   margin: auto;
-}
+} */
 
-.header {
+/* .header {
   width: 100%;
   height: 40px;
   color: white;
   background: black;
   text-indent: 150px;
   font-style: italic;
-}
+} */
 
 .agent-card {
   border-top: 1px solid #dfdfdf;

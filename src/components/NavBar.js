@@ -4,8 +4,8 @@ import SearchBar from './SearchBar'
 
 const NavBar = () => {
   return (
-    <div className="container">
-      <div className="navbar, homepagecomps">
+    <div>
+      <div className="bannerType">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/agents">Agents</NavLink>
         <SearchBar />

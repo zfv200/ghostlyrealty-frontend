@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import NavBar from '../components/NavBar'
 import UserHeader from './UserHeader'
+import Footer from '../components/Footer'
+
 import HomePage from './HomePage'
 import AgentsPage from './AgentPage'
 import SearchResults from './SearchResults'
@@ -13,13 +15,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-        <UserHeader />
-        <NavBar />
-          <Route exact path="/" component={HomePage}/>
-          <Route path="/agents" component={AgentsPage}/>
-          <Route path="/results" component={SearchResults}/>
-          <Route path="/houses" component={HouseSearchResults}/>
+        <div className="container">
+          <UserHeader />
+          <NavBar />
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/agents" component={AgentsPage}/>
+            <Route path="/results" component={SearchResults}/>
+            <Route path="/houses" component={HouseSearchResults}/>
+          <Footer />
         </div>
       </Router>
     );
