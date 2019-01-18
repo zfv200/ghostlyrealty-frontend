@@ -1,10 +1,11 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
 import { connect } from 'react-redux'
 import { fetchFeaturedHouses } from '../actions/actions.js'
+
 import HouseSearch from './HouseSearch'
 import Carousel from './Carousel'
 import FeaturedAgent from '../components/FeaturedAgent'
+import Footer from '../components/Footer'
 import '../App.css';
 
 
@@ -21,6 +22,7 @@ class HomePage extends React.Component {
           <Carousel />
           <HouseSearch />
           <FeaturedAgent />
+          <Footer />
         </div>
       </div>
     )
