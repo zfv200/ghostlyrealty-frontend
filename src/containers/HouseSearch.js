@@ -5,8 +5,8 @@ class HouseSearch extends React.Component{
 
   render(){
     return (
-      <div>
-        <h3>Houses for Haunt</h3>
+      <div className="homepagerow housesearch">
+        <h3 className="housesearchchild">Houses for Haunt</h3>
         <HouseSearchForm/>
       </div>
     )

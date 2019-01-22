@@ -7,31 +7,81 @@
 /* .homepagecomps {
   margin: auto;
 } */
-body {
+/* body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+} */
 
-.container {
+/* .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 1;
+} */
+
+#carousel {
+  background-color: #FFFFE0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carouselChild {
+  flex: 1;
 }
 
 .bannerType {
-  height: 70px;
-  width: 100%;
+  display: flex;
+  background-color: gold;
   /* TODO: make it different if you shrink it */
 }
 
-.homePageComp {
+.nav {
+  list-style: none;
+  display: block;
+}
+
+/* there's css here for .nav a links inside
+header items */
+
+.headerItem {
+  flex: 1;
+}
+
+.headerStart {
+  justify-content: flex-start;
+}
+
+
+/* homepage flex grid: */
+
+.flex-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.homepagerow {
+  flex: 1;
+  background-color: azure;
+}
+
+.housesearch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.housesearchchild {
+  flex: 1;
+}
+
+/* .homePageComp {
   padding-left: 25px;
   padding-right: 25px;
   width: 100%;
-}
+} */
 
 /* .child {
   margin: auto;

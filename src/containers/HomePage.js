@@ -16,7 +16,7 @@ class HomePage extends React.Component {
 
   render(){
     return (
-      <div className="homePageComp">
+      <div className="flex-grid">
         <Carousel />
         <HouseSearch />
         <FeaturedAgent />
@@ -24,6 +24,8 @@ class HomePage extends React.Component {
     )
   }
 }
+
+
 
 // function mapDispatchToProps(dispatch) {
 //   return({

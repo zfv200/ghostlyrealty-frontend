@@ -4,8 +4,10 @@ const AgentCard = (props) => {
 
   return (
     <div className="agent-card">
-      <h1>{props.name}</h1>
-      <img src={props.image}/>
+      <div class>
+        <h1>{props.name}</h1>
+        <img src={props.image}/>
+      </div>
       <h3>{props.title}</h3>
     </div>
   )

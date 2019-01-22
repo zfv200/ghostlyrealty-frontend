@@ -61,7 +61,7 @@ class HouseSearchForm extends React.Component{
 
   render(){
     return (
-      <div className="homepagecomp">
+      <div className="housesearchchild">
         <form onSubmit={this.handleSubmit}>
           <input id="typedSearch" onChange={this.handleChange} placeholder="House or building name"/>
           <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/>Solo Haunt

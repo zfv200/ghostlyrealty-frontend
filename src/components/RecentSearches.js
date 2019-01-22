@@ -11,7 +11,7 @@ class RecentSearches extends React.Component{
 
   render(){
     return(
-      <div>
+      <div className="headerItem">
         Recent searches
       </div>
     )

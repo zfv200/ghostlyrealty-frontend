@@ -2,7 +2,7 @@ import React from 'react'
 
 const RegisterLink = () => {
   return (
-    <div>
+    <div className="headerItem">
       register link
     </div>
   )
