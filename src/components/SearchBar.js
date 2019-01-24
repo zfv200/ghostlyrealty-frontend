@@ -44,10 +44,12 @@ class SearchBar extends React.Component {
   render(){
     return (
       <div>
-        {this.renderBlankSearchError()}
-        <form onSubmit={this.handleSubmit}>
-          <input value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
-        </form>
+        <div>
+          {this.renderBlankSearchError()}
+          <form onSubmit={this.handleSubmit}>
+            <input value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
+          </form>
+        </div>
       </div>
     )
   }
