@@ -2,7 +2,7 @@ import React from 'react'
 
 const GhostlyRealtyLogo = () => {
   return (
-    <div>
+    <div className="nav headerItem headerStart">
       Logo
     </div>
   )

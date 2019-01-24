@@ -2,7 +2,7 @@ import React from 'react'
 
 const SignInLink = () => {
   return (
-    <div>
+    <div className="headerItem">
       sign in link
     </div>
   )

@@ -21,12 +21,10 @@ class Carousel extends React.Component{
 
   render(){
     return (
-      <div>
-        <div id="parent">
-          <button value="back" onClick={this.carouselClick}>back</button>
-          <button value="foward" onClick={this.carouselClick}>forward</button>
-        </div>
-          {this.renderCarousel()}
+      <div id="carousel" className="homepagerow">
+        <button className="carouselChild carouselButton" value="back" onClick={this.carouselClick}>back</button>
+        {this.renderCarousel()}
+        <button className="carouselChild carouselButton" value="foward" onClick={this.carouselClick}>forward</button>
       </div>
     )
   }

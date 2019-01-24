@@ -27,7 +27,7 @@ class UserHeader extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="bannerType">
         <GhostlyRealtyLogo />
         <RecentSearches />
         {this.currentUser ? null : this.notLoggedInComps()}
