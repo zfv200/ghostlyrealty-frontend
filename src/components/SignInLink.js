@@ -33,7 +33,11 @@ class SignInLink extends React.Component {
           </a>
           <div className="header"> Sign In! </div>
           <div className="content">
-          <form className="signUpForm" onSubmit={this.handleSubmit}>
+          <form className="signUpForm" onSubmit={(e)=>{
+            e.preventDefault()
+            close()
+            this.handleSubmit()
+          }}>
             Username:<input id="username" className="formChild" value={this.state.username} type="text" onChange={this.handleChange}/>
             Password:<input id="password" className="formChild" value={this.state.password} type="password" onChange={this.handleChange}/>
             <button type="submit">Sign In</button>

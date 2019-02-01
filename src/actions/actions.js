@@ -132,6 +132,20 @@ export function loginGhost(username, password){
   }
 }
 
+export function fetchCurrentGhost(){
+  return (dispatch) => {
+    dispatch(authenticatingGhost())
+    fetch('http://localhost:3000/api/v1/profile', {
+      method: 'get',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+      .then(response=>response.json())
+      .then(({ ghost }) => dispatch(setCurrentGhost(ghost)))
+  }
+}
+
 export function setCurrentGhost(ghostData){
   return {
     type: 'SET_CURRENT_GHOST',

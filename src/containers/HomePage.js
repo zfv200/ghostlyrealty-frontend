@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchFeaturedHouses } from '../actions/actions.js'
+import { fetchFeaturedHouses, fetchCurrentGhost } from '../actions/actions.js'
 
 import HouseSearch from './HouseSearch'
 import Carousel from './Carousel'
@@ -12,6 +12,7 @@ class HomePage extends React.Component {
 
   componentDidMount(){
     this.props.fetchFeaturedHouses()
+    this.props.fetchCurrentGhost()
   }
 
   render(){
@@ -33,4 +34,4 @@ class HomePage extends React.Component {
 //   })
 // }
 
-export default connect(null, {fetchFeaturedHouses})(HomePage)
+export default connect(null, {fetchFeaturedHouses, fetchCurrentGhost})(HomePage)

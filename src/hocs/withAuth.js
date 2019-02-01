@@ -1,3 +1,10 @@
+//some notes for the future
+//need to make a HOC to fetch current user
+//currently it's just doing it in the componentdidmount of the homepage
+//but it has to happen pretty much everywhere in a way that it sensible
+// TODO: ^^^^^
+
+
 // import React from 'react'
 // import { connect } from 'react-redux'
 // import { Redirect } from 'react-router'
