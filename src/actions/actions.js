@@ -99,3 +99,48 @@ export function clearBlankSearchError(){
     payload: false
   }
 }
+
+export function loginGhost(username, password){
+  return (dispatch) => {
+    // TODO: make this actually do something while it's happening
+    dispatch(authenticatingGhost())
+    fetch('http://localhost:3000/api/v1/login', {
+      method: 'post',
+      headers: {
+        'Content-Type':'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({ghost: {
+        username: username,
+        password: password
+      }})
+    }).then(response=>{
+      if (response.ok){
+        return response.json()
+      } else {
+        throw response
+      }
+    })
+    .then(({ ghost, jwt })=>{
+      //body
+      localStorage.setItem('jwt', jwt)
+      //set the ghost key in here too?
+      dispatch(setCurrentGhost(ghost))
+    })
+    // TODO:
+    // .catch(r => r.json().then(e => dispatch(failedLogin(e.message))))
+  }
+}
+
+export function setCurrentGhost(ghostData){
+  return {
+    type: 'SET_CURRENT_GHOST',
+    payload: ghostData
+  }
+}
+
+export function authenticatingGhost(){
+  return {
+    type: "AUTHENTICATING_GHOST"
+  }
+}

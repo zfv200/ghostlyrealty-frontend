@@ -1,6 +1,10 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
+import { loginGhost } from '../actions/actions'
+import { connect } from 'react-redux'
 import '../SignInLink.css'
+
+// TODO: combine with register link
 
 class SignInLink extends React.Component {
   state={
@@ -14,18 +18,9 @@ class SignInLink extends React.Component {
     })
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    // const body = this.state
-    fetch('http://localhost:3000/api/v1/login', {
-      method: 'post',
-      headers: {
-        'Content-Type':'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify({ghost: this.state})
-    }).then(r=>r.json())
-    .then(console.log)
+  handleSubmit = () => {
+    // e.preventDefault()
+    this.props.loginGhost(this.state.username, this.state.password)
   }
 
   render(){
@@ -53,4 +48,4 @@ class SignInLink extends React.Component {
   }
 
 
-export default SignInLink
+export default connect(null, {loginGhost})(SignInLink)
