@@ -4,8 +4,8 @@ const CarouselTile = (props) =>{
   if(props){
     return (
       <div className="carouselChild">
-        <img src={props['image-url']} alt={props.name}/>
-        <h1>{props.name}</h1>
+        <img className="image carChild" src={props['image-url']} alt={props.name}/>
+        <h1 className="carChild" >{props.name}</h1>
       </div>
     )
   }
