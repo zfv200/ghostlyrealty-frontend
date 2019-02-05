@@ -47,7 +47,7 @@ class SearchBar extends React.Component {
         <div>
           {this.renderBlankSearchError()}
           <form className="searchBarChild" onSubmit={this.handleSubmit}>
-            <input className="siteSearchBar" value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
+            <input className="siteSearchBar" placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
           </form>
         </div>
       </div>

@@ -5,12 +5,13 @@ import GhostlyRealtyLogo from '../components/GhostlyRealtyLogo'
 import RecentSearches from '../components/RecentSearches'
 import SignInLink from '../components/SignInLink'
 import RegisterLink from '../components/RegisterLink'
+import LogOutButton from '../components/LogOutButton'
 
 class UserHeader extends React.Component{
 
   notLoggedInComps = () => {
     return (
-      <div>
+      <div className="hRight">
         <SignInLink />
         <RegisterLink />
       </div>
@@ -19,8 +20,8 @@ class UserHeader extends React.Component{
 
   loggedInComps = () => {
     return (
-      <div>
-
+      <div className="hRight">
+        <LogOutButton />
       </div>
     )
   }
@@ -30,7 +31,7 @@ class UserHeader extends React.Component{
       <div className="bannerType">
         <GhostlyRealtyLogo />
         <RecentSearches />
-        {this.props.currentUser ? null : this.notLoggedInComps()}
+        {this.props.currentUser ? this.loggedInComps() : this.notLoggedInComps()}
       </div>
     )
   }

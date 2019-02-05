@@ -172,7 +172,9 @@ export function registerGhost(username, password, close){
 }
 
 export function logOutGhost(){
-  // TODO: do this
+  return {
+    type: 'LOG_OUT_GHOST'
+  }
 }
 
 export function setCurrentGhost(ghostData){

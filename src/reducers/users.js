@@ -9,6 +9,8 @@ export default function userReducer(state=defaultState, action){
       return {...state, currentUser: action.payload, signInError: false}
     case "SIGN_IN_ERROR":
       return {...state, signInError: true}
+    case "LOG_OUT_GHOST":
+      return {...state, currentUser: null}
     default:
       return state
   }
