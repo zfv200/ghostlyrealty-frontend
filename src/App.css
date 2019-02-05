@@ -1,28 +1,5 @@
-/* #homepage {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-} */
-
-/* .homepagecomps {
-  margin: auto;
-} */
-/* body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-} */
-
-/* .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-} */
-
 #carousel {
-  background-color: #FFFFE0;
+  background-color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,26 +7,44 @@
 
 .carouselChild {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carChild {
+  flex: 1;
+}
+
+.image {
+  width: 1500px;
+  height: 800px;
+  padding: 10px;
 }
 
 .carouselButton {
   height: 100px;
 }
 
-.bannerType {
-  display: flex;
-  background-color: gold;
-  /* TODO: make it different if you shrink it */
-}
-
 .searchBar {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  height: 60px; */
+  background-color: #F8F8FF;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .searchBarChild {
-  flex: 1;
+  margin-left: 130px;
+}
+
+.siteSearchBar {
+  margin-right: 120px;
+  height: 40px;
+  width: 400px;
 }
 
 .nav {
@@ -60,12 +55,30 @@
 /* there's css here for .nav a links inside
 header items */
 
-.headerItem {
-  flex: 1;
+.bannerType {
+  background-color: #202020;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.headerStart {
-  justify-content: flex-start;
+.headerItem {
+  width: 200px;
+  height: 60px;
+}
+
+.headerItem h3 {
+  color: white;
+}
+
+.hLeft {
+  margin-right: 80px;
+  margin-left: 130px;
+}
+
+.hRight {
+  margin-left: auto;
+  margin-right: 60px;
 }
 
 
@@ -78,21 +91,42 @@ header items */
 
 .homepagerow {
   flex: 1;
-  background-color: azure;
+  background-color: #F8F8FF;
 }
 
 .housesearch {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 .housesearchchild {
-  flex: 1;
+  height: 450px;
+  padding: 50px;
+}
+
+.searchOption {
+  height: 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#houseSearchSubmit {
+  height: 40px;
+  width: 80px;
+}
+
+#houseSearchTitle {
+  font-size: 60px;
+}
+
+#typedSearch {
+  height: 40px;
+  width: 800px;
 }
 
 .featuredAgent {
-  background-color: #98FB98;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -102,59 +136,11 @@ header items */
   flex: 1;
 }
 
-/* .homePageComp {
-  padding-left: 25px;
-  padding-right: 25px;
-  width: 100%;
-} */
-
-/* .child {
-  margin: auto;
-} */
-
-/* .header {
-  width: 100%;
-  height: 40px;
-  color: white;
-  background: black;
-  text-indent: 150px;
-  font-style: italic;
-} */
-
 .agent-card {
   border-top: 1px solid #dfdfdf;
 }
 
-
-/* .App {
-  text-align: center;
+.footer {
+  height: 100px;
+  background-color: #F8F8FF;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

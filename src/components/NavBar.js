@@ -6,11 +6,9 @@ const NavBar = () => {
   return (
     <div>
       <div className="searchBar">
-        <div className="searchBarChild"> 
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/agents">Agents</NavLink>
-          <SearchBar />
-        </div>
+        <NavLink className="searchBarChild" to="/"><h2>Home</h2></NavLink>
+        <NavLink className="searchBarChild" to="/agents"><h2>Agents</h2></NavLink>
+        <SearchBar />
       </div>
     </div>
   );

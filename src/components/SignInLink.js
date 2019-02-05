@@ -18,9 +18,11 @@ class SignInLink extends React.Component {
     })
   }
 
-  handleSubmit = () => {
-    // e.preventDefault()
-    this.props.loginGhost(this.state.username, this.state.password)
+  handleSubmit = (close) => {
+    this.setState({
+      password: ''
+    })
+    this.props.loginGhost(this.state.username, this.state.password, close)
   }
 
   render(){
@@ -31,25 +33,31 @@ class SignInLink extends React.Component {
           <a className="close" onClick={close}>
           &times;
           </a>
+          {this.props.signInError ? <div>"Wrong info!!!"</div> : null}
           <div className="header"> Sign In! </div>
           <div className="content">
           <form className="signUpForm" onSubmit={(e)=>{
             e.preventDefault()
-            close()
-            this.handleSubmit()
+            this.handleSubmit(close)
           }}>
             Username:<input id="username" className="formChild" value={this.state.username} type="text" onChange={this.handleChange}/>
             Password:<input id="password" className="formChild" value={this.state.password} type="password" onChange={this.handleChange}/>
             <button type="submit">Sign In</button>
           </form>
-          </div>
-          <div className="actions">
-          </div>
         </div>
-      )}
-      </Popup>
+        <div className="actions">
+        </div>
+      </div>
     )}
+    </Popup>
+  )}
+}
+
+const mapStateToProps = (state) => {
+  return {
+    signInError: state.userReducer.signInError
   }
+}
 
 
-export default connect(null, {loginGhost})(SignInLink)
+export default connect(mapStateToProps, {loginGhost})(SignInLink)

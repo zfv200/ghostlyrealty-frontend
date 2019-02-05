@@ -100,11 +100,11 @@ export function clearBlankSearchError(){
   }
 }
 
-export function loginGhost(username, password){
+export function loginGhost(username, password, close){
   return (dispatch) => {
     // TODO: make this actually do something while it's happening
     dispatch(authenticatingGhost())
-    fetch('http://localhost:3000/api/v1/login', {
+    fetch(`${apiUrl}/login`, {
       method: 'post',
       headers: {
         'Content-Type':'application/json',
@@ -116,15 +116,16 @@ export function loginGhost(username, password){
       }})
     }).then(response=>{
       if (response.ok){
+        close()
         return response.json()
       } else {
+        dispatch(signInError())
         throw response
       }
     })
     .then(({ ghost, jwt })=>{
       //body
       localStorage.setItem('jwt', jwt)
-      //set the ghost key in here too?
       dispatch(setCurrentGhost(ghost))
     })
     // TODO:
@@ -135,7 +136,7 @@ export function loginGhost(username, password){
 export function fetchCurrentGhost(){
   return (dispatch) => {
     dispatch(authenticatingGhost())
-    fetch('http://localhost:3000/api/v1/profile', {
+    fetch(`${apiUrl}/profile`, {
       method: 'get',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`
@@ -146,10 +147,46 @@ export function fetchCurrentGhost(){
   }
 }
 
+export function registerGhost(username, password, close){
+  return (dispatch) => {
+    fetch(`${apiUrl}/register`, {
+      method: 'post',
+      headers: {
+        'Content-Type':'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({ghost: {username: username, password: password}})
+    }).then(response=>{
+      if (response.ok){
+        close()
+        return response.json()
+      } else {
+        throw response
+      }
+    })
+      .then(({ ghost, jwt })=>{
+        localStorage.setItem('jwt', jwt)
+        dispatch(setCurrentGhost(ghost))
+      })
+  }
+}
+
+export function logOutGhost(){
+  return {
+    type: 'LOG_OUT_GHOST'
+  }
+}
+
 export function setCurrentGhost(ghostData){
   return {
     type: 'SET_CURRENT_GHOST',
     payload: ghostData
+  }
+}
+
+export function signInError(){
+  return {
+    type: 'SIGN_IN_ERROR'
   }
 }
 

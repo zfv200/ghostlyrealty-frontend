@@ -1,5 +1,7 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
+import { connect } from 'react-redux'
+import { registerGhost } from '../actions/actions'
 import '../SignInLink.css'
 
 class RegisterLink extends React.Component{
@@ -19,26 +21,16 @@ class RegisterLink extends React.Component{
     return this.state.password===this.state.confirmedPassword ? true : false
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (close) => {
     // TODO: create a passwords don't match error
-    e.preventDefault()
-    console.log(this)
     if (this.validatePassword()){
-      fetch('http://localhost:3000/api/v1/register', {
-        method: 'post',
-        headers: {
-          'Content-Type':'application/json',
-          Accept: 'application/json'
-        },
-        body: JSON.stringify({ghost: this.state})
-      }).then(r=>r.json())
-      .then(console.log)
+      this.props.registerGhost(this.state.username, this.state.password, close)
     }
   }
 
   render(){
     return (
-      <Popup trigger={<button className="button"> Register </button>} modal>
+      <Popup trigger={<button className="button hRight"> Register </button>} modal>
       {close => (
         <div className="modal">
           <a className="close" onClick={close}>
@@ -46,7 +38,10 @@ class RegisterLink extends React.Component{
           </a>
           <div className="header"> Register! </div>
           <div className="content">
-          <form className="signUpForm" onSubmit={this.handleSubmit}>
+          <form className="signUpForm" onSubmit={(e)=>{
+            e.preventDefault()
+            this.handleSubmit(close)
+          }}>
             Username:<input id="username" className="formChild" value={this.state.username} type="text" onChange={this.handleChange}/>
             Password:<input id="password" className="formChild" value={this.state.password} type="password" onChange={this.handleChange}/>
             Confirm Password:<input id="confirmedPassword" className="formChild" value={this.state.confirmPassword} type="password" onChange={this.handleChange}/>
@@ -61,4 +56,4 @@ class RegisterLink extends React.Component{
   )}
 }
 
-export default RegisterLink
+export default connect(null, {registerGhost})(RegisterLink)
