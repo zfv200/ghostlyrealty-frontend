@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import GhostlyRealtyLogo from '../components/GhostlyRealtyLogo'
-import RecentSearches from '../components/RecentSearches'
+import RecentSearchesContainer from '../components/RecentSearchesContainer'
 import SignInLink from '../components/SignInLink'
 import RegisterLink from '../components/RegisterLink'
 import LogOutButton from '../components/LogOutButton'
@@ -30,7 +30,7 @@ class UserHeader extends React.Component{
     return (
       <div className="bannerType">
         <GhostlyRealtyLogo />
-        <RecentSearches />
+        <RecentSearchesContainer />
         {this.props.currentUser ? this.loggedInComps() : this.notLoggedInComps()}
       </div>
     )

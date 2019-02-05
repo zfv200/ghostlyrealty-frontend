@@ -41,8 +41,9 @@ export function searchSite(searchTerm){
     fetch(`${apiUrl}/search`, {
       method: 'POST',
       headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         searchTerm: searchTerm
@@ -67,10 +68,13 @@ export function searchProperties(searchObj){
     fetch(`${apiUrl}/search_properties`, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(searchObj)
+      body: JSON.stringify({
+        search: searchObj
+      })
     }).then(res=>res.json())
       .then(json=>{
         let payload = json.data.map(house=>house.attributes)
