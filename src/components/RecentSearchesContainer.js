@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import RecentSearch from './RecentSearch'
 
 class RecentSearchesContainer extends React.Component{
   constructor(){
@@ -17,18 +19,27 @@ class RecentSearchesContainer extends React.Component{
   }
 
   renderRecentSearches = () => {
-
+    return this.props.recentSearches.map(search=>{
+      return <RecentSearch {...search}/>
+    })
   }
 
   render(){
     return(
       <div onMouseEnter={this.handleMouse} onMouseLeave={this.handleMouse} className="headerItem hLeft">
         <h3>Recent searches</h3>
-        {this.state.expanded === true ? <div>hi</div> : null}
+        <div className="recentSearchesContainer">
+          {this.state.expanded === true ? this.renderRecentSearches() : null}
+        </div>
       </div>
     )
   }
-
 }
 
-export default RecentSearchesContainer
+const mapStateToProps = (state) => {
+  return {
+    recentSearches: state.userReducer.currentUserSearches
+  }
+}
+
+export default connect(mapStateToProps)(RecentSearchesContainer)

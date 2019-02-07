@@ -77,9 +77,19 @@ export function searchProperties(searchObj){
       })
     }).then(res=>res.json())
       .then(json=>{
-        let payload = json.data.map(house=>house.attributes)
+        let payload = json.results
         dispatch(searchPropertiesAction(payload))
+        if (json.search){
+          dispatch(addSearch(json.search))
+        }
       })
+  }
+}
+
+export function addSearch(search){
+  return {
+    type: "ADD_SEARCH",
+    payload: search
   }
 }
 
@@ -147,7 +157,11 @@ export function fetchCurrentGhost(){
       }
     })
       .then(response=>response.json())
-      .then(({ ghost }) => dispatch(setCurrentGhost(ghost)))
+      .then(({ ghost }) => {
+        if (ghost){
+          dispatch(setCurrentGhost(ghost))
+        }
+      })
   }
 }
 
