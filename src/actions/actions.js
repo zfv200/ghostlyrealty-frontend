@@ -189,6 +189,24 @@ export function registerGhost(username, password, close){
   }
 }
 
+export function recentSearch(searchProps){
+  return (dispatch) => {
+    fetch(`${apiUrl}/recent_search`, {
+    method: 'post',
+    headers: {
+      'Content-Type':'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`
+    },
+    body: JSON.stringify(searchProps)
+  }).then(r=>r.json())
+    .then(json=>{
+      let payload = json.results
+      dispatch(searchPropertiesAction(payload))
+    })
+  }
+}
+
 export function logOutGhost(){
   return {
     type: 'LOG_OUT_GHOST'
