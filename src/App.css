@@ -144,3 +144,18 @@ header items */
   height: 100px;
   background-color: #F8F8FF;
 }
+
+.recentSearchesContainer{
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+  width: 500px;
+}
+
+.recentSearch {
+  display: flex;
+  /* z-index: 1;
+  position: absolute; */
+  background-color: black;
+}

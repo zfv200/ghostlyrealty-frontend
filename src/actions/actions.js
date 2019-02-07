@@ -41,8 +41,9 @@ export function searchSite(searchTerm){
     fetch(`${apiUrl}/search`, {
       method: 'POST',
       headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         searchTerm: searchTerm
@@ -67,15 +68,28 @@ export function searchProperties(searchObj){
     fetch(`${apiUrl}/search_properties`, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(searchObj)
+      body: JSON.stringify({
+        search: searchObj
+      })
     }).then(res=>res.json())
       .then(json=>{
-        let payload = json.data.map(house=>house.attributes)
+        let payload = json.results
         dispatch(searchPropertiesAction(payload))
+        if (json.search){
+          dispatch(addSearch(json.search))
+        }
       })
+  }
+}
+
+export function addSearch(search){
+  return {
+    type: "ADD_SEARCH",
+    payload: search
   }
 }
 
@@ -143,7 +157,11 @@ export function fetchCurrentGhost(){
       }
     })
       .then(response=>response.json())
-      .then(({ ghost }) => dispatch(setCurrentGhost(ghost)))
+      .then(({ ghost }) => {
+        if (ghost){
+          dispatch(setCurrentGhost(ghost))
+        }
+      })
   }
 }
 
@@ -168,6 +186,24 @@ export function registerGhost(username, password, close){
         localStorage.setItem('jwt', jwt)
         dispatch(setCurrentGhost(ghost))
       })
+  }
+}
+
+export function recentSearch(searchProps){
+  return (dispatch) => {
+    fetch(`${apiUrl}/recent_search`, {
+    method: 'post',
+    headers: {
+      'Content-Type':'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`
+    },
+    body: JSON.stringify(searchProps)
+  }).then(r=>r.json())
+    .then(json=>{
+      let payload = json.results
+      dispatch(searchPropertiesAction(payload))
+    })
   }
 }
 
