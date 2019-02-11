@@ -6,17 +6,32 @@ import HouseResult from '../components/HouseResult'
 
 class SearchResults extends React.Component{
 
+  componentWillUnmount(){
+    localStorage.removeItem('houseResults')
+    localStorage.removeItem('agentResults')
+  }
+
   renderAgentResults = () => {
-    return this.props.agentResults.map((result)=>{
-      // TODO: make the result so that it can have an id for react component's unique key
-      return <AgentResult {...result}/>
-    })
+    if (localStorage.getItem('agentResults')){
+      return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
+        return <AgentResult {...result}/>
+      })
+    }
+    // return this.props.agentResults.map((result)=>{
+    //   // TODO: make the result so that it can have an id for react component's unique key
+    //   return <AgentResult {...result}/>
+    // })
   }
 
   renderHouseResults = () => {
-    return this.props.houseResults.map((result)=>{
-      return <HouseResult {...result}/>
-    })
+    if (localStorage.getItem('houseResults')){
+      return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
+        return <HouseResult {...result}/>
+      })
+    }
+    // return this.props.houseResults.map((result)=>{
+    //   return <HouseResult {...result}/>
+    // })
   }
 
   render(){
