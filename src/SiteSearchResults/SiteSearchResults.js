@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import AgentResult from '../components/AgentResult'
-import HouseResult from '../components/HouseResult'
+import AgentResult from './AgentResult'
+import HouseResult from './HouseResult'
 
-class SearchResults extends React.Component{
+class SiteSearchResults extends React.Component{
 
   componentWillUnmount(){
     localStorage.removeItem('houseResults')
@@ -17,10 +17,6 @@ class SearchResults extends React.Component{
         return <AgentResult {...result}/>
       })
     }
-    // return this.props.agentResults.map((result)=>{
-    //   // TODO: make the result so that it can have an id for react component's unique key
-    //   return <AgentResult {...result}/>
-    // })
   }
 
   renderHouseResults = () => {
@@ -53,4 +49,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SearchResults)
+export default connect(mapStateToProps)(SiteSearchResults)

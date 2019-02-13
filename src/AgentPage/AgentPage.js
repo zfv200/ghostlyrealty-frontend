@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Header from '../components/Header'
-import AgentCard from '../components/AgentCard'
+import Header from './Header'
+import AgentCard from './AgentCard'
 
 class AgentsPage extends React.Component{
 

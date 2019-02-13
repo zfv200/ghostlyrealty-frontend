@@ -1,7 +1,7 @@
 import React from 'react'
-import CarouselTile from '../components/CarouselTile'
+import CarouselTile from './CarouselTile'
 import { connect } from 'react-redux'
-import { changeCarousel } from '../actions/actions'
+import { changeCarousel } from './CarouselActions'
 
 // TODO: have the carousel slide back and forth
 class Carousel extends React.Component{

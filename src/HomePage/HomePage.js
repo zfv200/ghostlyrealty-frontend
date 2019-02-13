@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchFeaturedHouses, fetchCurrentGhost } from '../actions/actions.js'
+import { fetchFeaturedHouses, fetchCurrentGhost } from './HomePageActions.js'
 
-import HouseSearch from '../containers/HouseSearch'
-import Carousel from '../containers/Carousel'
-import FeaturedAgent from '../components/FeaturedAgent'
+import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
+import Carousel from '../Carousel/Carousel'
+import FeaturedAgent from '../FeaturedAgent/FeaturedAgent'
 import '../App.css';
 import './HomePage.css'
 
@@ -18,9 +18,9 @@ class HomePage extends React.Component {
 
   render(){
     return (
-      <div className="flex-grid">
+      <div>
         <Carousel />
-        <HouseSearch />
+        <HouseSearchForm />
         <FeaturedAgent />
       </div>
     )

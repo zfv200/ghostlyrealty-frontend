@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from '../actions/actions'
+import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from './HouseSearchActions'
 import isEqual from 'lodash.isequal'
-import BlankSearch from './BlankSearch'
+import BlankSearch from '../NavBar/BlankSearch.js'
 // var isEqual = require('lodash.isequal');
 
 class HouseSearchForm extends React.Component{
@@ -43,7 +43,7 @@ class HouseSearchForm extends React.Component{
 
   render(){
     return (
-      <div className="housesearchchild">
+      <div className="homepagerow housesearch">
         <h3 id="houseSearchTitle">Houses for Haunt</h3>
         <form onSubmit={this.handleSubmit}>
           <input id="typedSearch" className="searchOption" onChange={this.handleChange} placeholder="House or building name"/><br></br>

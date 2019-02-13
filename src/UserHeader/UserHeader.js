@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import GhostlyRealtyLogo from '../components/GhostlyRealtyLogo'
-import RecentSearchesContainer from '../components/RecentSearchesContainer'
-import SignInLink from '../components/SignInLink'
-import RegisterLink from '../components/RegisterLink'
-import LogOutButton from '../components/LogOutButton'
+import GhostlyRealtyLogo from './GhostlyRealtyLogo'
+import RecentSearchesContainer from './RecentSearchesContainer'
+import SignInLink from './SignInLink'
+import RegisterLink from './RegisterLink'
+import LogOutButton from './LogOutButton'
 
 class UserHeader extends React.Component{
 

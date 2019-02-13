@@ -1,40 +1,5 @@
 let apiUrl = "http://localhost:3000/api/v1"
 
-export function fetchFeaturedHouses(){
-  return (dispatch) => {
-    fetch(`${apiUrl}/featured`)
-    .then(res=>res.json())
-    .then(json=>{
-      let payload = json.data.map(house=>house.attributes)
-      dispatch(addFeaturedHouses(payload))
-    })
-  }
-}
-
-export function changeCarousel(direction){
-  return (dispatch) => {
-    dispatch(changeCarouselTile(direction))
-  }
-}
-
-export function changeCarouselTile(direction){
-  if (direction==="foward"){
-    return {
-      type: "CHANGE_CAROUSEL_TILE_FORWARD",
-    }
-  } else {
-    return {
-      type: "CHANGE_CAROUSEL_TILE_BACK"
-    }
-  }
-}
-
-export function addFeaturedHouses(houses){
-  return {
-    type: "ADD_FEATURED_HOUSES",
-    payload: houses
-  }
-}
 
 export function searchSite(searchTerm){
   return (dispatch) => {
@@ -59,44 +24,6 @@ export function searchSite(searchTerm){
 export function searchSiteAction(results){
   return {
     type: "SEARCH_SITE",
-    payload: results
-  }
-}
-
-export function searchProperties(searchObj){
-  return (dispatch) => {
-    fetch(`${apiUrl}/search_properties`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        search: searchObj
-      })
-    }).then(res=>res.json())
-      .then(json=>{
-        debugger
-        let payload = json.results
-        dispatch(searchPropertiesAction(payload))
-        if (json.search){
-          dispatch(addSearch(json.search))
-        }
-      })
-  }
-}
-
-export function addSearch(search){
-  return {
-    type: "ADD_SEARCH",
-    payload: search
-  }
-}
-
-export function searchPropertiesAction(results){
-  return {
-    type: "SEARCH_PROPERTIES",
     payload: results
   }
 }
@@ -148,25 +75,6 @@ export function loginGhost(username, password, close){
   }
 }
 
-export function fetchCurrentGhost(){
-  return (dispatch) => {
-    dispatch(authenticatingGhost())
-    fetch(`${apiUrl}/profile`, {
-      method: 'get',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`
-      }
-    })
-      .then(response=>response.json())
-      .then(({ ghost }) => {
-        console.log(ghost);
-        if (ghost){
-          dispatch(setCurrentGhost(ghost))
-        }
-      })
-  }
-}
-
 export function registerGhost(username, password, close){
   return (dispatch) => {
     fetch(`${apiUrl}/register`, {
@@ -206,6 +114,13 @@ export function recentSearch(searchProps){
       let payload = json.results
       dispatch(searchPropertiesAction(payload))
     })
+  }
+}
+
+export function searchPropertiesAction(results){
+  return {
+    type: "SEARCH_PROPERTIES",
+    payload: results
   }
 }
 
