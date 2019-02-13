@@ -2,10 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchFeaturedHouses, fetchCurrentGhost } from '../actions/actions.js'
 
-import HouseSearch from './HouseSearch'
-import Carousel from './Carousel'
+import HouseSearch from '../containers/HouseSearch'
+import Carousel from '../containers/Carousel'
 import FeaturedAgent from '../components/FeaturedAgent'
 import '../App.css';
+import './HomePage.css'
 
 
 class HomePage extends React.Component {

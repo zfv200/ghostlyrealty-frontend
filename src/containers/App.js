@@ -5,13 +5,15 @@ import NavBar from '../components/NavBar'
 import UserHeader from './UserHeader'
 import Footer from '../components/Footer'
 
-import HomePage from './HomePage'
+import HomePage from '../HomePage/HomePage'
 import AgentsPage from './AgentPage'
 import SearchResults from './SearchResults'
 import HouseSearchResults from './HouseSearchResults'
 
 
 class App extends Component {
+
+
 
   render() {
     return (

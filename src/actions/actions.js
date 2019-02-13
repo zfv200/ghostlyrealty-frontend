@@ -77,6 +77,7 @@ export function searchProperties(searchObj){
       })
     }).then(res=>res.json())
       .then(json=>{
+        debugger
         let payload = json.results
         dispatch(searchPropertiesAction(payload))
         if (json.search){
