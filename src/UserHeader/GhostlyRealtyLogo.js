@@ -1,11 +1,14 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-const GhostlyRealtyLogo = () => {
+const GhostlyRealtyLogo = (props) => {
   return (
-    <div className="nav headerItem headerStart hLeft">
+    <div
+    onClick={()=>props.history.push("/")}
+    className="nav headerItem headerStart hLeft">
       <h3>Logo</h3>
     </div>
   )
 }
 
-export default GhostlyRealtyLogo
+export default withRouter(GhostlyRealtyLogo)

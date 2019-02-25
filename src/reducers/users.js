@@ -7,7 +7,6 @@ const defaultState = {
 export default function userReducer(state=defaultState, action){
   switch(action.type){
     case "SET_CURRENT_GHOST":
-      debugger
       return {...state, currentUser: action.payload, signInError: false, currentUserSearches: action.payload.searches}
     case "SIGN_IN_ERROR":
       return {...state, signInError: true}

@@ -6,7 +6,7 @@ const FeaturedAgent = (props) =>{
     <div className="homepagerow featuredAgent">
       <div className="featuredAgentChild">
         <h1>{props.agent.name}</h1>
-        <img src={props.agent.image}/>
+        <img alt={`${props.agent.name}'s headshot'`} src={props.agent.image}/>
         <h3>"{props.agent.motto}"</h3>
       </div>
     </div>

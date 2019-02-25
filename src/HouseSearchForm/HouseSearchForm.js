@@ -2,9 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from './HouseSearchActions'
-import isEqual from 'lodash.isequal'
 import BlankSearch from '../NavBar/BlankSearch.js'
-// var isEqual = require('lodash.isequal');
 
 class HouseSearchForm extends React.Component{
 

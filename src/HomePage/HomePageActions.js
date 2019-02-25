@@ -29,7 +29,6 @@ export function fetchCurrentGhost(){
     })
       .then(response=>response.json())
       .then(({ ghost }) => {
-        console.log(ghost);
         if (ghost){
           dispatch(setCurrentGhost(ghost))
         }
