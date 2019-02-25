@@ -18,6 +18,23 @@ export function addFeaturedHouses(houses){
   }
 }
 
+export function fetchFeaturedAgent(){
+  return (dispatch) => {
+    fetch(`${apiUrl}/featuredagent`)
+    .then(r=>r.json())
+    .then(json=>{
+      dispatch(addFeaturedAgent(json.data))
+    })
+  }
+}
+
+function addFeaturedAgent(data){
+  return {
+    type: "ADD_FEATURED_AGENT",
+    payload: data
+  }
+}
+
 export function fetchCurrentGhost(){
   return (dispatch) => {
     dispatch(authenticatingGhost())

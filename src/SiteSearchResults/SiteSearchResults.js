@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import AgentResult from './AgentResult'
 import HouseResult from './HouseResult'
+import AgentCard from '../AgentPage/AgentCard'
 
 class SiteSearchResults extends React.Component{
 
@@ -14,7 +14,7 @@ class SiteSearchResults extends React.Component{
   renderAgentResults = () => {
     if (localStorage.getItem('agentResults')){
       return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
-        return <AgentResult {...result}/>
+        return <AgentCard {...result}/>
       })
     }
   }

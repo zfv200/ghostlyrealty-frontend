@@ -4,10 +4,16 @@ import { connect } from 'react-redux'
 import Header from './Header'
 import AgentCard from './AgentCard'
 
+import { fetchAgents } from './AgentPageActions'
+
 class AgentsPage extends React.Component{
 
+  componentDidMount(){
+    this.props.fetchAgents()
+  }
+
   renderAgents = () => {
-    return this.props.agents.map(agent=><AgentCard {...agent}/>)
+    return this.props.agents.map(agent=><AgentCard {...agent.attributes}/>)
   }
 
   render(){
@@ -22,8 +28,8 @@ class AgentsPage extends React.Component{
 
 const mapStateToProps = (state)=>{
   return {
-    agents: state.agentReducer.agents
+    agents: state.agentReducer.agents,
   }
 }
 
-export default connect(mapStateToProps)(AgentsPage)
+export default connect(mapStateToProps, {fetchAgents})(AgentsPage)

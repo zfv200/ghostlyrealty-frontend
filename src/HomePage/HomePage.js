@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchFeaturedHouses, fetchCurrentGhost } from './HomePageActions.js'
+import { fetchFeaturedHouses, fetchCurrentGhost, fetchFeaturedAgent } from './HomePageActions.js'
 
 import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
 import Carousel from '../Carousel/Carousel'
-import FeaturedAgent from '../FeaturedAgent/FeaturedAgent'
+import AgentCard from '../AgentPage/AgentCard'
 import '../App.css';
 import './HomePage.css'
 
@@ -14,6 +14,7 @@ class HomePage extends React.Component {
   componentDidMount(){
     this.props.fetchFeaturedHouses()
     this.props.fetchCurrentGhost()
+    this.props.fetchFeaturedAgent()
   }
 
   render(){
@@ -21,18 +22,17 @@ class HomePage extends React.Component {
       <div>
         <Carousel />
         <HouseSearchForm />
-        <FeaturedAgent />
+        <AgentCard {...this.props.featuredAgent}/>
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    featuredAgent: state.agentReducer.featuredAgent
+  }
+}
 
 
-// function mapDispatchToProps(dispatch) {
-//   return({
-//     fetchFeaturedHouses: fetchFeaturedHouses,
-//   })
-// }
-
-export default connect(null, {fetchFeaturedHouses, fetchCurrentGhost})(HomePage)
+export default connect(mapStateToProps, {fetchFeaturedHouses, fetchCurrentGhost, fetchFeaturedAgent})(HomePage)
