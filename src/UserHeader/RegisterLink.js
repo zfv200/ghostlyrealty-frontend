@@ -30,7 +30,7 @@ class RegisterLink extends React.Component{
 
   render(){
     return (
-      <Popup trigger={<button className="button hRight"> Register </button>} modal>
+      <Popup trigger={<button className="button"> Register </button>} modal>
       {close => (
         <div className="modal">
           <button className="close" onClick={close}>

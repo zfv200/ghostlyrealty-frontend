@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import RecentSearch from './RecentSearch'
+import styles from './UserHeader.css.js'
 
 class RecentSearchesContainer extends React.Component{
   constructor(){
@@ -26,9 +27,9 @@ class RecentSearchesContainer extends React.Component{
 
   render(){
     return(
-      <div onMouseEnter={this.handleMouse} onMouseLeave={this.handleMouse} className="headerItem hLeft">
+      <div onMouseEnter={this.handleMouse} onMouseLeave={this.handleMouse} style={styles.hLeft}>
         <h3>Recent searches</h3>
-        <div className="recentSearchesContainer">
+        <div style={styles.recentSearchesContainer}>
           {this.state.expanded === true ? this.renderRecentSearches() : null}
         </div>
       </div>

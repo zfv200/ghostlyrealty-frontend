@@ -14,7 +14,7 @@ class SiteSearchResults extends React.Component{
   renderAgentResults = () => {
     if (localStorage.getItem('agentResults')){
       return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
-        return <AgentCard {...result}/>
+        return <AgentCard key={result.id} {...result}/>
       })
     }
   }
@@ -22,7 +22,7 @@ class SiteSearchResults extends React.Component{
   renderHouseResults = () => {
     if (localStorage.getItem('houseResults')){
       return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
-        return <HouseResult {...result}/>
+        return <HouseResult key={result.id} {...result}/>
       })
     }
     // return this.props.houseResults.map((result)=>{

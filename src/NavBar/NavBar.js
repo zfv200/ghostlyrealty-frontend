@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar'
+import styles from './NavBar.css.js'
 
 const NavBar = () => {
   return (
     <div>
-      <div className="searchBar">
-        <NavLink className="searchBarChild" to="/"><h2>Home</h2></NavLink>
-        <NavLink className="searchBarChild" to="/agents"><h2>Agents</h2></NavLink>
+      <div style={styles.searchBar}>
+        <NavLink style={styles.searchBarChild} to="/"><h2>Home</h2></NavLink>
+        <NavLink style={styles.searchBarChild} to="/agents"><h2>Agents</h2></NavLink>
         <SearchBar />
       </div>
     </div>

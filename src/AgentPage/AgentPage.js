@@ -13,7 +13,7 @@ class AgentsPage extends React.Component{
   }
 
   renderAgents = () => {
-    return this.props.agents.map(agent=><AgentCard {...agent.attributes}/>)
+    return this.props.agents.map(agent=><AgentCard key={agent.id} {...agent.attributes}/>)
   }
 
   render(){
