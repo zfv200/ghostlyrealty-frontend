@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import AgentResult from '../components/AgentResult'
-import HouseResult from '../components/HouseResult'
+import HouseResult from './HouseResult'
+import AgentCard from '../AgentPage/AgentCard'
 
-class SearchResults extends React.Component{
+class SiteSearchResults extends React.Component{
 
   componentWillUnmount(){
     localStorage.removeItem('houseResults')
@@ -14,19 +14,15 @@ class SearchResults extends React.Component{
   renderAgentResults = () => {
     if (localStorage.getItem('agentResults')){
       return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
-        return <AgentResult {...result}/>
+        return <AgentCard key={result.id} {...result}/>
       })
     }
-    // return this.props.agentResults.map((result)=>{
-    //   // TODO: make the result so that it can have an id for react component's unique key
-    //   return <AgentResult {...result}/>
-    // })
   }
 
   renderHouseResults = () => {
     if (localStorage.getItem('houseResults')){
       return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
-        return <HouseResult {...result}/>
+        return <HouseResult key={result.id} {...result}/>
       })
     }
     // return this.props.houseResults.map((result)=>{
@@ -53,4 +49,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SearchResults)
+export default connect(mapStateToProps)(SiteSearchResults)

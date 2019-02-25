@@ -4,6 +4,7 @@ import { searchSite } from '../actions/actions'
 import { withRouter } from 'react-router-dom';
 import { addBlankSearchError, clearBlankSearchError } from '../actions/actions'
 import BlankSearch from './BlankSearch'
+import styles from './NavBar.css.js'
 
 // TODO: is there a good way to abstract the blank search functionality to wrap all the search forms?
 
@@ -46,8 +47,8 @@ class SearchBar extends React.Component {
       <div>
         <div>
           {this.renderBlankSearchError()}
-          <form className="searchBarChild" onSubmit={this.handleSubmit}>
-            <input className="siteSearchBar" placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
+          <form onSubmit={this.handleSubmit}>
+            <input style={styles.siteSearchBar} placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
           </form>
         </div>
       </div>

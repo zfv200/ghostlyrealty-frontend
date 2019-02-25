@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import HousePropertyResult from '../components/HousePropertyResult'
-import HouseResult from '../components/HouseResult'
+import HouseResult from './HouseResult'
 
 class HouseSearchResults extends React.Component {
 
@@ -11,9 +10,6 @@ class HouseSearchResults extends React.Component {
         return <HouseResult {...result} />
       })
     }
-    // return this.props.houseResults.map(result=>{
-    //   return <HousePropertyResult {...result} />
-    // })
   }
 
   render(){

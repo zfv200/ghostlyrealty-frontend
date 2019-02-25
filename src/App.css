@@ -1,90 +1,41 @@
-#carousel {
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.carouselChild {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.carChild {
-  flex: 1;
-}
-
-.image {
-  width: 1500px;
-  height: 800px;
-  padding: 10px;
-}
-
-.carouselButton {
-  height: 100px;
-}
-
-.searchBar {
-  /* display: flex;
-  align-items: center;
-  flex-direction: row;
-  height: 60px; */
-  background-color: #F8F8FF;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.searchBarChild {
-  margin-left: 130px;
-}
-
-.siteSearchBar {
-  margin-right: 120px;
-  height: 40px;
-  width: 400px;
-}
-
-.nav {
+/* .nav {
   list-style: none;
   display: block;
-}
+} */
 
 /* there's css here for .nav a links inside
 header items */
 
-.bannerType {
+/* .bannerType {
   background-color: #202020;
   height: 60px;
   display: flex;
   justify-content: space-between;
-}
+} */
 
-.headerItem {
+/* .headerItem {
   width: 200px;
   height: 60px;
 }
 
 .headerItem h3 {
   color: white;
-}
+} */
 
-.hLeft {
+/* .hLeft {
   margin-right: 80px;
   margin-left: 130px;
-}
+} */
 
-.hRight {
+/* .hRight {
   margin-left: auto;
   margin-right: 60px;
-}
+} */
 
 
 /* homepage flex grid: */
 
-.flex-grid {
+/* .flex-grid {
   display: flex;
   flex-direction: column;
 }
@@ -98,53 +49,53 @@ header items */
   display: flex;
   flex-direction: column;
   align-items: left;
-}
+} */
 
-.housesearchchild {
+/* .housesearchchild {
   height: 450px;
   padding: 50px;
-}
+} */
 
-.searchOption {
+/* .searchOption {
   height: 20px;
   padding: 10px;
   font-size: 20px;
-}
+} */
 
-#houseSearchSubmit {
+/* #houseSearchSubmit {
   height: 40px;
   width: 80px;
-}
+} */
 
-#houseSearchTitle {
+/* #houseSearchTitle {
   font-size: 60px;
-}
+} */
 
-#typedSearch {
+/* #typedSearch {
   height: 40px;
   width: 800px;
-}
-
+} */
+/*
 .featuredAgent {
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
-.featuredAgentChild {
+/* .featuredAgentChild {
   flex: 1;
-}
+} */
 
-.agent-card {
+/* .agent-card {
   border-top: 1px solid #dfdfdf;
-}
+} */
 
-.footer {
+/* .footer {
   height: 100px;
   background-color: #F8F8FF;
-}
-
+} */
+/*
 .recentSearchesContainer{
   display: flex;
   flex-direction: column;
@@ -155,7 +106,5 @@ header items */
 
 .recentSearch {
   display: flex;
-  /* z-index: 1;
-  position: absolute; */
   background-color: black;
-}
+} */

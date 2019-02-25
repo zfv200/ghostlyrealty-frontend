@@ -30,12 +30,12 @@ class RegisterLink extends React.Component{
 
   render(){
     return (
-      <Popup trigger={<button className="button hRight"> Register </button>} modal>
+      <Popup trigger={<button className="button"> Register </button>} modal>
       {close => (
         <div className="modal">
-          <a className="close" onClick={close}>
+          <button className="close" onClick={close}>
           &times;
-          </a>
+          </button>
           <div className="header"> Register! </div>
           <div className="content">
           <form className="signUpForm" onSubmit={(e)=>{

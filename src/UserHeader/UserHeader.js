@@ -1,17 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import GhostlyRealtyLogo from '../components/GhostlyRealtyLogo'
-import RecentSearchesContainer from '../components/RecentSearchesContainer'
-import SignInLink from '../components/SignInLink'
-import RegisterLink from '../components/RegisterLink'
-import LogOutButton from '../components/LogOutButton'
+import GhostlyRealtyLogo from './GhostlyRealtyLogo'
+import RecentSearchesContainer from './RecentSearchesContainer'
+import SignInLink from './SignInLink'
+import RegisterLink from './RegisterLink'
+import LogOutButton from './LogOutButton'
+
+import styles from './UserHeader.css.js'
 
 class UserHeader extends React.Component{
 
   notLoggedInComps = () => {
     return (
-      <div className="hRight">
+      <div style={styles.hRight}>
         <SignInLink />
         <RegisterLink />
       </div>
@@ -20,7 +22,7 @@ class UserHeader extends React.Component{
 
   loggedInComps = () => {
     return (
-      <div className="hRight">
+      <div style={styles.hRight}>
         <LogOutButton />
       </div>
     )
@@ -28,7 +30,7 @@ class UserHeader extends React.Component{
 
   render(){
     return (
-      <div className="bannerType">
+      <div style={styles.bannerType}>
         <GhostlyRealtyLogo />
         {localStorage.getItem('jwt') ? <RecentSearchesContainer /> : null}
         {localStorage.getItem('jwt') ? this.loggedInComps() : this.notLoggedInComps()}

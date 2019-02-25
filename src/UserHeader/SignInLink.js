@@ -30,9 +30,9 @@ class SignInLink extends React.Component {
       <Popup trigger={<button className="button"> Sign In </button>} modal>
       {close => (
         <div className="modal">
-          <a className="close" onClick={close}>
+          <button className="close" onClick={close}>
           &times;
-          </a>
+          </button>
           {this.props.signInError ? <div>"Wrong info!!!"</div> : null}
           <div className="header"> Sign In! </div>
           <div className="content">

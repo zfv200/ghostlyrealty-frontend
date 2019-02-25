@@ -1,10 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from '../actions/actions'
-import isEqual from 'lodash.isequal'
-import BlankSearch from './BlankSearch'
-// var isEqual = require('lodash.isequal');
+import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from './HouseSearchActions'
+import styles from './HouseSearchForm.css.js'
 
 class HouseSearchForm extends React.Component{
 
@@ -43,12 +41,12 @@ class HouseSearchForm extends React.Component{
 
   render(){
     return (
-      <div className="housesearchchild">
+      <div>
         <h3 id="houseSearchTitle">Houses for Haunt</h3>
         <form onSubmit={this.handleSubmit}>
-          <input id="typedSearch" className="searchOption" onChange={this.handleChange} placeholder="House or building name"/><br></br>
-          <input id="solo_haunt" className="searchOption" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/><h3>Solo Haunt</h3>
-          <input id="burial_ground" className="searchOption" type="checkbox" value={this.state.burial_ground} onChange={this.handleChange}/><h3>Built on top of Burial Ground</h3>
+          <input id="typedSearch" style={styles.typedSearch} onChange={this.handleChange} placeholder="House or building name"/><br></br>
+          <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/><h3>Solo Haunt</h3>
+          <input id="burial_ground" type="checkbox" value={this.state.burial_ground} onChange={this.handleChange}/><h3>Built on top of Burial Ground</h3>
           <button id="houseSearchSubmit" type="submit">Search</button>
         </form>
       </div>

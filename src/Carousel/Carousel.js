@@ -1,7 +1,10 @@
 import React from 'react'
-import CarouselTile from '../components/CarouselTile'
+import CarouselTile from './CarouselTile'
 import { connect } from 'react-redux'
-import { changeCarousel } from '../actions/actions'
+import { changeCarousel } from './CarouselActions'
+import styles from './Carousel.css.js'
+
+
 
 // TODO: have the carousel slide back and forth
 class Carousel extends React.Component{
@@ -20,11 +23,12 @@ class Carousel extends React.Component{
   }
 
   render(){
+    let childAndButton = {...styles.carouselChild, ...styles.carouselButton}
     return (
-      <div id="carousel" className="homepagerow">
-        <button className="carouselChild carouselButton" value="back" onClick={this.carouselClick}>back</button>
+      <div style={styles.carousel}>
+        <button style={childAndButton} value="back" onClick={this.carouselClick}>back</button>
         {this.renderCarousel()}
-        <button className="carouselChild carouselButton" value="foward" onClick={this.carouselClick}>forward</button>
+        <button style={childAndButton} value="foward" onClick={this.carouselClick}>forward</button>
       </div>
     )
   }

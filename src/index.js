@@ -7,10 +7,10 @@ import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
-import userReducer from './reducers/users'
-import houseReducer from './reducers/houses'
-import agentReducer from './reducers/agents'
-import searchReducer from './reducers/searches'
+import userReducer from './Reducers/users'
+import houseReducer from './Reducers/houses'
+import agentReducer from './Reducers/agents'
+import searchReducer from './Reducers/searches'
 
 const rootReducer = combineReducers({userReducer, houseReducer, agentReducer, searchReducer})
 

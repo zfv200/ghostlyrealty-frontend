@@ -4,21 +4,16 @@
 // TODO: set it up so that agents are actual models with that kind of user relationship. agents is also hardcoded for display purposes
 
 const defaultState = {
-  featuredAgent: {
-    name: 'King Hamlet',
-    motto: "Lend thy serious hearing--for your next move!",
-    image: "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
-  },
-  agents: [{
-    name: 'King Hamlet',
-    motto: "Lend thy serious hearing--for your next move!",
-    image: "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
-    title: "Licensed Haunt Expert"
-  }]
+  featuredAgent: null,
+  agents: []
 }
 
 export default function agentReducer(state=defaultState, action){
   switch(action.type){
+    case "ADD_FEATURED_AGENT":
+      return {...state, featuredAgent: action.payload.attributes}
+    case "ADD_AGENTS":
+      return {...state, agents: action.payload}
     default:
       return state
   }
