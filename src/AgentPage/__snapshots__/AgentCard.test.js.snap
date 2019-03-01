@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div
+  className="agent-card"
+>
+  <div>
+    <h1>
+      King Hamlet
+    </h1>
+    <img
+      alt="King Hamlet's headshot'"
+      src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+    />
+  </div>
+  <h3>
+    Lend thy serious hearing--for your next move!
+  </h3>
+</div>
+`;

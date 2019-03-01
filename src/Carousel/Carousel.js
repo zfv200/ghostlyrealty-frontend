@@ -11,6 +11,7 @@ class Carousel extends React.Component{
 
   renderCarousel = () =>{
     let house = this.props.featuredHouses[this.props.featuredHouseIndex]
+    // const { name, image_url } = house.props
     return (
       <React.Fragment>
         <CarouselTile {...house}/>

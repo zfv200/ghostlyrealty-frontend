@@ -21,7 +21,7 @@ class RecentSearchesContainer extends React.Component{
 
   renderRecentSearches = () => {
     return this.props.recentSearches.map(search=>{
-      return <RecentSearch {...search}/>
+      return <RecentSearch key={search.id} {...search}/>
     })
   }
 

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <h1>
+    Winchester Mystery House
+  </h1>
+  <img
+    alt="front shot of Winchester Mystery House"
+    src="https://media.cntraveler.com/photos/580e6787e62940c66bd2be0d/master/w_820,c_limit/winchester-mystery-house-san-jose-GettyImages-110714519.jpg"
+  />
+</div>
+`;
