@@ -3,6 +3,7 @@ import { logOutGhost } from '../actions/actions'
 import { connect } from 'react-redux'
 
 const LogOutButton = (props) => {
+
   const logOut = () => {
     localStorage.clear()
     props.logOutGhost()
