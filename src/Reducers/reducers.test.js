@@ -1,6 +1,5 @@
 import houseReducer from './houses'
-import changeIndexForward from './houses'
-import changeIndexBackward from './houses'
+import {changeIndexForward, changeIndexBackward} from './houses'
 
 const featuredHouses = {
   type: "ADD_FEATURED_HOUSES",
@@ -9,6 +8,10 @@ const featuredHouses = {
       name: "Winchester Mystery House", address: null, featured: true
     }
   ]
+}
+
+const changeForward = {
+  type: "CHANGE_CAROUSEL_TILE_FORWARD"
 }
 
 describe('houseReducer', ()=>{
@@ -24,9 +27,11 @@ describe('houseReducer', ()=>{
     )
   })
 
-  // it('changes the carousel tile forward', ()=>{
-  //   expect(houseReducer(undefined, ))
-  // })
+  it('changes the carousel tile forward', ()=>{
+    expect(houseReducer(undefined, changeForward)).toEqual(
+      {"featuredHouseIndex": 1, "featuredHouses": []}
+    )
+  })
 })
 
 describe('changeIndexForward', ()=>{
@@ -35,5 +40,14 @@ describe('changeIndexForward', ()=>{
   })
   it('changes index forward when not at the end', ()=>{
     expect(changeIndexForward(0, 5)).toEqual(1)
+  })
+})
+
+describe('changeIndexBackward', ()=>{
+  it('changes index backward when at the beginning', ()=>{
+    expect(changeIndexBackward(0, 5)).toEqual(4)
+  })
+  it('changes index backward when not at the beginning', ()=>{
+    expect(changeIndexBackward(3, 5)).toEqual(2)
   })
 })
