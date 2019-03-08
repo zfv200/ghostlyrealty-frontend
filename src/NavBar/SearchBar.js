@@ -9,7 +9,7 @@ import styles from './NavBar.css.js'
 // TODO: is there a good way to abstract the blank search functionality to wrap all the search forms?
 
 
-class SearchBar extends React.Component {
+export class SearchBar extends React.Component {
   constructor(){
     super()
 
@@ -47,8 +47,8 @@ class SearchBar extends React.Component {
       <div>
         <div>
           {this.renderBlankSearchError()}
-          <form onSubmit={this.handleSubmit}>
-            <input style={styles.siteSearchBar} placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
+          <form id="nav-search-bar-form" onSubmit={this.handleSubmit}>
+            <input id="nav-search-bar" style={styles.siteSearchBar} placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={this.handleChange}/>
           </form>
         </div>
       </div>

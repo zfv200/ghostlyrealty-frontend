@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AgentCard
+    age={500}
+    image="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+    motto="Lend thy serious hearing--for your next move!"
+    username="King Hamlet"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div>
+          <h1>
+            King Hamlet
+          </h1>
+          <img
+            alt="King Hamlet's headshot'"
+            src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+          />
+        </div>,
+        <h3>
+          Lend thy serious hearing--for your next move!
+        </h3>,
+      ],
+      "className": "agent-card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              King Hamlet
+            </h1>,
+            <img
+              alt="King Hamlet's headshot'"
+              src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "King Hamlet",
+            },
+            "ref": null,
+            "rendered": "King Hamlet",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "alt": "King Hamlet's headshot'",
+              "src": "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "img",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Lend thy serious hearing--for your next move!",
+        },
+        "ref": null,
+        "rendered": "Lend thy serious hearing--for your next move!",
+        "type": "h3",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div>
+            <h1>
+              King Hamlet
+            </h1>
+            <img
+              alt="King Hamlet's headshot'"
+              src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+            />
+          </div>,
+          <h3>
+            Lend thy serious hearing--for your next move!
+          </h3>,
+        ],
+        "className": "agent-card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1>
+                King Hamlet
+              </h1>,
+              <img
+                alt="King Hamlet's headshot'"
+                src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "King Hamlet",
+              },
+              "ref": null,
+              "rendered": "King Hamlet",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "alt": "King Hamlet's headshot'",
+                "src": "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "img",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Lend thy serious hearing--for your next move!",
+          },
+          "ref": null,
+          "rendered": "Lend thy serious hearing--for your next move!",
+          "type": "h3",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
