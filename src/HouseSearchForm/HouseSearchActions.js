@@ -15,7 +15,6 @@ export function searchProperties(searchObj){
       })
     }).then(res=>res.json())
       .then(json=>{
-        debugger
         let payload = json.results
         dispatch(searchPropertiesAction(payload))
         if (json.search){
@@ -67,7 +66,11 @@ export function searchSite(searchTerm){
       })
     }).then(res=>res.json())
       .then(json=>{
-        dispatch(searchSiteAction(json))
+        if (json.agents){
+          dispatch(searchSiteAction(json))
+        } else {
+          dispatch(searchPropertiesAction(json.houses))
+        }
       })
   }
 }
