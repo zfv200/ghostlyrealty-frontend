@@ -22,10 +22,8 @@ export function changeIndexBackward(currentIndex, length){
 export default function houseReducer(state=defaultState, action){
   switch(action.type){
     case "ADD_FEATURED_HOUSES":
-      debugger
       return {...state, featuredHouses: action.payload}
     case "CHANGE_CAROUSEL_TILE_FORWARD":
-      debugger
       return {...state, featuredHouseIndex: changeIndexForward(state.featuredHouseIndex, state.featuredHouses.length)}
     case "CHANGE_CAROUSEL_TILE_BACK":
       return {...state, featuredHouseIndex: changeIndexBackward(state.featuredHouseIndex, state.featuredHouses.length)}

@@ -6,7 +6,7 @@ import UserHeader from '../UserHeader/UserHeader'
 import Footer from '../Footer/Footer'
 
 import HomePage from '../HomePage/HomePage'
-import AgentsPage from '../AgentPage/AgentPage'
+import AgentsPage from '../AgentPage/AgentPage.tsx'
 import SiteSearchResults from '../SiteSearchResults/SiteSearchResults'
 import HouseSearchResults from '../SiteSearchResults/HouseSearchResults'
 

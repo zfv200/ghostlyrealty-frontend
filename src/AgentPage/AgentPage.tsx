@@ -6,6 +6,10 @@ import AgentCard from './AgentCard'
 
 import { fetchAgents } from './AgentPageActions'
 
+interface AgentType {
+
+}
+
 class AgentsPage extends React.Component{
 
   componentDidMount(){
