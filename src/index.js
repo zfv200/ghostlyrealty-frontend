@@ -12,7 +12,7 @@ import houseReducer from './Reducers/houses'
 import agentReducer from './Reducers/agents'
 import searchReducer from './Reducers/searches'
 
-const rootReducer = combineReducers({userReducer, houseReducer, agentReducer, searchReducer})
+export const rootReducer = combineReducers({userReducer, houseReducer, agentReducer, searchReducer})
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 

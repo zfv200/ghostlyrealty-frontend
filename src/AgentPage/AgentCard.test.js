@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AgentCard from './AgentCard'
+import AgentCard from './AgentCard.tsx'
 
 import { shallow } from 'enzyme'
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar.tsx'
 import styles from './NavBar.css.js'
 
 const NavBar = () => {

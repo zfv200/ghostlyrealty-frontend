@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import HouseResult from './HouseResult.tsx'
-import AgentCard from '../AgentPage/AgentCard'
+import AgentCard from '../AgentPage/AgentCard.tsx'
 
 class SiteSearchResults extends React.Component{
 

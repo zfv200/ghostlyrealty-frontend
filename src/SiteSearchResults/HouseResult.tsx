@@ -2,7 +2,7 @@ import React from 'react'
 
 interface HouseResultStatelessProps {
   name: string,
-  image: string
+  image_url: string
 }
 
 const HouseResult: React.SFC<HouseResultStatelessProps> = (props) => {
