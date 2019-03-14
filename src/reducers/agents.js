@@ -3,7 +3,7 @@
 
 // TODO: set it up so that agents are actual models with that kind of user relationship. agents is also hardcoded for display purposes
 
-const defaultState = {
+export const defaultState = {
   featuredAgent: null,
   agents: []
 }

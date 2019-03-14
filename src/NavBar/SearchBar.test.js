@@ -13,6 +13,7 @@ describe('searchBar', ()=>{
   let searchBar = shallow(<SearchBar {...mockProps}/>)
   const fakeEvent = { preventDefault: () => console.log('preventDefault') };
 
+
   it('renders correctly without crashing', ()=>{
 
     expect(searchBar).toMatchSnapshot()
@@ -29,7 +30,7 @@ describe('searchBar', ()=>{
 
   it('calls the blank search error when submitted with empty input', ()=>{
     searchBar.find('[id="nav-search-bar-form"]').simulate('submit', fakeEvent);
-
+    mockProps.history.shift()
     expect(mockProps.addBlankSearchError).toBeCalled()
   })
 
