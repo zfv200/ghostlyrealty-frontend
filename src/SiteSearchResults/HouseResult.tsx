@@ -1,4 +1,6 @@
 import React from 'react'
+import styles from './HouseResult.css.js'
+
 
 interface HouseResultStatelessProps {
   name: string,
@@ -9,7 +11,7 @@ const HouseResult: React.SFC<HouseResultStatelessProps> = (props) => {
   return (
     <div>
       <h1>{props.name}</h1>
-      <img alt={`front shot of ${props.name}`} src={props.image_url}/>
+      <img style={styles.image} alt={`front shot of ${props.name}`} src={props.image_url}/>
     </div>
   )
 }
