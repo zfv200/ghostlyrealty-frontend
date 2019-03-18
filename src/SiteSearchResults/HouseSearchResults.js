@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import HouseResult from './HouseResult'
 
+
+
 class HouseSearchResults extends React.Component {
 
   renderHouseResults = () =>{

@@ -1,6 +1,11 @@
 import React from 'react'
 
-const HouseResult = (props) => {
+interface HouseResultStatelessProps {
+  name: string,
+  image_url: string
+}
+
+const HouseResult: React.SFC<HouseResultStatelessProps> = (props) => {
   return (
     <div>
       <h1>{props.name}</h1>
