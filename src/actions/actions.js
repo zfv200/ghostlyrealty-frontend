@@ -75,7 +75,7 @@ export function loginGhost(username, password, close){
   }
 }
 
-export function registerGhost(username, password, close){
+export function registerGhost(username, password, medium, close){
   return (dispatch) => {
     fetch(`${apiUrl}/register`, {
       method: 'post',
@@ -83,7 +83,7 @@ export function registerGhost(username, password, close){
         'Content-Type':'application/json',
         Accept: 'application/json'
       },
-      body: JSON.stringify({ghost: {username: username, password: password}})
+      body: JSON.stringify({ghost: {username: username, password: password}, medium: medium})
     }).then(response=>{
       if (response.ok){
         close()

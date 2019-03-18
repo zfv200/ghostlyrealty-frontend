@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { searchProperties, searchSite, addBlankSearchError, clearBlankSearchError } from './HouseSearchActions'
+import { searchProperties, searchSite } from './HouseSearchActions'
 import styles from './HouseSearchForm.css.js'
 
 class HouseSearchForm extends React.Component{
@@ -55,4 +55,4 @@ class HouseSearchForm extends React.Component{
 }
 
 
-export default connect(null, {searchProperties, searchSite, addBlankSearchError, clearBlankSearchError})(withRouter(HouseSearchForm))
+export default connect(null, {searchProperties, searchSite})(withRouter(HouseSearchForm))
