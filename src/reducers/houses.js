@@ -1,6 +1,6 @@
 export const defaultState = {
   featuredHouses: [],
-  featuredHouseIndex: 0
+  featuredHouseIndex: 0,
 }
 
 export function changeIndexForward(currentIndex, length){
