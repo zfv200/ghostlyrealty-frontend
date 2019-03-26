@@ -3,7 +3,7 @@ export default {
     backgroundColor: '#202020',
     height: '60px',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 
   hLeft: {
