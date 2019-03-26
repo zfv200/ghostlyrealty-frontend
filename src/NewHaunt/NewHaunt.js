@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { createHaunt } from './NewHauntActions'
+import agentWithAuth from '../HOCs/agentWithAuth'
 
 
 class NewHaunt extends React.Component{
@@ -57,4 +58,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {createHaunt})(NewHaunt)
+export default connect(mapStateToProps, {createHaunt})(agentWithAuth(NewHaunt))

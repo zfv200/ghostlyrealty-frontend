@@ -32,8 +32,12 @@ class UserHeader extends React.Component{
     return (
       <div style={styles.bannerType}>
         <GhostlyRealtyLogo />
-        {localStorage.getItem('jwt') ? <RecentSearchesContainer /> : null}
-        {localStorage.getItem('jwt') ? this.loggedInComps() : this.notLoggedInComps()}
+        <RecentSearchesContainer />
+        <div style={styles.hRight}>
+          <SignInLink />
+          <RegisterLink />
+        </div>
+        <LogOutButton />
       </div>
     )
   }

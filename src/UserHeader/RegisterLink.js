@@ -1,5 +1,6 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
+import withAuth from '../HOCs/withAuth'
 import { connect } from 'react-redux'
 import { registerGhost } from '../actions/actions'
 import '../SignInLink.css'
@@ -64,4 +65,4 @@ class RegisterLink extends React.Component{
   )}
 }
 
-export default connect(null, {registerGhost})(RegisterLink)
+export default connect(null, {registerGhost})(withAuth(RegisterLink, false))

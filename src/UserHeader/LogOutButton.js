@@ -1,6 +1,7 @@
 import React from 'react'
 import { logOutGhost } from '../actions/actions'
 import { connect } from 'react-redux'
+import withAuth from '../HOCs/withAuth'
 
 const LogOutButton = (props) => {
 
@@ -16,4 +17,4 @@ const LogOutButton = (props) => {
   )
 }
 
-export default connect(null, {logOutGhost})(LogOutButton)
+export default connect(null, {logOutGhost})(withAuth(LogOutButton, true))

@@ -5,6 +5,7 @@ import { fetchFeaturedHouses, fetchCurrentGhost, fetchFeaturedAgent } from './Ho
 import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
 import Carousel from '../Carousel/Carousel'
 import AgentCard from '../AgentPage/AgentCard'
+import withLoader from '../HOCs/withLoader'
 import '../App.css';
 import './HomePage.css'
 
