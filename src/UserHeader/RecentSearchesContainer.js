@@ -44,4 +44,5 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(withAuth(RecentSearchesContainer))
+export default connect(mapStateToProps)(withAuth(RecentSearchesContainer, true)) //if it should
+//render if the user is in or not, is the second arg for withAuth

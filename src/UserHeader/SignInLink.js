@@ -3,6 +3,7 @@ import Popup from 'reactjs-popup'
 import { loginGhost } from '../actions/actions'
 import { connect } from 'react-redux'
 import '../SignInLink.css'
+import withAuth from '../HOCs/withAuth'
 
 // TODO: combine with register link
 
@@ -60,4 +61,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {loginGhost})(SignInLink)
+export default connect(mapStateToProps, {loginGhost})(withAuth(SignInLink, false))

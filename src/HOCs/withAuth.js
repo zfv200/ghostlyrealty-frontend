@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-function withAuth(WrappedComponent){
+function withAuth(WrappedComponent, boolean){
 
   const baseAuth = (props) => {
     return (
-      props.currentUser &&
+      //abstracted to render or not based on if user is logged in or not
+      !!props.currentUser === boolean &&
       <WrappedComponent {...props}/>
     )
   }
