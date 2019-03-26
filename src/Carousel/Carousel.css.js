@@ -7,8 +7,8 @@ export default {
   },
 
   image: {
-    width: '1500px',
-    height: '800px',
+    width: '1000px',
+    height: '600px',
     padding: '10px',
   },
 

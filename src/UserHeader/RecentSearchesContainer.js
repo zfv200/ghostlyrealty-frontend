@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import RecentSearch from './RecentSearch'
 import styles from './UserHeader.css.js'
+import withAuth from '../HOCs/withAuth'
 
 class RecentSearchesContainer extends React.Component{
   constructor(){
@@ -43,4 +44,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(RecentSearchesContainer)
+export default connect(mapStateToProps)(withAuth(RecentSearchesContainer))
