@@ -11,23 +11,6 @@ import styles from './UserHeader.css.js'
 
 class UserHeader extends React.Component{
 
-  notLoggedInComps = () => {
-    return (
-      <div style={styles.hRight}>
-        <SignInLink />
-        <RegisterLink />
-      </div>
-    )
-  }
-
-  loggedInComps = () => {
-    return (
-      <div style={styles.hRight}>
-        <LogOutButton />
-      </div>
-    )
-  }
-
   render(){
     return (
       <div style={styles.bannerType}>
