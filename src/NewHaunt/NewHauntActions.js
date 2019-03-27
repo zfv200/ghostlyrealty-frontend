@@ -1,21 +1,9 @@
-let apiUrl = "http://localhost:3000/api/v1"
+import Adapter from '../adapter.js'
 
 export function createHaunt(houseInfo){
   return (dispatch) => {
-    fetch(`${apiUrl}/houses`, {
-      method: "POST",
-      headers: {
-        "Content-Type":'application/json',
-        "Accept":'application/json',
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`
-      },
-      body: JSON.stringify({
-        house: houseInfo
-      })
-    }).then(r=>r.json())
+    Adapter.createHaunt(houseInfo)
     .then(json=>{
-
-      console.log(json);
       if(json.error){
         dispatch(sendHauntError())
       }
