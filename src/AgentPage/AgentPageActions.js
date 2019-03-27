@@ -1,14 +1,9 @@
-let apiUrl = "http://localhost:3000/api/v1"
+import Adapter from '../adapter.js'
 
 export function fetchAgents(){
   return (dispatch) => {
-    fetch(`${apiUrl}/ghosts`, {
-      headers: {
-        type: "agents"
-      }
-    }).then(r=>r.json())
+    Adapter.fetchAgents()
     .then(json=>{
-      console.log(json.data);
       dispatch(addAgents(json.data))
     })
   }

@@ -1,26 +1,15 @@
-let apiUrl = "http://localhost:3000/api/v1"
-
+import Adapter from '../adapter.js'
 
 export function searchProperties(searchObj){
   return (dispatch) => {
-    fetch(`${apiUrl}/search_properties`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        search: searchObj
-      })
-    }).then(res=>res.json())
-      .then(json=>{
-        let payload = json.results
-        dispatch(searchPropertiesAction(payload))
-        if (json.search){
-          dispatch(addSearch(json.search))
-        }
-      })
+    Adapter.searchProperties(searchObj)
+    .then(json=>{
+      let payload = json.results
+      dispatch(searchPropertiesAction(payload))
+      if (json.search){
+        dispatch(addSearch(json.search))
+      }
+    })
   }
 }
 
@@ -54,24 +43,14 @@ export function clearBlankSearchError(){
 
 export function searchSite(searchTerm){
   return (dispatch) => {
-    fetch(`${apiUrl}/search`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        searchTerm: searchTerm
-      })
-    }).then(res=>res.json())
-      .then(json=>{
-        if (json.agents){
-          dispatch(searchSiteAction(json))
-        } else {
-          dispatch(searchPropertiesAction(json.houses))
-        }
-      })
+    Adapter.searchSite(searchTerm)
+    .then(json=>{
+      if (json.agents){
+        dispatch(searchSiteAction(json))
+      } else {
+        dispatch(searchPropertiesAction(json.houses))
+      }
+    })
   }
 }
 

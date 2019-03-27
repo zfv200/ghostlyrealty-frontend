@@ -1,4 +1,3 @@
-
 export function changeCarousel(direction){
   return (dispatch) => {
     dispatch(changeCarouselTile(direction))

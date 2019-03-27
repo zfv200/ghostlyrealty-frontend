@@ -1,9 +1,8 @@
-let apiUrl = "http://localhost:3000/api/v1"
+import Adapter from '../adapter.js'
 
 export function fetchFeaturedHouses(){
   return (dispatch) => {
-    fetch(`${apiUrl}/featured`)
-    .then(res=>res.json())
+    Adapter.fetchFeaturedHouses()
     .then(json=>{
       let payload = json.data.map(house=>house.attributes)
       dispatch(addFeaturedHouses(payload))
@@ -20,8 +19,7 @@ export function addFeaturedHouses(houses){
 
 export function fetchFeaturedAgent(){
   return (dispatch) => {
-    fetch(`${apiUrl}/featuredagent`)
-    .then(r=>r.json())
+    Adapter.fetchFeaturedAgent()
     .then(json=>{
       dispatch(addFeaturedAgent(json.data))
     })
@@ -38,18 +36,12 @@ function addFeaturedAgent(data){
 export function fetchCurrentGhost(){
   return (dispatch) => {
     dispatch(authenticatingGhost())
-    fetch(`${apiUrl}/profile`, {
-      method: 'get',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`
+    Adapter.fetchCurrentGhost()
+    .then(({ ghost }) => {
+      if (ghost){
+        dispatch(setCurrentGhost(ghost))
       }
     })
-      .then(response=>response.json())
-      .then(({ ghost }) => {
-        if (ghost){
-          dispatch(setCurrentGhost(ghost))
-        }
-      })
   }
 }
 
