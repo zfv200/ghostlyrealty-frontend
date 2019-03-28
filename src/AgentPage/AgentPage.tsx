@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import Header from './Header'
 import AgentCard from './AgentCard'
 
+import withCurrentGhost from '../HOCs/withCurrentGhost'
+
 import { fetchAgents } from './AgentPageActions'
 
 interface AgentAttributes {
@@ -53,4 +55,4 @@ const mapStateToProps = (state: any)=>{
   }
 }
 
-export default connect<StateProps, DispatchProps>(mapStateToProps, {fetchAgents})(AgentsPage as any)
+export default connect<StateProps, DispatchProps>(mapStateToProps, {fetchAgents})(withCurrentGhost(AgentsPage) as any)

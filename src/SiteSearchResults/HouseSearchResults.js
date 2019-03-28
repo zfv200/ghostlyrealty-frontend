@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import HouseResult from './HouseResult'
-
+import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 
 class HouseSearchResults extends React.Component {
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(HouseSearchResults)
+export default connect(mapStateToProps)(withCurrentGhost(HouseSearchResults))
