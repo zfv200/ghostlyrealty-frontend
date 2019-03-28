@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import HouseResult from './HouseResult.tsx'
 import AgentCard from '../AgentPage/AgentCard.tsx'
+import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 class SiteSearchResults extends React.Component{
 
@@ -49,4 +50,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(SiteSearchResults)
+export default connect(mapStateToProps)(withCurrentGhost(SiteSearchResults))
