@@ -41,9 +41,9 @@ class HouseSearchForm extends React.Component{
 
   render(){
     return (
-      <div className="pa4">
+      <div className="pa4 db">
         <h3 id="houseSearchTitle">Houses for Haunt</h3>
-        <div className="pv2 db"><h2 className="dib">Sales</h2></div>
+        <div className="pv2"><h2 className="dib">Sales</h2></div>
         <form style={styles.form} className="w-100 ma0 flex items-start"onSubmit={this.handleSubmit}>
           <input id="typedSearch" className="f4 w-100 mr4" style={styles.typedSearch} onChange={this.handleChange} placeholder="House or building name"/><br></br>
           <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/><h3>Solo Haunt</h3>
