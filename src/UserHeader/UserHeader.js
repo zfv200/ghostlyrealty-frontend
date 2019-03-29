@@ -13,7 +13,7 @@ class UserHeader extends React.Component{
 
   render(){
     return (
-      <div style={styles.bannerType}>
+      <div className="relative z-2" style={styles.bannerType}>
         <GhostlyRealtyLogo />
         <RecentSearchesContainer />
         <div style={styles.hRight}>

@@ -17,15 +17,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="container">
-          <UserHeader />
-          <NavBar />
+        <div>
+          <div className="left-0 right-0 top-0 fixed z-999">
+            <UserHeader />
+            <NavBar />
+          </div>
+          <div className="pa5 ma5">
             <Route exact path="/" component={HomePage}/>
             <Route path="/agents" component={AgentsPage}/>
             <Route path="/results" component={SiteSearchResults}/>
             <Route path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
-          <Footer />
+            <Footer />
+          </div>
         </div>
       </Router>
     );

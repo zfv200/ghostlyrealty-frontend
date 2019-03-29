@@ -8,7 +8,7 @@ export default {
     bottom: "25px",
   },
   img: {
-    height: "500px",
+    height: "550px",
   },
   button: {
     top: "350px",

@@ -59,12 +59,10 @@ export class SearchBar extends React.Component<Props, State> {
   render(){
     return (
       <div>
-        <div>
-          {this.renderBlankSearchError()}
-          <form id="nav-search-bar-form" onSubmit={(e)=>this.handleSubmit(e)}>
-            <input id="nav-search-bar" style={styles.siteSearchBar} placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={(e)=>this.handleChange(e)}/>
-          </form>
-        </div>
+        {this.renderBlankSearchError()}
+        <form id="nav-search-bar-form" onSubmit={(e)=>this.handleSubmit(e)}>
+          <input id="nav-search-bar" style={styles.siteSearchBar} placeholder="house or agent name" value={this.state.searchTerm} type="text" onChange={(e)=>this.handleChange(e)}/>
+        </form>
       </div>
     )
   }
