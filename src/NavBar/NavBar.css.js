@@ -1,20 +1,19 @@
 export default {
   searchBar: {
-    backgroundColor: '#F8F8FF',
-    height: '60px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    // position: "fixed",
-
+    paddingTop: "20px",
+    paddingLeft: "50px",
   },
-
+  //
   searchBarChild: {
-    marginLeft: '130px'
+    padding: "0 18px",
+    height: "50px",
+    marginTop: "20px",
+    marginLeft: "47px"
   },
-
+  //
   siteSearchBar: {
-    marginRight: '120px',
-    height: '40px',
-    width: '400px'
+  //   marginRight: '120px',
+  //   height: '40px',
+  //   width: '400px'
   },
 }

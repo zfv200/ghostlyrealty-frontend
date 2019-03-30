@@ -4,10 +4,12 @@ import styles from './Carousel.css.js'
 const CarouselTile = (props) =>{
   if(props){
     return (
-      <div style={styles.carouselChild}>
-        <img style={styles.image} src={props['image-url']} alt={props.name}/>
-        <h1 >{props.name}</h1>
-      </div>
+      <li className="di fl pa0 w-100" style={styles.carouselChild}>
+        <img className="w-100" style={styles.img} src={props['image-url']} alt={props.name}/>
+        <div className="caption relative bottom-2 bg-black white h2">
+          <p className="relative pa1 ml5">{props.name}</p>
+        </div>
+      </li>
     )
   }
 }

@@ -41,13 +41,14 @@ class HouseSearchForm extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className="pa4 db">
         <h3 id="houseSearchTitle">Houses for Haunt</h3>
-        <form onSubmit={this.handleSubmit}>
-          <input id="typedSearch" style={styles.typedSearch} onChange={this.handleChange} placeholder="House or building name"/><br></br>
+        <div className="pv2"><h2 className="dib">Sales</h2></div>
+        <form style={styles.form} className="w-100 ma0 flex items-start"onSubmit={this.handleSubmit}>
+          <input id="typedSearch" className="f4 w-100 mr4" style={styles.typedSearch} onChange={this.handleChange} placeholder="House or building name"/><br></br>
           <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/><h3>Solo Haunt</h3>
           <input id="burial_ground" type="checkbox" value={this.state.burial_ground} onChange={this.handleChange}/><h3>Built on top of Burial Ground</h3>
-          <button id="houseSearchSubmit" type="submit">Search</button>
+          <button style={styles.searchButton} className="f6 link dim ph3 pv2 mb2 dib white bg-black pointer" id="houseSearchSubmit" type="submit">Search</button>
         </form>
       </div>
     )

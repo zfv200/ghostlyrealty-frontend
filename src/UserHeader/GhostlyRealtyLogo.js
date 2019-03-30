@@ -5,6 +5,7 @@ import styles from './UserHeader.css.js'
 const GhostlyRealtyLogo = (props) => {
   return (
     <div
+    className="pointer"
     onClick={()=>props.history.push("/")}
     style={styles.hLeft}>
       <h3>Logo</h3>

@@ -6,7 +6,7 @@ import agentWithAuth from '../HOCs/agentWithAuth'
 
 const NewHauntLink = () => {
   return (
-    <NavLink style={styles.searchBarChild} to="/newhaunt"><h2>Add Haunt</h2></NavLink>
+    <NavLink style={styles.searchBarChild} to="/newhaunt">Add Haunt</NavLink>
   )
 }
 

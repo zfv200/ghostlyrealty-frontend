@@ -1,6 +1,6 @@
 export default {
   footer: {
-    height: '100px',
+    height: '300px',
     backgroundColor: '#F8F8FF'
   }
 }

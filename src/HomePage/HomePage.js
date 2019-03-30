@@ -19,7 +19,7 @@ class HomePage extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="flex flex-column">
         <Carousel />
         <HouseSearchForm />
         <AgentCard {...this.props.featuredAgent}/>

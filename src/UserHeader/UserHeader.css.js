@@ -6,6 +6,11 @@ export default {
     justifyContent: 'space-between',
   },
 
+  logOutButton: {
+    marginRight: "130px",
+    marginTop: "15px",
+  },
+
   hLeft: {
     marginRight: '80px',
     marginLeft: '130px',

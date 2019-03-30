@@ -28,7 +28,7 @@ class RecentSearchesContainer extends React.Component{
 
   render(){
     return(
-      <div onMouseEnter={this.handleMouse} onMouseLeave={this.handleMouse} style={styles.hLeft}>
+      <div className="pointer" onMouseEnter={this.handleMouse} onMouseLeave={this.handleMouse} style={styles.hLeft}>
         <h3>Recent searches</h3>
         <div style={styles.recentSearchesContainer}>
           {this.state.expanded === true ? this.renderRecentSearches() : null}

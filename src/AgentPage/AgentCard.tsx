@@ -9,12 +9,12 @@ interface AgentStatelessProps {
 
 const AgentCard: React.SFC<AgentStatelessProps> = ({ username, image, motto }) => {
   return (
-    <div className="agent-card">
-      <div>
-      <h1>{username}</h1>
-      <img alt={`${username}'s headshot'`} src={image}/>
+    <div className="agent-card ph5 flex bb mb3 pb3" style={{width: "100%"}}>
+      <img className="fl p2" alt={`${username}'s headshot'`} src={image}/>
+      <div className="fr w-100 ml5">
+        <h1 className="f3 mb5" >{username}</h1>
+        <h3 className="i">{motto}</h3>
       </div>
-      <h3>{motto}</h3>
     </div>
   )
 }
