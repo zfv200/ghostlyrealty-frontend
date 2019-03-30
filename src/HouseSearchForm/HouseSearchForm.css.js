@@ -5,5 +5,9 @@ export default {
   // }
   form: {
     maxHeight: "87px",
+  },
+
+  searchButton: {
+    width: "100px"
   }
 }

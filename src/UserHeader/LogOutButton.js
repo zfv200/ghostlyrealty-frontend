@@ -2,6 +2,7 @@ import React from 'react'
 import { logOutGhost } from '../actions/actions'
 import { connect } from 'react-redux'
 import withAuth from '../HOCs/withAuth'
+import styles from './UserHeader.css.js'
 
 const LogOutButton = (props) => {
 
@@ -9,10 +10,9 @@ const LogOutButton = (props) => {
     localStorage.clear()
     props.logOutGhost()
   }
-
   return (
-    <div>
-      <button id="logOutButton" onClick={logOut}><h3>Log Out</h3></button>
+    <div style={styles.logOutButton}>
+      <button className="pointer" id="logOutButton" onClick={logOut}>Log Out</button>
     </div>
   )
 }

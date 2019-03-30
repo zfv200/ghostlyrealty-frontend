@@ -9,13 +9,13 @@ const NavBar = (props) => {
 
   return (
     <div>
-      <div className="h3 bb bg-white ma0" style={styles.searchBar}>
-        <div className="dib pl5">
-          <NavLink style={{padding: "0 18px", height: "50px"}} to="/">Home</NavLink>
+      <div className="h3 bb bg-white ma0">
+        <div className="fl dib w-75 pl5 flex flex-row">
+          <NavLink style={styles.searchBarChild} to="/">Home</NavLink>
           <NavLink style={styles.searchBarChild} to="/agents">Agents</NavLink>
           <NewHauntLink />
         </div>
-        <div className="dib fr pr5">
+        <div className="fr dib w-25" style={styles.searchBar}>
           <SearchBar />
         </div>
       </div>

@@ -34,8 +34,18 @@ class Carousel extends React.Component{
             {this.renderCarousel()}
           </ul>
         </div>
-        <button className="bg-black db absolute transparent h2 left-0 white pointer" style={styles.button} value="back" onClick={this.carouselClick}>{back}</button>
-        <button className="bg-black db absolute transparent h2 right-0 white pointer" style={styles.button} value="foward" onClick={this.carouselClick}>{forward}</button>
+        <button
+          className="bg-black db absolute transparent h2 left-50 white pointer"
+          style={styles.button}
+          value="back"
+          onClick={this.carouselClick}>{back}
+        </button>
+        <button
+          className="bg-black db absolute transparent h2 right-0 white pointer"
+          style={{...styles.button, right: "127.5px"}}
+          value="foward"
+          onClick={this.carouselClick}>{forward}
+        </button>
       </div>
     )
   }

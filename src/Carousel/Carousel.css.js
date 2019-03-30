@@ -12,7 +12,7 @@ export default {
   },
   button: {
     top: "350px",
-    width: "80px"
+    width: "80px",
   }
 
   // carousel: {
