@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from './Header'
 import AgentCard from './AgentCard'
+import AgentFilter from './AgentFilter'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
@@ -43,8 +44,11 @@ class AgentsPage extends React.Component<StateProps & DispatchProps, any>{
     return (
       <div>
         <Header title="Find Your Haunt Expert"/>
-        <div className="ma5 relative fr" style={{width: "940px"}}>
-          {this.renderAgents()}
+        <div className="ma5 relative flex flex-row" style={{width: "940px"}}>
+          <AgentFilter />
+          <div className="fl w-50 pa2">
+            {this.renderAgents()}
+          </div>
         </div>
       </div>
     )
