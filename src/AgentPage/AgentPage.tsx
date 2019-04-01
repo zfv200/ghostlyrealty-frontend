@@ -44,9 +44,9 @@ class AgentsPage extends React.Component<StateProps & DispatchProps, any>{
     return (
       <div>
         <Header title="Find Your Haunt Expert"/>
-        <div className="ma5 relative flex flex-row" style={{width: "940px"}}>
+        <div className="ma5 relative" style={{width: "940px"}}>
           <AgentFilter />
-          <div className="fl w-50 pa2">
+          <div className="fr pa2 w-50">
             {this.renderAgents()}
           </div>
         </div>
