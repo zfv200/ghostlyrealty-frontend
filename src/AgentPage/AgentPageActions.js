@@ -9,6 +9,19 @@ export function fetchAgents(){
   }
 }
 
+export function filterAgents(searchTerm){
+  return (dispatch) => {
+    dispatch(filterAgentsAction(searchTerm))
+  }
+}
+
+function filterAgentsAction(searchTerm){
+  return {
+    type: "FILTER_AGENTS",
+    payload: searchTerm
+  }
+}
+
 function addAgents(agents){
   return {
     type: "ADD_AGENTS",

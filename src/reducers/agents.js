@@ -5,7 +5,12 @@
 
 export const defaultState = {
   featuredAgent: null,
-  agents: []
+  agents: [],
+  allAgents: []
+}
+
+const filterAgents = (searchTerm, state) => {
+  return state.allAgents.filter(agent=>agent.attributes.username.toLowerCase().includes(searchTerm.toLowerCase()))
 }
 
 export default function agentReducer(state=defaultState, action){
@@ -13,7 +18,9 @@ export default function agentReducer(state=defaultState, action){
     case "ADD_FEATURED_AGENT":
       return {...state, featuredAgent: action.payload.attributes}
     case "ADD_AGENTS":
-      return {...state, agents: action.payload}
+      return {...state, agents: action.payload, allAgents: action.payload}
+    case "FILTER_AGENTS":
+      return {...state, agents: filterAgents(action.payload, state)}
     default:
       return state
   }
