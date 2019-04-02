@@ -31,14 +31,13 @@ export function clearBlankSearchError(){
   }
 }
 
-export function loginGhost(username, password, close){
+export function loginGhost(username, password){
   return (dispatch) => {
     // TODO: make this actually do something while it's happening
     dispatch(authenticatingGhost())
     Adapter.logInGhost(username, password)
     .then(response=>{
       if (response.ok){
-        close()
         return response.json()
       } else {
         dispatch(signInError())
@@ -55,12 +54,11 @@ export function loginGhost(username, password, close){
   }
 }
 
-export function registerGhost(username, password, medium, close){
+export function registerGhost(username, password, medium){
   return (dispatch) => {
     Adapter.registerGhost(username, password, medium)
     .then(response=>{
       if (response.ok){
-        close()
         return response.json()
       } else {
         throw response

@@ -1,7 +1,9 @@
 const defaultState = {
   currentUser: null,
   signInError: false,
-  currentUserSearches: []
+  currentUserSearches: [],
+  signInForm: false,
+  registerForm: false
 }
 
 export default function userReducer(state=defaultState, action){
@@ -14,6 +16,10 @@ export default function userReducer(state=defaultState, action){
       return {...state, currentUser: null}
     case "ADD_SEARCH":
       return {...state, currentUserSearches: [...state.currentUserSearches, action.payload]}
+    case "CLICK_SIGN_IN":
+      return {...state, signInForm: action.payload}
+    case "CLICK_REGISTER":
+      return {...state, registerForm: action.payload}
     default:
       return state
   }

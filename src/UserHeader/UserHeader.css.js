@@ -19,7 +19,9 @@ export default {
 
   hRight: {
     marginLeft: 'auto',
-    marginRight: '60px'
+    marginRight: '130px',
+    display: "flex",
+    marginTop: "17px"
   },
 
   recentSearchesContainer:{
@@ -33,5 +35,34 @@ export default {
   recentSearch: {
     display: 'flex',
     backgroundColor: 'black'
+  },
+
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    margin: "auto",
+    alignItems: "center"
+  },
+
+  SignInForm: {
+    position: "fixed",
+    top: "0px",
+    bottom: "0px",
+    left: "0px",
+    right: "0px",
+    background: "rgba(0, 0, 0, 0.5)",
+    display: "flex",
+    zIndex: 999
+  },
+
+  content: {
+    position: "relative",
+    background: "rgb(255, 255, 255)",
+    margin: "auto",
+    border: "1px solid rgb(187, 187, 187)",
+    padding: "5px",
+    display: "flex",
+    width: "20%",
+    height: "50%"
   }
 }
