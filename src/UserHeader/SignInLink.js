@@ -1,6 +1,5 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
-import { loginGhost } from '../actions/actions'
 import { signInButtonClick } from './userHeaderActions'
 import { connect } from 'react-redux'
 import '../SignInLink.css'
@@ -10,23 +9,6 @@ import SignInForm from './SignInForm'
 // TODO: combine with register link
 
 class SignInLink extends React.Component {
-  state={
-    username: '',
-    password: '',
-  }
-
-  handleChange = (e) =>{
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
-
-  handleSubmit = (close) => {
-    this.setState({
-      password: ''
-    })
-    this.props.loginGhost(this.state.username, this.state.password, close)
-  }
 
   handleClick = () => {
     this.props.signInButtonClick(true)
@@ -52,4 +34,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, {loginGhost, signInButtonClick})(withAuth(SignInLink, false))
+export default connect(mapStateToProps, { signInButtonClick})(withAuth(SignInLink, false))

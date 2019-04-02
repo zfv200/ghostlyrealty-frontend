@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './UserHeader.css.js'
+import { loginGhost } from '../actions/actions'
 import { connect } from 'react-redux'
 import { signInButtonClick } from './userHeaderActions'
 
 class SignInForm extends React.Component{
   state={
-
+    username: '',
+    password: ''
   }
-
-  //pick up here, incorporate functionality from signInLink original popup/state
 
   handleClick = (e) => {
     if(e.target.parentElement.id!=="sign-in-form" && e.target.parentElement.id!=="outer-popup"){
@@ -16,11 +16,26 @@ class SignInForm extends React.Component{
     }
   }
 
+  handleChange = (e) =>{
+    this.setState({
+      [e.target.id]: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.signInButtonClick(false)
+    this.setState({
+      password: ''
+    })
+    this.props.loginGhost(this.state.username, this.state.password)
+  }
+
   render(){
     return (
       <div id="outer-popup" onClick={this.handleClick} style={styles.SignInForm}>
         <div style={styles.content}>
-          <form id="sign-in-form" style={styles.form} onSubmit={(e)=>e.preventDefault()}>
+          <form id="sign-in-form" style={styles.form} onSubmit={this.handleSubmit}>
             Username:
             <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
             Password:
@@ -33,4 +48,4 @@ class SignInForm extends React.Component{
   }
 }
 
-export default connect(null, { signInButtonClick })(SignInForm)
+export default connect(null, { signInButtonClick, loginGhost })(SignInForm)
