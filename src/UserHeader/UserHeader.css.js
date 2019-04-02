@@ -19,7 +19,9 @@ export default {
 
   hRight: {
     marginLeft: 'auto',
-    marginRight: '60px'
+    marginRight: '130px',
+    display: "flex",
+    marginTop: "17px"
   },
 
   recentSearchesContainer:{
@@ -60,7 +62,7 @@ export default {
     border: "1px solid rgb(187, 187, 187)",
     padding: "5px",
     display: "flex",
-    width: "30%",
+    width: "20%",
     height: "50%"
   }
 }

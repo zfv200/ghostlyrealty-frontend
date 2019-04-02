@@ -8,21 +8,20 @@ import SignInForm from './SignInForm'
 
 // TODO: combine with register link
 
-class SignInLink extends React.Component {
+const SignInLink = (props) => {
 
-  handleClick = () => {
-    this.props.signInButtonClick(true)
+  const handleClick = () => {
+    props.signInButtonClick(true)
   }
 
-  render(){
-    return (
-      <div>
-        <button onClick={this.handleClick} className="button"> Sign In </button>
-        {this.props.signInForm &&
-          <SignInForm />
-        }
-      </div>
-  )}
+  return (
+    <div>
+      <button onClick={handleClick} className="button"> Sign In </button>
+      {props.signInForm &&
+        <SignInForm />
+      }
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => {

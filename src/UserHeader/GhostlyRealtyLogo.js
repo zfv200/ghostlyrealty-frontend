@@ -8,7 +8,7 @@ const GhostlyRealtyLogo = (props) => {
     className="pointer"
     onClick={()=>props.history.push("/")}
     style={styles.hLeft}>
-      <h3>Logo</h3>
+      <img src="http://res.publicdomainfiles.com/pdf_view/1/13488739212200.png" style={{height: "47px", marginTop: "5px"}}/>
     </div>
   )
 }

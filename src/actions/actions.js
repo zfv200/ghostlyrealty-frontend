@@ -54,12 +54,11 @@ export function loginGhost(username, password){
   }
 }
 
-export function registerGhost(username, password, medium, close){
+export function registerGhost(username, password, medium){
   return (dispatch) => {
     Adapter.registerGhost(username, password, medium)
     .then(response=>{
       if (response.ok){
-        close()
         return response.json()
       } else {
         throw response

@@ -10,3 +10,16 @@ const signInButtonAction = (bool) => {
     payload: bool
   }
 }
+
+export function registerButtonClick(bool){
+  return (dispatch) => {
+    dispatch(registerButtonAction(bool))
+  }
+}
+
+const registerButtonAction = (bool) => {
+  return {
+    type: "CLICK_REGISTER",
+    payload: bool
+  }
+}

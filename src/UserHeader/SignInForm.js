@@ -11,7 +11,7 @@ class SignInForm extends React.Component{
   }
 
   handleClick = (e) => {
-    if(e.target.parentElement.id!=="sign-in-form" && e.target.parentElement.id!=="outer-popup"){
+    if(e.target.parentElement.id!=="sign-in-form" && e.target.parentElement.id!=="outer-popup" && e.target.parentElement.id!=="inner-outer-popup"){
       this.props.signInButtonClick(false)
     }
   }
@@ -24,17 +24,20 @@ class SignInForm extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.signInButtonClick(false)
     this.setState({
       password: ''
     })
     this.props.loginGhost(this.state.username, this.state.password)
   }
 
+  componentWillUnmount(){
+    this.props.signInButtonClick(false)
+  }
+
   render(){
     return (
       <div id="outer-popup" onClick={this.handleClick} style={styles.SignInForm}>
-        <div style={styles.content}>
+        <div id="inner-outer-popup" style={styles.content}>
           <form id="sign-in-form" style={styles.form} onSubmit={this.handleSubmit}>
             Username:
             <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
