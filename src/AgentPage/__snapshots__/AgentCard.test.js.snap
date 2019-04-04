@@ -24,20 +24,30 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div>
-          <h1>
+        <img
+          alt="King Hamlet's headshot'"
+          className="fl p2"
+          src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+        />,
+        <div
+          className="fr w-100 ml5"
+        >
+          <h1
+            className="f3 mb5"
+          >
             King Hamlet
           </h1>
-          <img
-            alt="King Hamlet's headshot'"
-            src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
-          />
+          <h3
+            className="i"
+          >
+            Lend thy serious hearing--for your next move!
+          </h3>
         </div>,
-        <h3>
-          Lend thy serious hearing--for your next move!
-        </h3>,
       ],
-      "className": "agent-card",
+      "className": "agent-card ph5 flex bb mb3 pb3",
+      "style": Object {
+        "width": "100%",
+      },
     },
     "ref": null,
     "rendered": Array [
@@ -46,15 +56,32 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "alt": "King Hamlet's headshot'",
+          "className": "fl p2",
+          "src": "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
           "children": Array [
-            <h1>
+            <h1
+              className="f3 mb5"
+            >
               King Hamlet
             </h1>,
-            <img
-              alt="King Hamlet's headshot'"
-              src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
-            />,
+            <h3
+              className="i"
+            >
+              Lend thy serious hearing--for your next move!
+            </h3>,
           ],
+          "className": "fr w-100 ml5",
         },
         "ref": null,
         "rendered": Array [
@@ -64,6 +91,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "King Hamlet",
+              "className": "f3 mb5",
             },
             "ref": null,
             "rendered": "King Hamlet",
@@ -74,26 +102,15 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "alt": "King Hamlet's headshot'",
-              "src": "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
+              "children": "Lend thy serious hearing--for your next move!",
+              "className": "i",
             },
             "ref": null,
-            "rendered": null,
-            "type": "img",
+            "rendered": "Lend thy serious hearing--for your next move!",
+            "type": "h3",
           },
         ],
         "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Lend thy serious hearing--for your next move!",
-        },
-        "ref": null,
-        "rendered": "Lend thy serious hearing--for your next move!",
-        "type": "h3",
       },
     ],
     "type": "div",
@@ -105,20 +122,30 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div>
-            <h1>
+          <img
+            alt="King Hamlet's headshot'"
+            className="fl p2"
+            src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
+          />,
+          <div
+            className="fr w-100 ml5"
+          >
+            <h1
+              className="f3 mb5"
+            >
               King Hamlet
             </h1>
-            <img
-              alt="King Hamlet's headshot'"
-              src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
-            />
+            <h3
+              className="i"
+            >
+              Lend thy serious hearing--for your next move!
+            </h3>
           </div>,
-          <h3>
-            Lend thy serious hearing--for your next move!
-          </h3>,
         ],
-        "className": "agent-card",
+        "className": "agent-card ph5 flex bb mb3 pb3",
+        "style": Object {
+          "width": "100%",
+        },
       },
       "ref": null,
       "rendered": Array [
@@ -127,15 +154,32 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "alt": "King Hamlet's headshot'",
+            "className": "fl p2",
+            "src": "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
             "children": Array [
-              <h1>
+              <h1
+                className="f3 mb5"
+              >
                 King Hamlet
               </h1>,
-              <img
-                alt="King Hamlet's headshot'"
-                src="https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg"
-              />,
+              <h3
+                className="i"
+              >
+                Lend thy serious hearing--for your next move!
+              </h3>,
             ],
+            "className": "fr w-100 ml5",
           },
           "ref": null,
           "rendered": Array [
@@ -145,6 +189,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "King Hamlet",
+                "className": "f3 mb5",
               },
               "ref": null,
               "rendered": "King Hamlet",
@@ -155,26 +200,15 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "alt": "King Hamlet's headshot'",
-                "src": "https://i.ytimg.com/vi/IBQucj2hea4/hqdefault.jpg",
+                "children": "Lend thy serious hearing--for your next move!",
+                "className": "i",
               },
               "ref": null,
-              "rendered": null,
-              "type": "img",
+              "rendered": "Lend thy serious hearing--for your next move!",
+              "type": "h3",
             },
           ],
           "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Lend thy serious hearing--for your next move!",
-          },
-          "ref": null,
-          "rendered": "Lend thy serious hearing--for your next move!",
-          "type": "h3",
         },
       ],
       "type": "div",

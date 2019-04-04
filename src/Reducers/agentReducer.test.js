@@ -43,7 +43,7 @@ describe('agentReducer', ()=>{
 
   it('adds all agents from fetch', ()=>{
     expect(agentReducer(defaultState, agentsAction)).toEqual(
-      {...defaultState, agents: agentsAction.payload}
+      {...defaultState, agents: agentsAction.payload, allAgents: agentsAction.payload}
     )
   })
 })
