@@ -24,24 +24,25 @@ ShallowWrapper {
       "children": Array [
         <img
           alt="Winchester Mystery House"
+          className="w-100"
           style={
             Object {
-              "height": "800px",
-              "padding": "10px",
-              "width": "1500px",
+              "height": "550px",
             }
           }
         />,
-        <h1>
-          Winchester Mystery House
-        </h1>,
+        <div
+          className="caption relative bottom-2 bg-black white h2"
+        >
+          <p
+            className="relative pa1 ml5"
+          >
+            Winchester Mystery House
+          </p>
+        </div>,
       ],
-      "style": Object {
-        "alignItems": "center",
-        "display": "flex",
-        "flex": 1,
-        "flexDirection": "column",
-      },
+      "className": "di fl pa0 w-100",
+      "style": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -51,11 +52,10 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "Winchester Mystery House",
+          "className": "w-100",
           "src": undefined,
           "style": Object {
-            "height": "800px",
-            "padding": "10px",
-            "width": "1500px",
+            "height": "550px",
           },
         },
         "ref": null,
@@ -67,14 +67,30 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "Winchester Mystery House",
+          "children": <p
+            className="relative pa1 ml5"
+          >
+            Winchester Mystery House
+          </p>,
+          "className": "caption relative bottom-2 bg-black white h2",
         },
         "ref": null,
-        "rendered": "Winchester Mystery House",
-        "type": "h1",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Winchester Mystery House",
+            "className": "relative pa1 ml5",
+          },
+          "ref": null,
+          "rendered": "Winchester Mystery House",
+          "type": "p",
+        },
+        "type": "div",
       },
     ],
-    "type": "div",
+    "type": "li",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -85,24 +101,25 @@ ShallowWrapper {
         "children": Array [
           <img
             alt="Winchester Mystery House"
+            className="w-100"
             style={
               Object {
-                "height": "800px",
-                "padding": "10px",
-                "width": "1500px",
+                "height": "550px",
               }
             }
           />,
-          <h1>
-            Winchester Mystery House
-          </h1>,
+          <div
+            className="caption relative bottom-2 bg-black white h2"
+          >
+            <p
+              className="relative pa1 ml5"
+            >
+              Winchester Mystery House
+            </p>
+          </div>,
         ],
-        "style": Object {
-          "alignItems": "center",
-          "display": "flex",
-          "flex": 1,
-          "flexDirection": "column",
-        },
+        "className": "di fl pa0 w-100",
+        "style": undefined,
       },
       "ref": null,
       "rendered": Array [
@@ -112,11 +129,10 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "Winchester Mystery House",
+            "className": "w-100",
             "src": undefined,
             "style": Object {
-              "height": "800px",
-              "padding": "10px",
-              "width": "1500px",
+              "height": "550px",
             },
           },
           "ref": null,
@@ -128,14 +144,30 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "Winchester Mystery House",
+            "children": <p
+              className="relative pa1 ml5"
+            >
+              Winchester Mystery House
+            </p>,
+            "className": "caption relative bottom-2 bg-black white h2",
           },
           "ref": null,
-          "rendered": "Winchester Mystery House",
-          "type": "h1",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Winchester Mystery House",
+              "className": "relative pa1 ml5",
+            },
+            "ref": null,
+            "rendered": "Winchester Mystery House",
+            "type": "p",
+          },
+          "type": "div",
         },
       ],
-      "type": "div",
+      "type": "li",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -43,7 +43,7 @@ class SignInForm extends React.Component{
             <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
             Password:
             <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
-            <button className="ma2 f6 link dim ph3 pv2 mb2 dib white bg-black" type="submit">Sign In</button>
+            <button id="sign-in-submit" className="ma2 f6 link dim ph3 pv2 mb2 dib white bg-black" type="submit">Sign In</button>
           </form>
         </div>
       </div>

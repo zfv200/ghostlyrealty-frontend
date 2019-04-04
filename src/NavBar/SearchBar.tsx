@@ -7,7 +7,7 @@ import BlankSearch from './BlankSearch'
 import styles from './NavBar.css.js'
 
 // TODO: is there a good way to abstract the blank search functionality to wrap all the search forms?
-import { rootReducer } from '../index.js'
+// import { rootReducer } from '../index.js'
 
 interface StateProps {
   blankSearchError: boolean
