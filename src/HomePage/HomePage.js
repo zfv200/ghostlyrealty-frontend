@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchFeaturedHouses, fetchFeaturedAgent } from './HomePageActions.js'
 import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
 import Carousel from '../Carousel/Carousel'
-import AgentCard from '../AgentPage/AgentCard'
+import FeaturedAgent from '../FeaturedAgent/FeaturedAgent'
 import withLoader from '../HOCs/withLoader'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 import '../App.css';
@@ -22,17 +22,11 @@ class HomePage extends React.Component {
       <div className="flex flex-column">
         <Carousel />
         <HouseSearchForm />
-        <AgentCard {...this.props.featuredAgent}/>
+        <FeaturedAgent />
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    featuredAgent: state.agentReducer.featuredAgent
-  }
-}
 
-
-export default connect(mapStateToProps, {fetchFeaturedHouses, fetchFeaturedAgent})(withCurrentGhost(HomePage))
+export default connect(null, {fetchFeaturedHouses, fetchFeaturedAgent})(withCurrentGhost(HomePage))

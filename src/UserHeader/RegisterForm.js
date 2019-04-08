@@ -9,7 +9,8 @@ class RegisterForm extends React.Component{
     username: '',
     password: '',
     confirmedPassword: '',
-    medium: false
+    medium: false,
+    image: ''
   }
 
   handleClick = (e) => {
@@ -38,7 +39,7 @@ class RegisterForm extends React.Component{
     // TODO: create a passwords don't match error
     e.preventDefault()
     if (this.validatePassword()){
-      this.props.registerGhost(this.state.username, this.state.password, this.state.medium)
+      this.props.registerGhost(this.state.username, this.state.password, this.state.medium, this.state.image)
     }
   }
 
@@ -55,6 +56,7 @@ class RegisterForm extends React.Component{
             <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
             Medium?:
             <input id="medium" className="ma2" checked={this.state.medium} className="formChild" type="checkbox" onChange={this.handleCheck}/>
+            <input id="image" className="ma2" value={this.state.image} className="formChild" type="text" onChange={this.handleChange}/>
             Password:
             <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
             Confirm Password:

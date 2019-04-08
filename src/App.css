@@ -1,4 +1,42 @@
 
+.dropdown-children{
+  visibility: hidden; /* hides sub-menu */
+  opacity: 0;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  transform: translateY(-2em);
+  z-index: -1;
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.dropdown-child:hover{
+  color: red;
+  opacity: 0.5;
+}
+
+.dropdown-child h3 {
+  margin-left: 10px;
+}
+
+.dropdown-parent:focus .dropdown-children,
+.dropdown-parent:focus-within .dropdown-children,
+.dropdown-parent:hover .dropdown-children {
+  visibility: visible; /* shows sub-menu */
+  opacity: 1;
+  z-index: 1;
+  background: black;
+  position: absolute;
+  left: 0%;
+  transform: translateY(0%);
+  transition-delay: 0s, 0s, 0.3s; /* this removes the transition delay so the menu will be visible while the other styles transition */
+}
+
+.nav-link:hover {
+  transition: color .25s ease-in;
+  color: black;
+}
 /* .nav {
   list-style: none;
   display: block;

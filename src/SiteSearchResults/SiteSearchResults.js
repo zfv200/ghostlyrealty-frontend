@@ -13,31 +13,34 @@ class SiteSearchResults extends React.Component{
   }
 
   renderAgentResults = () => {
-    if (localStorage.getItem('agentResults')){
-      return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
-        return <AgentCard key={result.id} {...result}/>
-      })
-    }
+    return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
+      return <AgentCard key={result.id} {...result}/>
+    })
   }
 
   renderHouseResults = () => {
-    if (localStorage.getItem('houseResults')){
-      return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
-        return <HouseResult key={result.id} {...result}/>
-      })
-    }
-    // return this.props.houseResults.map((result)=>{
-    //   return <HouseResult {...result}/>
-    // })
+    return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
+      return <HouseResult key={result.id} {...result}/>
+    })
   }
 
   render(){
+    let agentResults = JSON.parse(localStorage.getItem('agentResults'))
+    let houseResults = JSON.parse(localStorage.getItem('houseResults'))
     return (
       <div>
-      <h3>Agents:</h3>
-        {this.renderAgentResults()}
-      <h3>Houses:</h3>
-        {this.renderHouseResults()}
+        {agentResults && agentResults.length > 0 ?
+          <div>
+            <h3>Agents:</h3>
+            {this.renderAgentResults()}
+          </div> : null
+        }
+        {houseResults && houseResults.length > 0 ?
+          <div>
+            <h3>Houses:</h3>
+            {this.renderHouseResults()}
+          </div> : null
+        }
       </div>
     )
   }

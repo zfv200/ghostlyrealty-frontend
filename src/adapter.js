@@ -29,14 +29,14 @@ class Adapter{
     })
   }
 
-  static registerGhost(username, password, medium){
+  static registerGhost(username, password, medium, image){
     return fetch(`${apiUrl}/register`, {
       method: 'post',
       headers: {
         'Content-Type':'application/json',
         Accept: 'application/json'
       },
-      body: JSON.stringify({ghost: {username: username, password: password}, medium: medium})
+      body: JSON.stringify({ghost: {username: username, password: password, image: image}, medium: medium})
     })
   }
 

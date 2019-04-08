@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { createHaunt } from './NewHauntActions'
 import agentWithAuth from '../HOCs/agentWithAuth'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
+import styles from './NewHaunt.css.js'
 
 class NewHaunt extends React.Component{
   state={
@@ -27,6 +28,7 @@ class NewHaunt extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
+    // 
     this.props.createHaunt(this.state)
   }
 
@@ -34,7 +36,7 @@ class NewHaunt extends React.Component{
     return (
       <div>
         <h1>Add New Haunt!</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form style={styles.newHauntForm} onSubmit={this.handleSubmit}>
           <label>House Name:</label>
           <input id="name" value={this.state.name} onChange={this.handleChange}/>
           <label>Address:</label>

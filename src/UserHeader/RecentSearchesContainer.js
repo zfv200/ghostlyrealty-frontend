@@ -5,20 +5,6 @@ import styles from './UserHeader.css.js'
 import withAuth from '../HOCs/withAuth'
 
 class RecentSearchesContainer extends React.Component{
-  constructor(){
-    super()
-
-    this.state={
-      expanded: false
-    }
-  }
-
-  handleMouse = () => {
-    let currentState = this.state.expanded
-    this.setState({
-      expanded: !currentState
-    })
-  }
 
   renderRecentSearches = () => {
     return this.props.recentSearches.map(search=>{
@@ -28,10 +14,10 @@ class RecentSearchesContainer extends React.Component{
 
   render(){
     return(
-      <div className="pointer" onMouseEnter={this.handleMouse} onMouseLeave={this.handleMouse} style={styles.hLeft}>
+      <div className={this.props.recentSearches.length > 0 ? "pointer dropdown-parent" : "pointer"} style={styles.hLeft}>
         <h3>Recent searches</h3>
-        <div style={styles.recentSearchesContainer}>
-          {this.state.expanded === true ? this.renderRecentSearches() : null}
+        <div className="dropdown-children bb" style={styles.recentSearchesContainer}>
+          {this.renderRecentSearches()}
         </div>
       </div>
     )
