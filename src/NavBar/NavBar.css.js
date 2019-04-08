@@ -8,7 +8,8 @@ export default {
     padding: "0 18px",
     height: "50px",
     marginTop: "20px",
-    marginLeft: "47px"
+    marginLeft: "47px",
+    textDecoration: "none",
   },
   //
   siteSearchBar: {

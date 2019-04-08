@@ -11,8 +11,8 @@ const NavBar = (props) => {
     <div>
       <div className="h3 bb bg-white ma0">
         <div className="fl dib w-75 pl5 flex flex-row">
-          <NavLink style={styles.searchBarChild} to="/">Home</NavLink>
-          <NavLink style={styles.searchBarChild} to="/agents">Agents</NavLink>
+          <NavLink className="nav-link" style={styles.searchBarChild} to="/">Home</NavLink>
+          <NavLink className="nav-link" style={styles.searchBarChild} to="/mediums">Mediums</NavLink>
           <NewHauntLink />
         </div>
         <div className="fr dib w-25" style={styles.searchBar}>

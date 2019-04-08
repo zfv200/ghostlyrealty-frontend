@@ -54,9 +54,9 @@ export function loginGhost(username, password){
   }
 }
 
-export function registerGhost(username, password, medium){
+export function registerGhost(username, password, medium, image){
   return (dispatch) => {
-    Adapter.registerGhost(username, password, medium)
+    Adapter.registerGhost(username, password, medium, image)
     .then(response=>{
       if (response.ok){
         return response.json()

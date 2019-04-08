@@ -28,14 +28,14 @@ export default {
     display: 'flex',
     flexDirection: 'column',
     zIndex: 1,
-    position: 'absolute',
+    position: 'relative',
     width: '500px'
   },
 
-  recentSearch: {
-    display: 'flex',
-    backgroundColor: 'black'
-  },
+  // recentSearch: {
+  //   display: 'flex',
+  //   backgroundColor: 'black',
+  // },
 
   form: {
     display: "flex",

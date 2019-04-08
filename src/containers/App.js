@@ -24,7 +24,7 @@ class App extends Component {
           </div>
           <div className="pl5 pr5 pt5 ml5 mr5 mt5 flex flex-column">
             <Route exact path="/" component={HomePage}/>
-            <Route path="/agents" component={AgentsPage}/>
+            <Route path="/mediums" component={AgentsPage}/>
             <Route path="/results" component={SiteSearchResults}/>
             <Route path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
