@@ -41,7 +41,7 @@ export class SearchBar extends React.Component<Props, State> {
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (this.state.searchTerm===''){
-      this.props.addBlankSearchError()
+      return this.props.addBlankSearchError()
     } else {
       this.props.clearBlankSearchError()
     }
