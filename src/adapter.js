@@ -121,6 +121,7 @@ class Adapter{
       })
     }).then(r=>r.json())
   }
+
 }
 
 export default Adapter

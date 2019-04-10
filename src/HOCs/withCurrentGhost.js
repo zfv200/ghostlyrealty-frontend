@@ -17,7 +17,13 @@ function withCurrentGhost(WrappedComponent){
     }
   }
 
-  return connect(null, { fetchCurrentGhost })(baseWithCurrentGhost)
+  const mapStateToProps = (state) => {
+    return {
+      currentUser: state.userReducer.currentUser
+    }
+  }
+
+  return connect(mapStateToProps, { fetchCurrentGhost })(baseWithCurrentGhost)
 }
 
 export default withCurrentGhost

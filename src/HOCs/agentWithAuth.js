@@ -15,6 +15,8 @@ function agentWithAuth(WrappedComponent){
       return {
         isAgent: state.userReducer.currentUser.roles.find(role=>role.name==="agent")
       }
+    } else {
+      return {}
     }
   }
 
