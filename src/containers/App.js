@@ -11,6 +11,7 @@ import SiteSearchResults from '../SiteSearchResults/SiteSearchResults'
 import HouseSearchResults from '../SiteSearchResults/HouseSearchResults'
 import NewHaunt from '../NewHaunt/NewHaunt'
 import MyHaunts from '../MyHaunts/MyHaunts'
+import MyHouses from '../MyHouses/MyHouses'
 
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
             <Route path="/myhaunts" component={MyHaunts}/>
+            <Route path="/myhouses" component={MyHouses}/>
             <Footer />
           </div>
         </div>

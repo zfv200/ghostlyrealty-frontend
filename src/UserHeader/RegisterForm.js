@@ -56,6 +56,7 @@ class RegisterForm extends React.Component{
             <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
             Medium?:
             <input id="medium" className="ma2" checked={this.state.medium} className="formChild" type="checkbox" onChange={this.handleCheck}/>
+            Profile Picture: 
             <input id="image" className="ma2" value={this.state.image} className="formChild" type="text" onChange={this.handleChange}/>
             Password:
             <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>

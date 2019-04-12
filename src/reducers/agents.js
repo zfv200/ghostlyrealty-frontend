@@ -10,7 +10,7 @@ export const defaultState = {
 }
 
 const filterAgents = (searchTerm, state) => {
-  return state.allAgents.filter(agent=>agent.attributes.username.toLowerCase().includes(searchTerm.toLowerCase()))
+  return state.allAgents.filter(agent=>agent.username.toLowerCase().includes(searchTerm.toLowerCase()))
 }
 
 export default function agentReducer(state=defaultState, action){
