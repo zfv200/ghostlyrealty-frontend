@@ -10,15 +10,16 @@ import withCurrentGhost from '../HOCs/withCurrentGhost'
 import { fetchAgents } from './AgentPageActions'
 
 interface AgentAttributes {
+  id: number,
   username: string,
   image: string,
   motto: string
 }
 
-type AgentType = {
-  id: number,
-  attributes: AgentAttributes
-}
+// type AgentType = {
+//   id: number,
+//   attributes: AgentAttributes
+// }
 
 interface StateProps {
   agents: any
@@ -37,7 +38,7 @@ class AgentsPage extends React.Component<StateProps & DispatchProps, any>{
   }
 
   renderAgents = () => {
-    return this.props.agents.map((agent: AgentType) => <AgentCard key={agent.id} {...agent.attributes}/>)
+    return this.props.agents.map((agent: AgentAttributes) => <AgentCard key={agent.id} {...agent}/>)
   }
 
   render(){

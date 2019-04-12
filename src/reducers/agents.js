@@ -16,7 +16,7 @@ const filterAgents = (searchTerm, state) => {
 export default function agentReducer(state=defaultState, action){
   switch(action.type){
     case "ADD_FEATURED_AGENT":
-      return {...state, featuredAgent: action.payload.attributes}
+      return {...state, featuredAgent: action.payload}
     case "ADD_AGENTS":
       return {...state, agents: action.payload, allAgents: action.payload}
     case "FILTER_AGENTS":

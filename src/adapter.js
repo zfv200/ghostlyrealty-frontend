@@ -122,6 +122,20 @@ class Adapter{
     }).then(r=>r.json())
   }
 
+  static featureHaunt(id, boolean){
+    return fetch(`${apiUrl}/houses/${id}`, {
+      method: 'PATCH',
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept":'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`
+      },
+      body: JSON.stringify({
+        featured: boolean
+      })
+    }).then(r=>r.json())
+  }
+
 }
 
 export default Adapter

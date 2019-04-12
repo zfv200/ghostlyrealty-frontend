@@ -4,7 +4,8 @@ export function fetchAgents(){
   return (dispatch) => {
     Adapter.fetchAgents()
     .then(json=>{
-      dispatch(addAgents(json.data))
+      let payload = json.ghosts
+      dispatch(addAgents(payload))
     })
   }
 }
