@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import HouseResult from './HouseResult.tsx'
+import HouseCard from './HouseCard.tsx'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
@@ -20,7 +20,7 @@ class SiteSearchResults extends React.Component{
 
   renderHouseResults = () => {
     return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
-      return <HouseResult key={result.id} {...result}/>
+      return <HouseCard key={result.id} {...result}/>
     })
   }
 

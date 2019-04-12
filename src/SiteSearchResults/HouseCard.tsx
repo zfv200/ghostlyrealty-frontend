@@ -1,13 +1,13 @@
 import React from 'react'
-import styles from './HouseResult.css.js'
+import styles from './HouseCard.css.js'
 
 
-interface HouseResultStatelessProps {
+interface HouseCardStatelessProps {
   name: string,
   image_url: string
 }
 
-const HouseResult: React.SFC<HouseResultStatelessProps> = (props) => {
+const HouseCard: React.SFC<HouseCardStatelessProps> = (props) => {
   return (
     <div>
       <h1>{props.name}</h1>
@@ -16,4 +16,4 @@ const HouseResult: React.SFC<HouseResultStatelessProps> = (props) => {
   )
 }
 
-export default HouseResult
+export default HouseCard

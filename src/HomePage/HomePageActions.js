@@ -4,9 +4,24 @@ export function fetchFeaturedHouses(){
   return (dispatch) => {
     Adapter.fetchFeaturedHouses()
     .then(json=>{
-      let payload = json.data.map(house=>house.attributes)
+      let payload = json.houses
       dispatch(addFeaturedHouses(payload))
     })
+  }
+}
+
+export function setCarouselIndexOnRefresh(){
+  let index
+  if(localStorage.getItem('carouselIndex')){
+    index = parseInt(localStorage.getItem('carouselIndex'))
+    return {
+      type: "SET_CAROUSEL_INDEX_ON_REFRESH",
+      payload: index
+    }
+  } else {
+    return {
+      type: "DEFAULT_ACTION"
+    }
   }
 }
 
@@ -21,7 +36,8 @@ export function fetchFeaturedAgent(){
   return (dispatch) => {
     Adapter.fetchFeaturedAgent()
     .then(json=>{
-      dispatch(addFeaturedAgent(json.data))
+      let payload = json.ghost
+      dispatch(addFeaturedAgent(payload))
     })
   }
 }

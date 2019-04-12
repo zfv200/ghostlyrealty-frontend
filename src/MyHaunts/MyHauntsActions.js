@@ -1,0 +1,30 @@
+import Adapter from '../adapter.js'
+
+export const featureHaunt = (id, boolean) => {
+  return (dispatch) => {
+    Adapter.featureHaunt(id, boolean)
+    .then(json=>{
+      let haunt = json.house
+      let id = parseInt(json.house.id)
+      if(boolean){
+        dispatch(featureHauntAction(haunt))
+      } else {
+        dispatch(unfeatureHauntAction(id))
+      }
+    })
+  }
+}
+
+const featureHauntAction = (haunt) => {
+  return {
+    type: "FEATURE_HAUNT",
+    payload: haunt
+  }
+}
+
+const unfeatureHauntAction = (id) => {
+  return {
+    type: "UNFEATURE_HAUNT",
+    payload: id
+  }
+}

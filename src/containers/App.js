@@ -10,6 +10,7 @@ import AgentsPage from '../AgentPage/AgentPage.tsx'
 import SiteSearchResults from '../SiteSearchResults/SiteSearchResults'
 import HouseSearchResults from '../SiteSearchResults/HouseSearchResults'
 import NewHaunt from '../NewHaunt/NewHaunt'
+import MyHaunts from '../MyHaunts/MyHaunts'
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path="/results" component={SiteSearchResults}/>
             <Route path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
+            <Route path="/myhaunts" component={MyHaunts}/>
             <Footer />
           </div>
         </div>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar.tsx'
 import styles from './NavBar.css.js'
-import NewHauntLink from '../CustomAgentComps/NewHauntLink'
+import CustomAgentLink from '../CustomAgentComps/CustomAgentLink'
 
 const NavBar = (props) => {
 
@@ -13,7 +13,8 @@ const NavBar = (props) => {
         <div className="fl dib w-75 pl5 flex flex-row">
           <NavLink className="nav-link" style={styles.searchBarChild} to="/">Home</NavLink>
           <NavLink className="nav-link" style={styles.searchBarChild} to="/mediums">Mediums</NavLink>
-          <NewHauntLink />
+          <CustomAgentLink path="/newhaunt" text="Add Haunt"/>
+          <CustomAgentLink path="/myhaunts" text="My Haunts"/>
         </div>
         <div className="fr dib w-25" style={styles.searchBar}>
           <SearchBar />

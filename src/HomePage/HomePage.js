@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchFeaturedHouses, fetchFeaturedAgent } from './HomePageActions.js'
+import { fetchFeaturedHouses, fetchFeaturedAgent, setCarouselIndexOnRefresh } from './HomePageActions.js'
 import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
 import Carousel from '../Carousel/Carousel'
 import FeaturedAgent from '../FeaturedAgent/FeaturedAgent'
@@ -13,6 +13,7 @@ import './HomePage.css'
 class HomePage extends React.Component {
 
   componentDidMount(){
+    this.props.setCarouselIndexOnRefresh()
     this.props.fetchFeaturedHouses()
     this.props.fetchFeaturedAgent()
   }
@@ -29,4 +30,4 @@ class HomePage extends React.Component {
 }
 
 
-export default connect(null, {fetchFeaturedHouses, fetchFeaturedAgent})(withCurrentGhost(HomePage))
+export default connect(null, {fetchFeaturedHouses, fetchFeaturedAgent, setCarouselIndexOnRefresh})(withCurrentGhost(HomePage))
