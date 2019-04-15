@@ -1,6 +1,7 @@
 import React from 'react'
 import { featureHaunt } from './MyHauntsActions'
 import { connect } from 'react-redux'
+import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 class FeatureHauntButton extends React.Component {
 
@@ -9,11 +10,13 @@ class FeatureHauntButton extends React.Component {
   }
 
   handleClick = () => {
-    this.props.featureHaunt(this.props.id, !this.props.featured)
     let newState = !this.state.featured
-    this.setState({
-      featured: newState
-    })
+    this.props.featureHaunt(this.props.id, newState)
+    if(newState === false || this.props.currentUser.credits >= 1){
+      this.setState({
+        featured: newState
+      })
+    }
   }
 
   render(){
@@ -25,4 +28,4 @@ class FeatureHauntButton extends React.Component {
   }
 }
 
-export default connect(null, { featureHaunt })(FeatureHauntButton)
+export default connect(null, { featureHaunt })(withCurrentGhost(FeatureHauntButton))

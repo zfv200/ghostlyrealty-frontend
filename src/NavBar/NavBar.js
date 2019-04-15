@@ -16,6 +16,7 @@ const NavBar = (props) => {
           <NavLink className="nav-link" style={styles.searchBarChild} to="/myhouses">My Houses</NavLink>
           <CustomAgentLink path="/newhaunt" text="Add Haunt"/>
           <CustomAgentLink path="/myhaunts" text="My Haunts"/>
+          <CustomAgentLink path="/dashboard" text="Dashboard"/>
         </div>
         <div className="fr dib w-25" style={styles.searchBar}>
           <SearchBar />
