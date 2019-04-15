@@ -136,6 +136,28 @@ class Adapter{
     }).then(r=>r.json())
   }
 
+  static createOrDestroyHaunt(ghostId, houseId, type){
+    return fetch(`${apiUrl}/haunts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        "type":type
+      },
+      body: JSON.stringify({
+        haunt: {
+          ghost_id: ghostId,
+          house_id: houseId
+        }
+      })
+    }).then(r=>r.json())
+  }
+
+  static fetchHouse(id){
+    return fetch(`${apiUrl}/houses/${id}`)
+  }
+
 }
 
 export default Adapter
