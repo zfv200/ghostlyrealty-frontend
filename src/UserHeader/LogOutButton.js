@@ -7,8 +7,10 @@ import { withRouter } from 'react-router-dom'
 
 const LogOutButton = (props) => {
 
+  const paths = ["/newhaunt", "/dashboard", "/myhaunts", "/results", "/myhouses"]
+
   const logOut = () => {
-    if (props.history.location.pathname === "/newhaunt" || props.history.location.pathname === "/myhaunts" || props.history.location.pathname === "/results"){
+    if (paths.includes(props.history.location.pathname)){
       props.history.push("/")
     }
     localStorage.clear()

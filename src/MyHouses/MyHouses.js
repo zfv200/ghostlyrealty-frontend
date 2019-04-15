@@ -13,6 +13,7 @@ const MyHouses = (props) => {
 
   return (
     <div>
+      <h3>My Current Haunts:</h3>
       {renderHouses()}
     </div>
   )

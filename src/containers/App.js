@@ -13,6 +13,7 @@ import NewHaunt from '../NewHaunt/NewHaunt'
 import MyHaunts from '../MyHaunts/MyHaunts'
 import MyHouses from '../MyHouses/MyHouses'
 import AgentDashboard from '../AgentDashboard/AgentDashboard'
+import HouseShowPage from '../HouseShowPage/HouseShowPage'
 
 
 class App extends Component {
@@ -29,7 +30,8 @@ class App extends Component {
             <Route exact path="/" component={HomePage}/>
             <Route path="/mediums" component={AgentsPage}/>
             <Route path="/results" component={SiteSearchResults}/>
-            <Route path="/houses" component={HouseSearchResults}/>
+            <Route path="/houses/:id" component={HouseShowPage}/>
+            <Route exact path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
             <Route path="/myhaunts" component={MyHaunts}/>
             <Route path="/myhouses" component={MyHouses}/>

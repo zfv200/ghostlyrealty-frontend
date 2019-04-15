@@ -13,7 +13,7 @@ const NavBar = (props) => {
         <div className="fl dib w-75 pl5 flex flex-row">
           <NavLink className="nav-link" style={styles.searchBarChild} to="/">Home</NavLink>
           <NavLink className="nav-link" style={styles.searchBarChild} to="/mediums">Mediums</NavLink>
-          <NavLink className="nav-link" style={styles.searchBarChild} to="/myhouses">My Houses</NavLink>
+          {props.currentUser ? <NavLink className="nav-link" style={styles.searchBarChild} to="/myhouses">My Houses</NavLink> : null}
           <CustomAgentLink path="/newhaunt" text="Add Haunt"/>
           <CustomAgentLink path="/myhaunts" text="My Haunts"/>
           <CustomAgentLink path="/dashboard" text="Dashboard"/>

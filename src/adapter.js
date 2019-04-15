@@ -154,6 +154,10 @@ class Adapter{
     }).then(r=>r.json())
   }
 
+  static fetchHouse(id){
+    return fetch(`${apiUrl}/houses/${id}`)
+  }
+
 }
 
 export default Adapter
