@@ -1,4 +1,5 @@
 import React from 'react'
+import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { createHaunt } from './NewHauntActions'
 import agentWithAuth from '../HOCs/agentWithAuth'
@@ -28,7 +29,7 @@ class NewHaunt extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // 
+    //
     this.props.createHaunt(this.state)
   }
 
@@ -60,4 +61,13 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {createHaunt})(withCurrentGhost(agentWithAuth(NewHaunt)))
+// const mapDispatchToProps = () =>
+
+export default compose(
+  connect(mapStateToProps, {createHaunt}),
+  withCurrentGhost,
+  agentWithAuth
+)(NewHaunt)
+
+
+// connect(mapStateToProps, {createHaunt})(withCurrentGhost(agentWithAuth(NewHaunt)))
