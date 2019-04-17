@@ -34,6 +34,7 @@ type Props = DispatchProps
 class AgentsPage extends React.Component<StateProps & DispatchProps, any>{
 
   componentDidMount(){
+    window.scrollTo(0, 0)
     this.props.fetchAgents()
   }
 

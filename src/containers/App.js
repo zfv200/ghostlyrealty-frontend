@@ -14,6 +14,7 @@ import MyHaunts from '../MyHaunts/MyHaunts'
 import MyHouses from '../MyHouses/MyHouses'
 import AgentDashboard from '../AgentDashboard/AgentDashboard'
 import HouseShowPage from '../HouseShowPage/HouseShowPage'
+import MediumShowPage from '../MediumShowPage/MediumShowPage'
 
 
 class App extends Component {
@@ -28,9 +29,10 @@ class App extends Component {
           </div>
           <div className="pl5 pr5 pt5 ml5 mr5 mt5 flex flex-column">
             <Route exact path="/" component={HomePage}/>
-            <Route path="/mediums" component={AgentsPage}/>
+            <Route exact path="/mediums" component={AgentsPage}/>
             <Route path="/results" component={SiteSearchResults}/>
             <Route path="/houses/:id" component={HouseShowPage}/>
+            <Route path="/mediums/:id" component={MediumShowPage}/>
             <Route exact path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
             <Route path="/myhaunts" component={MyHaunts}/>

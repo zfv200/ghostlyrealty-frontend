@@ -14,14 +14,14 @@ interface HouseCardStatelessProps {
 
 const HouseCard: React.SFC<HouseCardStatelessProps> = (props) => {
   return (
-    <Link to={`/houses/${props.id}`}>
-      <div>
+    <div>
+      <Link to={`/houses/${props.id}`} style={{ textDecoration: 'none' }}>
         <h1>{props.name}</h1>
         <img style={styles.image} alt={`front shot of ${props.name}`} src={props.image_url}/>
         <br></br>
+      </Link>
         {props.currentUser ? <HauntHouseButton id={props.id}/> : null}
-      </div>
-    </Link>
+    </div>
   )
 }
 

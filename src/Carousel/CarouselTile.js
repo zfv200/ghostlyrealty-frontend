@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const CarouselTile = (props) =>{
   if(props){
     return (
-      <Link to={`/houses/${props.id}`}>
+      <Link to={`/houses/${props.id}`} style={{ textDecoration: 'none' }}>
         <li className="di fl pa0 w-100" style={styles.carouselChild}>
           <img className="w-100" style={styles.img} src={props['image_url']} alt={props.name}/>
           <div className="caption relative bottom-2 bg-black white h2">

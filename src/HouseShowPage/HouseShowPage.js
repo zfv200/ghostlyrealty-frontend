@@ -1,10 +1,15 @@
 import React from 'react'
+import { compose } from 'redux'
 import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
+import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
+
+import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 class HouseShowPage extends React.Component {
   state={
-    house: {}
+    house: {},
+    medium: {}
   }
 
   componentDidMount(){
@@ -16,16 +21,18 @@ class HouseShowPage extends React.Component {
   }
 
   render(){
-    console.log(this.state);
     return (
       <div>
         <h1>{this.state.house.name}</h1>
         <img src={this.state.house['image_url']}/>
         <h3>{this.state.house.address}</h3>
+        {this.props.currentUser ? <HauntHouseButton id={parseInt(this.props.match.params.id)}/> : null}
         <AgentCard {...this.state.medium}/>
       </div>
     )
   }
 }
 
-export default HouseShowPage
+export default compose(
+  withCurrentGhost
+)(HouseShowPage)

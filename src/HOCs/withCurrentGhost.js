@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { fetchCurrentGhost } from '../HomePage/HomePageActions'
 
 function withCurrentGhost(WrappedComponent){
-
   class baseWithCurrentGhost extends React.Component{
 
     componentDidMount(){

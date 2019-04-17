@@ -158,6 +158,10 @@ class Adapter{
     return fetch(`${apiUrl}/houses/${id}`)
   }
 
+  static fetchMedium(id){
+    return fetch(`${apiUrl}/ghosts/${id}`)
+  }
+
 }
 
 export default Adapter
