@@ -27,6 +27,8 @@ class MediumShowPage extends React.Component{
     return (
       <div>
         <h3>{this.state.medium.username}</h3>
+        <img src={this.state.medium.image} />
+        <h3>Current Available Haunts:</h3>
         {this.renderProperties()}
       </div>
     )

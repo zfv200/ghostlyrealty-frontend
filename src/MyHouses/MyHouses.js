@@ -4,7 +4,7 @@ import withCurrentGhost from '../HOCs/withCurrentGhost'
 import { connect } from 'react-redux'
 
 const MyHouses = (props) => {
-
+  window.scrollTo(0, 0)
   const renderHouses = () => {
     return props.currentUserHouses.map(house=>{
       return <HouseCard {...house}/>
