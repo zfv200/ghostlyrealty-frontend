@@ -18,7 +18,7 @@ const LogOutButton = (props) => {
   }
   return (
     <div style={styles.logOutButton}>
-      <button className="pointer" id="logOutButton" onClick={logOut}>Log Out</button>
+      <button className="pointer f6 link dim ba ph3 pv2 mb2 dib black" id="logOutButton" onClick={logOut}>Log Out</button>
     </div>
   )
 }

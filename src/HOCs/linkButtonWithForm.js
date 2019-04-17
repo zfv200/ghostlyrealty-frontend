@@ -18,7 +18,7 @@ function linkButtonWithForm(WrappedForm){
     render(){
       return (
         <div>
-          <button onClick={()=>this.handleClick(true)} className="button"> {this.props.title} </button>
+          <button onClick={()=>this.handleClick(true)} className="f6 link dim ba ph3 pv2 mb2 dib black"> {this.props.title} </button>
           {this.state.buttonClick &&
             <WrappedForm handleClick={()=>this.handleClick(false)} {...this.props}/>
           }

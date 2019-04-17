@@ -31,6 +31,12 @@ export default function userReducer(state=defaultState, action){
     case "LEAVE_HOUSE_ACTION":
       let filteredHouses = state.currentUserHouses.filter(house=>house.id!==action.payload)
       return {...state, currentUserHouses: filteredHouses}
+    case "UPDATE_CREDITS":
+      let updatedGhost = {...state.currentUser}
+      updatedGhost.credits = action.payload
+      return {...state, currentUser: updatedGhost}
+    case "FEATURE_AGENT":
+      return {...state, currentUser: action.payload}
     default:
       return state
   }
