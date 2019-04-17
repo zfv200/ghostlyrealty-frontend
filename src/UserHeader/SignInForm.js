@@ -3,6 +3,8 @@ import styles from './UserHeader.css.js'
 import { loginGhost } from '../actions/actions'
 import { connect } from 'react-redux'
 import { signInButtonClick } from './userHeaderActions'
+import linkButtonWithForm from '../HOCs/linkButtonWithForm'
+import withAuth from '../HOCs/withAuth'
 
 class SignInForm extends React.Component{
   state={
@@ -12,7 +14,7 @@ class SignInForm extends React.Component{
 
   handleClick = (e) => {
     if(e.target.parentElement.id!=="sign-in-form" && e.target.parentElement.id!=="outer-popup" && e.target.parentElement.id!=="inner-outer-popup"){
-      this.props.signInButtonClick(false)
+      this.props.handleClick(false)
     }
   }
 
@@ -24,6 +26,7 @@ class SignInForm extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
+    this.props.handleClick(false)
     this.setState({
       password: ''
     })
@@ -51,4 +54,4 @@ class SignInForm extends React.Component{
   }
 }
 
-export default connect(null, { signInButtonClick, loginGhost })(SignInForm)
+export default connect(null, { signInButtonClick, loginGhost })(withAuth(linkButtonWithForm(SignInForm), false))

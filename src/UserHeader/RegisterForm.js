@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styles from './UserHeader.css.js'
-import { registerButtonClick } from './userHeaderActions.js'
+// import { registerButtonClick } from './userHeaderActions.js'
 import { registerGhost } from '../actions/actions'
+import linkButtonWithForm from '../HOCs/linkButtonWithForm'
+import withAuth from '../HOCs/withAuth'
 
 class RegisterForm extends React.Component{
   state={
@@ -15,7 +17,7 @@ class RegisterForm extends React.Component{
 
   handleClick = (e) => {
     if(e.target.parentElement.id!=="register-form" && e.target.parentElement.id!=="outer-popup" && e.target.parentElement.id!=="inner-outer-popup"){
-      this.props.registerButtonClick(false)
+      this.props.handleClick(false)
     }
   }
 
@@ -43,9 +45,9 @@ class RegisterForm extends React.Component{
     }
   }
 
-  componentWillUnmount(){
-    this.props.registerButtonClick(false)
-  }
+  // componentWillUnmount(){
+  //   this.props.registerButtonClick(false)
+  // }
 
   render(){
     return (
@@ -56,7 +58,7 @@ class RegisterForm extends React.Component{
             <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
             Medium?:
             <input id="medium" className="ma2" checked={this.state.medium} className="formChild" type="checkbox" onChange={this.handleCheck}/>
-            Profile Picture: 
+            Profile Picture:
             <input id="image" className="ma2" value={this.state.image} className="formChild" type="text" onChange={this.handleChange}/>
             Password:
             <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
@@ -71,4 +73,4 @@ class RegisterForm extends React.Component{
 
 }
 
-export default connect(null, {registerButtonClick, registerGhost})(RegisterForm)
+export default connect(null, {registerGhost})(withAuth(linkButtonWithForm(RegisterForm), false))

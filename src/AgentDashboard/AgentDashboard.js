@@ -6,7 +6,6 @@ import agentWithAuth from '../HOCs/agentWithAuth'
 class AgentDashboard extends React.Component {
 
   render(){
-    console.log(this.props);
     return (
       <div>
         <h3>Welcome, {this.props.currentUser.username}!</h3>

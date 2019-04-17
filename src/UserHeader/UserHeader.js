@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import GhostlyRealtyLogo from './GhostlyRealtyLogo'
 import RecentSearchesContainer from './RecentSearchesContainer'
 import SignInLink from './SignInLink'
-import RegisterLink from './RegisterLink'
+import RegisterForm from './RegisterForm'
+import SignInForm from './SignInForm'
 import LogOutButton from './LogOutButton'
 
 import styles from './UserHeader.css.js'
@@ -17,8 +18,8 @@ class UserHeader extends React.Component{
         <GhostlyRealtyLogo />
         <RecentSearchesContainer />
         <div style={styles.hRight}>
-          <SignInLink />
-          <RegisterLink />
+          <SignInForm title="Sign In" />
+          <RegisterForm title='Register' />
         </div>
         <LogOutButton />
       </div>
