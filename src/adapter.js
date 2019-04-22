@@ -162,6 +162,30 @@ class Adapter{
     return fetch(`${apiUrl}/ghosts/${id}`)
   }
 
+  static addCredits(credits, id){
+    return fetch(`${apiUrl}/ghosts/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+      body: JSON.stringify({credits: credits})
+    }).then(r=>r.json())
+  }
+
+  static featureMedium(id){
+    return fetch(`${apiUrl}/feature_medium`, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+      body: JSON.stringify({id: id})
+    }).then(r=>r.json())
+  }
+
 }
 
 export default Adapter

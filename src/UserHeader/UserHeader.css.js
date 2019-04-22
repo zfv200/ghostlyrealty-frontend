@@ -9,6 +9,7 @@ export default {
   logOutButton: {
     marginRight: "130px",
     marginTop: "15px",
+    height: "30px"
   },
 
   hLeft: {

@@ -6,6 +6,10 @@ import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 class HouseSearchResults extends React.Component {
 
+  componentDidMount(){
+    window.scrollTo(0, 0)
+  }
+
   renderHouseResults = () =>{
     if (localStorage.getItem('houseResults')){
       return JSON.parse(localStorage.getItem('houseResults')).map(result=>{

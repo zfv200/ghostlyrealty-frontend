@@ -10,6 +10,7 @@ class MediumShowPage extends React.Component{
   }
 
   componentDidMount(){
+    window.scrollTo(0, 0)
     let id = parseInt(this.props.match.params.id)
     fetchMedium(id)
     .then(json=>{

@@ -12,6 +12,10 @@ class SiteSearchResults extends React.Component{
     localStorage.removeItem('agentResults')
   }
 
+  componentDidMount(){
+    window.scrollTo(0, 0)
+  }
+
   renderAgentResults = () => {
     return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
       return <AgentCard key={result.id} {...result}/>
