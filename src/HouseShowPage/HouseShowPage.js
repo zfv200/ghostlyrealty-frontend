@@ -25,10 +25,14 @@ class HouseShowPage extends React.Component {
     return (
       <div>
         <h1>{this.state.house.name}</h1>
-        <img src={this.state.house['image_url']}/>
+        <div style={{display: "flex"}}>
+          <img style={{height: "400px", paddingRight: "20px"}} src={this.state.house['image_url']}/>
+          <AgentCard {...this.state.medium}/>
+        </div>
         <h3>{this.state.house.address}</h3>
         {this.props.currentUser ? <HauntHouseButton id={parseInt(this.props.match.params.id)}/> : null}
-        <AgentCard {...this.state.medium}/>
+        <h2>About this Haunt:</h2>
+        <p>{this.state.house.description}</p>
       </div>
     )
   }
