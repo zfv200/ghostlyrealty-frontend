@@ -186,6 +186,18 @@ class Adapter{
     }).then(r=>r.json())
   }
 
+  static editHaunt(data){
+    return fetch(`${apiUrl}/houses/${data.house.id}`, {
+      method: 'PATCH',
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+      body: JSON.stringify(data)
+    }).then(r=>r.json())
+  }
+
 }
 
 export default Adapter
