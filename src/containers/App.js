@@ -31,8 +31,9 @@ class App extends Component {
             <Route exact path="/" component={HomePage}/>
             <Route exact path="/mediums" component={AgentsPage}/>
             <Route path="/results" component={SiteSearchResults}/>
-            <Route path="/houses/:id" component={HouseShowPage}/>
+            <Route exact path="/houses/:id" component={HouseShowPage}/>
             <Route path="/mediums/:id" component={MediumShowPage}/>
+            <Route path="/houses/:id/edit" component={NewHaunt}/>
             <Route exact path="/houses" component={HouseSearchResults}/>
             <Route path="/newHaunt" component={NewHaunt}/>
             <Route path="/myhaunts" component={MyHaunts}/>

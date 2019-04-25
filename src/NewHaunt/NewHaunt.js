@@ -4,70 +4,41 @@ import { connect } from 'react-redux'
 import { createHaunt } from './NewHauntActions'
 import agentWithAuth from '../HOCs/agentWithAuth'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
+import newOrEditHaunt from '../HOCs/newOrEditHaunt'
 import styles from './NewHaunt.css.js'
 
 class NewHaunt extends React.Component{
-  state={
-    name: "",
-    address: "",
-    image_url: "",
-    solo_haunt: false,
-    burial_ground: false
-  }
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
-
-  handleChecked = (e) => {
-    this.setState({
-      [e.target.id]: e.target.checked
-    })
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-    //
-    this.props.createHaunt(this.state)
+  createText = (newHaunt) => {
+    if(newHaunt){
+      return {title: "Add a new haunt!", button: "Create haunt"}
+    } else {
+      return {title: "Edit your haunt!", button: "Edit haunt"}
+    }
   }
 
   render(){
     return (
       <div>
-        <h1>Add New Haunt!</h1>
-        <form style={styles.newHauntForm} onSubmit={this.handleSubmit}>
+        <h1>{this.createText(this.props.newHaunt).title}</h1>
+        <form style={styles.newHauntForm} onSubmit={this.props.handleSubmit}>
           <label>House Name:</label>
-          <input id="name" value={this.state.name} onChange={this.handleChange}/>
+          <input id="name" value={this.props.name} onChange={this.props.handleChange}/>
           <label>Address:</label>
-          <input id="address" value={this.state.address} onChange={this.handleChange}/>
+          <input id="address" value={this.props.address} onChange={this.props.handleChange}/>
           <label>Image URL:</label>
-          <input id="image_url" value={this.state.image_url} onChange={this.handleChange}/>
+          <input id="image_url" value={this.props.image_url} onChange={this.props.handleChange}/>
           <label>Solo Haunt:</label>
-          <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChecked}/>
+          <input id="solo_haunt" type="checkbox" checked={this.props.solo_haunt} value={this.props.solo_haunt} onChange={this.props.handleChecked}/>
           <label>Burial Ground:</label>
-          <input id="burial_ground" type="checkbox" value={this.state.burial_ground} onChange={this.handleChecked}/>
-          <button type="submit">Create Haunt</button>
+          <input id="burial_ground" type="checkbox" checked={this.props.burial_ground} value={this.props.burial_ground} onChange={this.props.handleChecked}/>
+          <button type="submit">{this.createText(this.props.newHaunt).button}</button>
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.userReducer.currentUser
-  }
-}
-
-// const mapDispatchToProps = () =>
-
 export default compose(
-  connect(mapStateToProps, {createHaunt}),
-  withCurrentGhost,
-  agentWithAuth
+  newOrEditHaunt
 )(NewHaunt)
-
-
-// connect(mapStateToProps, {createHaunt})(withCurrentGhost(agentWithAuth(NewHaunt)))
