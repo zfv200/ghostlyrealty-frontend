@@ -6,29 +6,27 @@ import AddCreditsForm from '../AddCredits/AddCreditsForm'
 
 import { featureMedium } from './AgentDashboardActions'
 
-class AgentDashboard extends React.Component {
+const AgentDashboard = (props) => {
 
-  handleFeatureClick = () => {
-    if(this.props.currentUser.credits >= 10){
-      this.props.featureMedium(this.props.currentUser.id)
+  const handleFeatureClick = () => {
+    if(props.currentUser.credits >= 10){
+      props.featureMedium(props.currentUser.id)
     } else {
       alert("Please add more credits!")
     }
   }
 
-  render(){
-    return (
-      <div>
-        <h3>Welcome, {this.props.currentUser.username}!</h3>
-        <img src={this.props.currentUser.image}/>
-        <h4>Spook Credits: {this.props.currentUser.credits}</h4>
-        {!this.props.currentUser.featured &&
-          <button onClick={this.handleFeatureClick} className="f6 link dim ba ph3 pv2 mb2 dib black">Become the featured Medium! (10 credits)</button>
-        }
-        <AddCreditsForm title='Add Credits'/>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h3>Welcome, {props.currentUser.username}!</h3>
+      <img src={props.currentUser.image}/>
+      <h4>Spook Credits: {props.currentUser.credits}</h4>
+      {!props.currentUser.featured &&
+        <button onClick={handleFeatureClick} className="f6 link dim ba ph3 pv2 mb2 dib black">Become the featured Medium! (10 credits)</button>
+      }
+      <AddCreditsForm title='Add Credits'/>
+    </div>
+  )
 }
 
 export default connect(null, {featureMedium})(withCurrentGhost(agentWithAuth(AgentDashboard)))
