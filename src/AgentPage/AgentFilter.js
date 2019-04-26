@@ -1,48 +1,45 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { filterAgents } from './AgentPageActions'
 
-class AgentFilter extends React.Component {
-  state={
-    input: "",
-    style: {position: "relative"}
-  }
+const AgentFilter = (props) => {
 
-  componentDidMount(){
-    window.addEventListener('scroll', this.handleScroll)
-  }
+  const [input, changeInput] = useState("")
+  const [style, changeStyle] = useState({position: "relative"})
 
-  componentWillUnmount(){
-    window.removeEventListener('scroll', this.handleScroll)
-  }
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll)
 
-  handleScroll = (e) => {
+    const removeScroll = () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+
+    return removeScroll
+  })
+
+  const handleScroll = (e) => {
     if(window.scrollY > 125){
-      this.setState({
-        style: {position: "fixed", top: "130px", zIndex: 1000, width: "25%"}
-      })
+      changeStyle(
+        {position: "fixed", top: "130px", zIndex: 1000, width: "25%"}
+      )
     } else {
-      this.setState({
-        style: {position: "relative"}
-      })
+      changeStyle(
+        {position: "relative"}
+      )
     }
   }
 
-  handleChange = (e) => {
-    this.props.filterAgents(e.target.value)
-    this.setState({
-      input: e.target.value
-    })
+  const handleChange = (e) => {
+    props.filterAgents(e.target.value)
+    changeInput(e.target.value)
   }
 
-  render(){
-    return (
-      <div className="fl a2 h5 w-25" style={this.state.style}>
-        <h2>Find Your Medium</h2>
-        <input value={this.state.input} onChange={this.handleChange}></input>
-      </div>
-    )
-  }
+  return (
+    <div className="fl a2 h5 w-25" style={style}>
+      <h2>Find Your Medium</h2>
+      <input value={input} onChange={handleChange}></input>
+    </div>
+  )
 }
 
 export default connect(null, { filterAgents })(AgentFilter)
