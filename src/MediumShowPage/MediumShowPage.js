@@ -27,7 +27,11 @@ const MediumShowPage = (props) => {
   return (
     <div>
       <h3>{medium.username}</h3>
-      <img src={medium.image} />
+      {medium.profile_picture ?
+        <img src={medium.profile_picture} />
+      :
+        <img src={medium.image} />
+      }
       <h3>Current Available Haunts:</h3>
       {renderProperties()}
     </div>
