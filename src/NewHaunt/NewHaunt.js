@@ -27,7 +27,7 @@ class NewHaunt extends React.Component{
           <label>Address:</label>
           <input id="address" value={this.props.address} onChange={this.props.handleChange}/>
           <label>Image URL:</label>
-          <input id="image_url" value={this.props.image_url} onChange={this.props.handleChange}/>
+          <input type="file" value={this.props.image} onChange={this.props.handleFile}/>
           <label>Solo Haunt:</label>
           <input id="solo_haunt" type="checkbox" checked={this.props.solo_haunt} value={this.props.solo_haunt} onChange={this.props.handleChecked}/>
           <label>Burial Ground:</label>
@@ -38,6 +38,9 @@ class NewHaunt extends React.Component{
     )
   }
 }
+
+// <input id="image_url" value={this.props.image_url} onChange={this.props.handleChange}/>
+
 
 export default compose(
   newOrEditHaunt

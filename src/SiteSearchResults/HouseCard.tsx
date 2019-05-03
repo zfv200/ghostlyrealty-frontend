@@ -9,7 +9,8 @@ interface HouseCardStatelessProps {
   name: string,
   image_url: string,
   id: number,
-  currentUser: object
+  currentUser: object,
+  images: Array<string>
 }
 
 const HouseCard: React.SFC<HouseCardStatelessProps> = (props) => {
@@ -17,7 +18,12 @@ const HouseCard: React.SFC<HouseCardStatelessProps> = (props) => {
     <div>
       <Link to={`/houses/${props.id}`} style={{ textDecoration: 'none' }}>
         <h1>{props.name}</h1>
-        <img style={styles.image} alt={`front shot of ${props.name}`} src={props.image_url}/>
+        {
+          props.images && props.images.length ?
+          <img style={styles.image} alt={`front shot of ${props.name}`} src={props.images[0]}/>
+          :
+          <img style={styles.image} alt={`front shot of ${props.name}`} src={props.image_url}/>
+        }
         <br></br>
       </Link>
         {props.currentUser ? <HauntHouseButton id={props.id}/> : null}
