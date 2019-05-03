@@ -27,7 +27,8 @@ function newOrEditHaunt(WrappedComponent){
       description: "",
       new_family: false,
       rooms: 0,
-      newHaunt: false
+      newHaunt: false,
+      images: []
     }
 
     componentDidMount(){
@@ -56,16 +57,41 @@ function newOrEditHaunt(WrappedComponent){
       })
     }
 
+    createFormData = (state) => {
+      const formData = new FormData()
+      for(let key in state){
+        if(key==="images"){
+          for(let image of state[key]){
+            formData.append('house[images][]', image)
+          }
+        } else {
+          formData.append(`house[${key}]`, state[key])
+        }
+      }
+      return formData
+    }
+
     handleSubmit = (e) => {
       e.preventDefault()
+      let formData = this.createFormData(this.state)
+
       if(this.state.newHaunt){
-        this.props.createHaunt(this.state)
+        // this.props.createHaunt(this.state)
+        this.props.createHaunt(formData)
       } else {
         Adapter.editHaunt({house: this.state})
       }
     }
 
+    handleFile = (e) => {
+      let currentImages = this.state.images
+      this.setState({
+        images: [...currentImages, e.target.files[0]]
+      })
+    }
+
     render(){
+      console.log(this.state.images);
       return (
         <WrappedComponent
           {...this.props}
@@ -73,6 +99,7 @@ function newOrEditHaunt(WrappedComponent){
           handleChange={this.handleChange}
           handleChecked={this.handleChecked}
           handleSubmit={this.handleSubmit}
+          handleFile={this.handleFile}
         />
       )
     }

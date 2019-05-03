@@ -13,7 +13,8 @@ interface AgentAttributes {
   id: number,
   username: string,
   image: string,
-  motto: string
+  motto: string,
+  profile_picture: string
 }
 
 // type AgentType = {

@@ -25,7 +25,12 @@ const HouseShowPage = (props) => {
     <div>
       <h1>{house.name}</h1>
       <div style={{display: "flex"}}>
+        {house['image_url'] !== "" ?
         <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
+        :
+        <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
+
+      }
         <AgentCard {...medium}/>
       </div>
       <h3>{house.address}</h3>

@@ -1,8 +1,19 @@
 import Adapter from '../adapter.js'
+//
+// export function createHaunt(houseInfo){
+//   return (dispatch) => {
+//     Adapter.createHaunt(houseInfo)
+//     .then(json=>{
+//       if(json.error){
+//         dispatch(sendHauntError())
+//       }
+//     })
+//   }
+// }
 
-export function createHaunt(houseInfo){
+export function createHaunt(formData){
   return (dispatch) => {
-    Adapter.createHaunt(houseInfo)
+    Adapter.createHaunt(formData)
     .then(json=>{
       if(json.error){
         dispatch(sendHauntError())

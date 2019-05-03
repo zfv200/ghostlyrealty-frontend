@@ -12,7 +12,7 @@ class RegisterForm extends React.Component{
     password: '',
     confirmedPassword: '',
     medium: false,
-    image: ''
+    profile_picture: null
   }
 
   handleClick = (e) => {
@@ -33,6 +33,12 @@ class RegisterForm extends React.Component{
     })
   }
 
+  handleFile = (e) => {
+    this.setState({
+      profile_picture: e.target.files[0]
+    })
+  }
+
   validatePassword = () => {
     return this.state.password===this.state.confirmedPassword ? true : false
   }
@@ -41,7 +47,14 @@ class RegisterForm extends React.Component{
     // TODO: create a passwords don't match error
     e.preventDefault()
     if (this.validatePassword()){
-      this.props.registerGhost(this.state.username, this.state.password, this.state.medium, this.state.image)
+      const formData = new FormData()
+      // formData.append('ghost[name]', "hi!")
+      formData.append('ghost[username]', this.state.username)
+      formData.append('ghost[password]', this.state.password)
+      formData.append('ghost[profile_picture]', this.state.profile_picture)
+      formData.append('ghost[medium]', this.state.medium)
+      this.props.registerGhost(formData)
+      // this.props.registerGhost(this.state.username, this.state.password, this.state.medium, this.state.image)
     }
   }
 
@@ -50,6 +63,7 @@ class RegisterForm extends React.Component{
   // }
 
   render(){
+    console.log(this.state);
     return (
       <div id="outer-popup" onClick={this.handleClick} style={styles.SignInForm}>
         <div id="inner-outer-popup" style={styles.content}>
@@ -59,7 +73,7 @@ class RegisterForm extends React.Component{
             Medium?:
             <input id="medium" className="ma2" checked={this.state.medium} className="formChild" type="checkbox" onChange={this.handleCheck}/>
             Profile Picture:
-            <input id="image" className="ma2" value={this.state.image} className="formChild" type="text" onChange={this.handleChange}/>
+            <input id="profile_picture" type="file" onChange={this.handleFile}/>
             Password:
             <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
             Confirm Password:
@@ -72,5 +86,8 @@ class RegisterForm extends React.Component{
   }
 
 }
+
+
+// <input id="image" className="ma2" value={this.state.image} className="formChild" type="text" onChange={this.handleChange}/>
 
 export default connect(null, {registerGhost})(withAuth(linkButtonWithForm(RegisterForm), false))

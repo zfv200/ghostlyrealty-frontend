@@ -29,14 +29,18 @@ class Adapter{
     })
   }
 
-  static registerGhost(username, password, medium, image){
+  // static registerGhost(username, password, medium, image){
+  static registerGhost(formData){
     return fetch(`${apiUrl}/register`, {
       method: 'post',
       headers: {
-        'Content-Type':'application/json',
+        // 'Content-Type':false,
+        // 'Process-Data': false,
         Accept: 'application/json'
       },
-      body: JSON.stringify({ghost: {username: username, password: password, image: image}, medium: medium})
+      // body: JSON.stringify({ghost: {username: username, password: password, image: image}, medium: medium})
+      // body: JSON.stringify(formData)
+      body: formData
     })
   }
 
@@ -108,19 +112,30 @@ class Adapter{
     }).then(res=>res.json())
   }
 
-  static createHaunt(houseInfo){
+  static createHaunt(formData){
     return fetch(`${apiUrl}/houses`, {
       method: "POST",
       headers: {
-        "Content-Type":'application/json',
+        // "Content-Type":'application/json',
         "Accept":'application/json',
         Authorization: `Bearer ${localStorage.getItem('jwt')}`
       },
-      body: JSON.stringify({
-        house: houseInfo
-      })
+      body: formData
     }).then(r=>r.json())
   }
+  // static createHaunt(houseInfo){
+  //   return fetch(`${apiUrl}/houses`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type":'application/json',
+  //       "Accept":'application/json',
+  //       Authorization: `Bearer ${localStorage.getItem('jwt')}`
+  //     },
+  //     body: JSON.stringify({
+  //       house: houseInfo
+  //     })
+  //   }).then(r=>r.json())
+  // }
 
   static featureHaunt(id, boolean){
     return fetch(`${apiUrl}/houses/${id}`, {
