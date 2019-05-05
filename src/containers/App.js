@@ -33,11 +33,15 @@ class App extends Component {
     }
   };
 
+  handleAppClick = () => {
+    if (this.state.visible) this.setState({visible: false})
+  }
+
   render() {
     const { visible } = this.state
     return (
       <Router>
-        <div>
+        <div onClick={this.handleAppClick}>
           <div className="left-0 right-0 top-0 fixed z-999">
             <UserHeader handleSidePush={this.handleSidePush}/>
           </div>
