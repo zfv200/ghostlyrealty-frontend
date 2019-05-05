@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import '../SignInLink.css'
 import withAuth from '../HOCs/withAuth'
 import SignInForm from './SignInForm'
+import { Menu } from 'semantic-ui-react'
 
 // TODO: combine with register link
 
@@ -13,15 +14,9 @@ const SignInLink = (props) => {
   const handleClick = () => {
     props.signInButtonClick(true)
   }
-
-  return (
-    <div>
-      <button onClick={handleClick} className="button"> Sign In </button>
-      {props.signInForm &&
-        <SignInForm />
-      }
-    </div>
-  )
+  // 
+  // return (
+  // )
 }
 
 const mapStateToProps = (state) => {
@@ -31,6 +26,12 @@ const mapStateToProps = (state) => {
   }
 }
 
+// <Menu.Item>
+//   <button onClick={handleClick} className="button"> Sign In </button>
+//   {props.signInForm &&
+//     <SignInForm />
+//   }
+// </Menu.Item>
 
 
 export default connect(mapStateToProps, { signInButtonClick})(withAuth(SignInLink, false))

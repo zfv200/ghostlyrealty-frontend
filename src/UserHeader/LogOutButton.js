@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import withAuth from '../HOCs/withAuth'
 import styles from './UserHeader.css.js'
 import { withRouter } from 'react-router-dom'
+import { Menu } from 'semantic-ui-react'
 
 const LogOutButton = (props) => {
 
@@ -17,9 +18,11 @@ const LogOutButton = (props) => {
     props.logOutGhost()
   }
   return (
-    <div style={styles.logOutButton}>
-      <button className="pointer f6 link dim ba ph3 pv2 mb2 dib black" id="logOutButton" onClick={logOut}>Log Out</button>
-    </div>
+    <Menu.Item>
+      <div style={styles.logOutButton}>
+        <button className="pointer f6 link dim ba ph3 pv2 mb2 dib black" id="logOutButton" onClick={logOut}>Log Out</button>
+      </div>
+    </Menu.Item>
   )
 }
 

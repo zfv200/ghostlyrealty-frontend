@@ -63,7 +63,6 @@ class RegisterForm extends React.Component{
   // }
 
   render(){
-    console.log(this.state);
     return (
       <div id="outer-popup" onClick={this.handleClick} style={styles.SignInForm}>
         <div id="inner-outer-popup" style={styles.content}>
