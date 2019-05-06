@@ -17,11 +17,10 @@ class TestCarousel extends React.Component{
     return this.props.featuredHouses.map((house)=>{
       return (
         <Slide>
-          <TestCarouselTile {...house}/>
+            <TestCarouselTile {...house}/>
         </Slide>
       )
     })
-    // const { name, image_url } = house.props
   }
 
   carouselClick = (e) => {
@@ -31,16 +30,17 @@ class TestCarousel extends React.Component{
   render(){
     const slideLength = this.props.featuredHouses.length
     return (
-      <CarouselProvider
-        naturalSlideWidth={100}
-        naturalSlideHeight={125}
-        totalSlides={slideLength}
-      >
-      <Slider>
-        {this.renderCarousel()}
-      </Slider>
-      <CustomDotGroup slides={slideLength}/>
-      </CarouselProvider>
+        <CarouselProvider
+          naturalSlideWidth={0.2}
+          naturalSlideHeight={0.2}
+          totalSlides={slideLength}
+        >
+        <Slider style={{height: "400px", width: "925px", border: "solid"}}>
+          {this.renderCarousel()}
+        </Slider>
+        <Divider />
+        <CustomDotGroup slides={slideLength}/>
+        </CarouselProvider>
     )
   }
 }
