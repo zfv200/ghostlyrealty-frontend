@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { fetchFeaturedHouses, fetchFeaturedAgent, setCarouselIndexOnRefresh } from './HomePageActions.js'
 import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
 import Carousel from '../Carousel/Carousel'
+import TestCarousel from '../Carousel/TestCarousel'
 import FeaturedAgent from '../FeaturedAgent/FeaturedAgent'
 import withLoader from '../HOCs/withLoader'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
@@ -24,7 +25,7 @@ class HomePage extends React.Component {
   render(){
     return (
       <div className="flex flex-column">
-        <Carousel />
+        <TestCarousel />
         <HouseSearchForm />
         <FeaturedAgent />
       </div>
