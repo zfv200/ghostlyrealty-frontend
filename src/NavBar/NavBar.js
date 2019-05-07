@@ -8,7 +8,6 @@ import CustomAgentLink from '../CustomAgentComps/CustomAgentLink'
 import { Menu } from 'semantic-ui-react'
 
 const NavBar = (props) => {
-  console.log(props);
   return (
     <div>
       <Menu.Item>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import TestAgentCard from '../AgentPage/TestAgentCard'
+import AgentCard from '../AgentPage/AgentCard'
 
 import { Header, Divider } from 'semantic-ui-react'
 
@@ -8,7 +8,7 @@ const FeaturedAgent = (props) => {
   return (
     <div>
       <Header as='h2'>Featured Medium:</Header>
-      <TestAgentCard {...props.featuredAgent}/>
+      <AgentCard {...props.featuredAgent}/>
       <Divider />
     </div>
   )
