@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom'
 import { searchProperties, searchSite } from './HouseSearchActions'
 import styles from './HouseSearchForm.css.js'
 
+import { Form, Button, Segment } from 'semantic-ui-react'
+
 class HouseSearchForm extends React.Component{
 
   constructor(){

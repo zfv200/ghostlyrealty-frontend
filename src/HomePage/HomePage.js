@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { connect } from 'react-redux'
 import { fetchFeaturedHouses, fetchFeaturedAgent, setCarouselIndexOnRefresh } from './HomePageActions.js'
-import HouseSearchForm from '../HouseSearchForm/HouseSearchForm'
+import TestHouseSearchForm from '../HouseSearchForm/TestHouseSearchForm'
 import Carousel from '../Carousel/Carousel'
 import TestCarousel from '../Carousel/TestCarousel'
 import FeaturedAgent from '../FeaturedAgent/FeaturedAgent'
@@ -24,10 +24,12 @@ class HomePage extends React.Component {
 
   render(){
     return (
-      <div className="flex flex-column">
-        <TestCarousel />
-        <HouseSearchForm />
-        <FeaturedAgent />
+      <div>
+        <div className="flex flex-column">
+          <TestCarousel />
+          <TestHouseSearchForm />
+          <FeaturedAgent />
+        </div>
       </div>
     )
   }

@@ -35,11 +35,11 @@ class TestCarousel extends React.Component{
           naturalSlideHeight={0.2}
           totalSlides={slideLength}
         >
-        <Slider style={{height: "400px", width: "925px", border: "solid"}}>
-          {this.renderCarousel()}
-        </Slider>
-        <Divider />
-        <CustomDotGroup slides={slideLength}/>
+          <Slider style={{height: "400px", width: "925px", border: "solid"}}>
+            {this.renderCarousel()}
+          </Slider>
+          <Divider />
+          <CustomDotGroup slides={slideLength}/>
         </CarouselProvider>
     )
   }
