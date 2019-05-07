@@ -25,7 +25,6 @@ class App extends Component {
 
   handleSidePush = () => {
     const { visible } = this.state;
-    console.log(!!visible);
     if (visible){
       this.setState({visible: false})
     } else {
@@ -33,8 +32,8 @@ class App extends Component {
     }
   };
 
-  handleAppClick = () => {
-    if (this.state.visible) this.setState({visible: false})
+  handleAppClick = (e) => {
+    if (this.state.visible && e.target.id !== "nav-search-bar") this.setState({visible: false})
   }
 
   render() {

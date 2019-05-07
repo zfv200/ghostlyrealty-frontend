@@ -6,6 +6,8 @@ import { registerGhost } from '../actions/actions'
 import linkButtonWithForm from '../HOCs/linkButtonWithForm'
 import withAuth from '../HOCs/withAuth'
 
+import { Form, Button, Segment, Checkbox } from 'semantic-ui-react'
+
 class RegisterForm extends React.Component{
   state={
     username: '',
@@ -43,6 +45,8 @@ class RegisterForm extends React.Component{
     return this.state.password===this.state.confirmedPassword ? true : false
   }
 
+  fileInputRef = React.createRef();
+
   handleSubmit = (e) => {
     // TODO: create a passwords don't match error
     e.preventDefault()
@@ -65,20 +69,47 @@ class RegisterForm extends React.Component{
   render(){
     return (
       <div id="outer-popup" onClick={this.handleClick} style={styles.SignInForm}>
-        <div id="inner-outer-popup" style={styles.content}>
-          <form id="register-form" style={styles.form} onSubmit={this.handleSubmit}>
-            Username:
-            <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
-            Medium?:
-            <input id="medium" className="ma2" checked={this.state.medium} className="formChild" type="checkbox" onChange={this.handleCheck}/>
-            Profile Picture:
-            <input id="profile_picture" type="file" onChange={this.handleFile}/>
-            Password:
-            <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
-            Confirm Password:
-            <input id="confirmedPassword" className="ma2" value={this.state.confirmedPassword} type="password" onChange={this.handleChange}/>
-            <button className="ma2 f6 link dim ph3 pv2 mb2 dib white bg-black" type="submit">Sign In</button>
-          </form>
+        <div id="inner-outer-popup" style={styles.registerContent}>
+          <Segment inverted style={{width: '100%'}}>
+            <Form inverted id="register-form" onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <label>Username:</label>
+                <input id="username" className="ma2" onClick={e => e.stopPropagation()} value={this.state.username} type="text" onChange={this.handleChange}/>
+              </Form.Field>
+              <Form.Field>
+                Password:
+                <input id="password" onClick={e => e.stopPropagation()} className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
+              </Form.Field>
+              <Form.Field>
+                Confirm Password:
+                <input id="confirmedPassword" onClick={e => e.stopPropagation()} className="ma2" value={this.state.confirmedPassword} type="password" onChange={this.handleChange}/>
+              </Form.Field>
+              <Form.Field>
+              <label>Medium?:</label>
+              <Form.Checkbox id="medium" onClick={e => e.stopPropagation()} checked={this.state.medium} onChange={this.handleCheck}/>
+              </Form.Field>
+              <Form.Field>
+              Profile Picture:
+              <br></br>
+              <br></br>
+              <Button
+              inverted
+              content="Choose File"
+              labelPosition="left"
+              icon="file"
+              onClick={(e) => {
+                e.stopPropagation()
+                this.fileInputRef.current.click()}
+              }
+              />
+              <input id="profile_picture" hidden onClick={e => e.stopPropagation()} ref={this.fileInputRef} type="file" onChange={this.handleFile}/>
+              </Form.Field>
+              <Form.Field>
+                <Checkbox label='I agree to haunt responsibly and spook my best' onClick={e => e.stopPropagation()} />
+              </Form.Field>
+              <Button inverted type="submit">Sign In</Button>
+            </Form>
+          </Segment>
         </div>
       </div>
     )

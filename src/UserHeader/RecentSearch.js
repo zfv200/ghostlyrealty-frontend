@@ -13,8 +13,8 @@ const RecentSearch = (props) => {
   }
 
   return (
-    <div className="dropdown-child" onClick={handleRecentSearchClick} style={styles.recentSearch}>
-      <h3 className="recentSearchText">{props.description}</h3><br></br>
+    <div style={{background: 'black', width: "500px"}} onClick={handleRecentSearchClick}>
+      <h3>{props.description}</h3><br></br>
     </div>
   )
 }

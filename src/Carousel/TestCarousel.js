@@ -17,7 +17,8 @@ class TestCarousel extends React.Component{
     return this.props.featuredHouses.map((house)=>{
       return (
         <Slide>
-            <TestCarouselTile {...house}/>
+          <h3 className="i pl2">{house.name}</h3>
+          <TestCarouselTile {...house}/>
         </Slide>
       )
     })
