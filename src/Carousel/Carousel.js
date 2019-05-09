@@ -4,18 +4,24 @@ import { connect } from 'react-redux'
 import { changeCarousel } from './CarouselActions'
 import styles from './Carousel.css.js'
 
+import CustomDotGroup from './CustomDotGroup'
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
-// TODO: have the carousel slide back and forth
+import { Divider } from "semantic-ui-react";
+import { CarouselProvider, ButtonBack, ButtonNext, DotGroup, Image, Slide, Slider } from "pure-react-carousel";
+
+
 class Carousel extends React.Component{
 
   renderCarousel = () =>{
-    let house = this.props.featuredHouses[this.props.featuredHouseIndex]
-    // const { name, image_url } = house.props
-    return (
-      <React.Fragment>
-        <CarouselTile {...house}/>
-      </React.Fragment>
-    )
+    return this.props.featuredHouses.map((house)=>{
+      return (
+        <Slide>
+          <h3 className="i pl2">{house.name}</h3>
+          <CarouselTile {...house}/>
+        </Slide>
+      )
+    })
   }
 
   carouselClick = (e) => {
@@ -23,29 +29,20 @@ class Carousel extends React.Component{
   }
 
   render(){
-    let childAndButton = {...styles.carouselChild, ...styles.carouselButton}
-    let back = "<"
-    let forward = ">"
+    const slideLength = this.props.featuredHouses.length
+    const images = this.props.featuredHouses.map(house=>house.images[0])
     return (
-      <div>
-        <div className="ma0 db relative" style={styles.carousel}>
-          <ul className="pa0 ma0 relative w-100">
+        <CarouselProvider
+          naturalSlideWidth={0.2}
+          naturalSlideHeight={0.2}
+          totalSlides={slideLength}
+        >
+          <Slider style={{height: "400px", width: "925px", border: "solid"}}>
             {this.renderCarousel()}
-          </ul>
-        </div>
-        <button
-          className="bg-black db absolute transparent h2 left-50 white pointer"
-          style={styles.button}
-          value="back"
-          onClick={this.carouselClick}>{back}
-        </button>
-        <button
-          className="bg-black db absolute transparent h2 right-0 white pointer"
-          style={{...styles.button, right: "127.5px"}}
-          value="foward"
-          onClick={this.carouselClick}>{forward}
-        </button>
-      </div>
+          </Slider>
+          <Divider />
+          <CustomDotGroup images={images} slides={slideLength}/>
+        </CarouselProvider>
     )
   }
 }
