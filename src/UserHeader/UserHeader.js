@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { toggleMenu } from '../containers/AppActions'
+
 import GhostlyRealtyLogo from './GhostlyRealtyLogo'
 import RecentSearchesContainer from './RecentSearchesContainer'
 import SignInLink from './SignInLink'
@@ -14,20 +16,20 @@ import { Menu, Icon, Sidebar, Segment, Header, Image } from 'semantic-ui-react'
 import styles from './UserHeader.css.js'
 
 class UserHeader extends React.Component{
-  state={
-    visible: false
-  }
+  // state={
+  //   visible: false
+  // }
 
   render(){
     const style = {height: '100vh'}
-    const { visible } = this.state
+    // const { visible } = this.state
     return (
       <Menu fixed="top" inverted>
         <Menu.Item>
           <GhostlyRealtyLogo />
         </Menu.Item>
-        <Menu.Item>
-          <Icon disabled={visible} onClick={this.props.handleSidePush} name="sidebar"/>
+        <Menu.Item onClick={(e)=>this.props.toggleMenu(e, this.props.menuVisible)}>
+          <Icon disabled={this.props.menuVisible} name="sidebar"/>
         </Menu.Item>
         <RecentSearchesContainer />
         <div className="right menu">
@@ -42,8 +44,9 @@ class UserHeader extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.userReducer.currentUser
+    currentUser: state.userReducer.currentUser,
+    menuVisible: state.userReducer.menuVisible
   }
 }
 
-export default connect(mapStateToProps)(UserHeader)
+export default connect(mapStateToProps, { toggleMenu })(UserHeader)

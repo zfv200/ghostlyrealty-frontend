@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { connect } from 'react-redux'
+
+import { toggleMenu } from './AppActions'
+
 import NavBar from '../NavBar/NavBar'
 import UserHeader from '../UserHeader/UserHeader'
 import Footer from '../Footer/Footer'
@@ -19,30 +23,30 @@ import MediumShowPage from '../MediumShowPage/MediumShowPage'
 import { Sidebar, Menu, Icon, Segment } from 'semantic-ui-react'
 
 class App extends Component {
-  state={
-    visible: false
-  }
+  // state={
+  //   visible: false
+  // }
+  //
+  // handleSidePush = () => {
+  //   const { visible } = this.state;
+  //   if (visible){
+  //     this.setState({visible: false})
+  //   } else {
+  //     // scrollToTop();
+  //     this.setState({visible: true})
+  //   }
+  // };
 
-  handleSidePush = () => {
-    const { visible } = this.state;
-    if (visible){
-      this.setState({visible: false})
-    } else {
-      this.setState({visible: true})
-    }
-  };
-
-  handleAppClick = (e) => {
-    if (this.state.visible && e.target.id !== "nav-search-bar") this.setState({visible: false})
-  }
+  // handleAppClick = (e) => {
+  //   if (this.state.visible && e.target.id !== "nav-search-bar") this.setState({visible: false})
+  // }
 
   render() {
-    const { visible } = this.state
     return (
       <Router>
-        <div onClick={this.handleAppClick}>
+        <div onClick={(e)=>{this.props.toggleMenu(e, true)}}>
           <div className="left-0 right-0 top-0 fixed z-999">
-            <UserHeader handleSidePush={this.handleSidePush}/>
+            <UserHeader />
           </div>
           <Sidebar.Pushable>
             <Sidebar
@@ -54,11 +58,11 @@ class App extends Component {
               direction="left"
               vertical
               width="wide"
-              visible={visible}
+              visible={this.props.menuVisible}
             >
-              <NavBar onClick={this.handleSidePush}/>
+              <NavBar/>
             </Sidebar>
-            <Sidebar.Pusher dimmed={visible}>
+            <Sidebar.Pusher dimmed={this.props.menuVisible}>
               <Segment basic>
                 <div className="pl5 pr5 pt5 ml5 mr5 mt5 flex flex-column">
                   <Route exact path="/" component={HomePage}/>
@@ -83,4 +87,10 @@ class App extends Component {
   }
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    menuVisible: state.userReducer.menuVisible
+  }
+}
+
+export default connect(mapStateToProps, { toggleMenu })(App)

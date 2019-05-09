@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar.tsx'
@@ -8,8 +8,33 @@ import CustomAgentLink from '../CustomAgentComps/CustomAgentLink'
 import { Menu } from 'semantic-ui-react'
 
 const NavBar = (props) => {
+
+  const [style, changeStyle] = useState({position: "relative"})
+
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll)
+
+    const removeScroll = () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+
+    return removeScroll
+  })
+
+  const handleScroll = (e) => {
+    if(window.scrollY > 0){
+      changeStyle(
+        {position: "fixed", top: window.scrollY, zIndex: 1000, width: "100%"}
+      )
+    } else {
+      changeStyle(
+        {position: "relative"}
+      )
+    }
+  }
+
   return (
-    <div>
+    <div style={style}>
       <Menu.Item>
       </Menu.Item>
       <Menu.Item>

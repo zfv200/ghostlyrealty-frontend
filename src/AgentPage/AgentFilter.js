@@ -18,9 +18,10 @@ const AgentFilter = (props) => {
   })
 
   const handleScroll = (e) => {
-    if(window.scrollY > 125){
+    if(window.scrollY > 110){
+      console.log(style);
       changeStyle(
-        {position: "fixed", top: "130px", zIndex: 1000, width: "25%"}
+        {position: "fixed", top: window.scrollY + 110 + "px", zIndex: 1000, width: "45%"}
       )
     } else {
       changeStyle(

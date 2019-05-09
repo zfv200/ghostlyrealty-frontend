@@ -15,18 +15,23 @@ interface HouseCardStatelessProps {
 
 const HouseCard: React.SFC<HouseCardStatelessProps> = (props) => {
   return (
-    <div>
+    <div className="ui grid">
       <Link to={`/houses/${props.id}`} style={{ textDecoration: 'none' }}>
-        <h1>{props.name}</h1>
+        <div className="four wide column">
+          <h1>{props.name}</h1>
+        </div>
+          <div className="four wide column">
         {
           props.images && props.images.length ?
-          <img style={styles.image} alt={`front shot of ${props.name}`} src={props.images[0]}/>
+          <img alt={`front shot of ${props.name}`} src={props.images[0]}/>
           :
-          <img style={styles.image} alt={`front shot of ${props.name}`} src={props.image_url}/>
+          <img alt={`front shot of ${props.name}`} src={props.image_url}/>
         }
-        <br></br>
-      </Link>
+          </div>
+        </Link>
+      <div className="seven wide column">
         {props.currentUser ? <HauntHouseButton id={props.id}/> : null}
+      </div>
     </div>
   )
 }

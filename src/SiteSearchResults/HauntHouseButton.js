@@ -15,7 +15,7 @@ class HauntHouseButton extends React.Component {
     }
   }
 
-  handleClick = () => {
+  handleClick = (e) => {
     if(this.state.haunting){
       this.props.leaveHouse(this.props.currentUser.id, this.props.id)
     } else {

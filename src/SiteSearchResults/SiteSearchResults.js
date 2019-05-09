@@ -5,6 +5,8 @@ import HouseCard from './HouseCard.tsx'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
+import { Divider } from 'semantic-ui-react'
+
 class SiteSearchResults extends React.Component{
 
   componentWillUnmount(){
@@ -18,13 +20,21 @@ class SiteSearchResults extends React.Component{
 
   renderAgentResults = () => {
     return JSON.parse(localStorage.getItem('agentResults')).map((result)=>{
-      return <AgentCard key={result.id} {...result}/>
+      return (
+        <div>
+          <AgentCard key={result.id} {...result}/>
+        </div>
+      )
     })
   }
 
   renderHouseResults = () => {
     return JSON.parse(localStorage.getItem('houseResults')).map((result)=>{
-      return <HouseCard key={result.id} {...result}/>
+      return (
+        <div>
+          <HouseCard key={result.id} {...result}/>
+        </div>
+      )
     })
   }
 
