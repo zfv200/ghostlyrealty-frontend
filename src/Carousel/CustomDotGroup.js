@@ -8,10 +8,12 @@ const CustomDotGroup = ({ slides, size, images }) => {
   <Container textAlign="center">
     <Button.Group size={size}>
       {[...Array(slides).keys()].map((slide, index) => (
-        <Button style={{opacity: 1}} as={Dot} key={slide} icon="circle" slide={slide}>
+        <Button style={{opacity: 1, color: 'white'}} as={Dot} key={slide} icon="circle" slide={slide}>
           {<img src={images[index]}
           style={{width: "40px", height: "40px"}}
-          />}
+          >
+
+          </img>}
         </Button>
       ))}
     </Button.Group>
