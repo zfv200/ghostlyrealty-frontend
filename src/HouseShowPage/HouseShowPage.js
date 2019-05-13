@@ -27,11 +27,7 @@ const HouseShowPage = (props) => {
     <Grid padded>
       <Grid.Row>
         <Grid.Column width={13}>
-          {house['image_url'] !== "" ?
-          <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
-          :
-          <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
-          }
+          <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
         </Grid.Column>
         <Grid.Column width={3}>
           <h1>{house.name}</h1>
@@ -53,6 +49,12 @@ const HouseShowPage = (props) => {
     </Grid>
   )
 }
+
+// {house['image_url'] !== "" ?
+// <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
+// :
+// <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
+// }
 
 
 
