@@ -10,9 +10,11 @@ import { recentSearch } from '../actions/actions'
 import { toggleMenu } from '../containers/AppActions'
 
 const RecentSearch = (props) => {
-  
+
   const handleRecentSearchClick = (e) => {
-    props.toggleMenu(e, props.menuVisible)
+    if(props.menuVisible){
+      props.toggleMenu(e, props.menuVisible)
+    }
     props.recentSearch(props)
     window.scrollTo(0, 0)
     props.history.push('/houses')

@@ -3,6 +3,7 @@ import { compose } from 'redux'
 import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
+import ImageWithLoader from '../HOCs/ImageWithLoader'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 

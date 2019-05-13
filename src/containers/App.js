@@ -19,6 +19,7 @@ import MyHouses from '../MyHouses/MyHouses'
 import AgentDashboard from '../AgentDashboard/AgentDashboard'
 import HouseShowPage from '../HouseShowPage/HouseShowPage'
 import MediumShowPage from '../MediumShowPage/MediumShowPage'
+import EditAgent from '../AgentDashboard/EditAgent'
 
 import { Sidebar, Menu, Icon, Segment } from 'semantic-ui-react'
 
@@ -69,7 +70,8 @@ class App extends Component {
                   <Route exact path="/mediums" component={AgentsPage}/>
                   <Route path="/results" component={SiteSearchResults}/>
                   <Route exact path="/houses/:id" component={HouseShowPage}/>
-                  <Route path="/mediums/:id" component={MediumShowPage}/>
+                  <Route exact path="/mediums/:id" component={MediumShowPage}/>
+                  <Route path="/mediums/:id/edit" component={EditAgent}/>
                   <Route path="/houses/:id/edit" component={NewHaunt}/>
                   <Route exact path="/houses" component={HouseSearchResults}/>
                   <Route path="/newHaunt" component={NewHaunt}/>

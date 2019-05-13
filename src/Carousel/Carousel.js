@@ -36,8 +36,10 @@ class Carousel extends React.Component{
           naturalSlideWidth={0.2}
           naturalSlideHeight={0.2}
           totalSlides={slideLength}
+          isPlaying={true}
+          interval={5000}
         >
-          <Slider style={{height: "400px", width: "925px", border: "solid"}}>
+          <Slider style={{height: "400px", width: "925px", border: "solid", margin: "auto"}}>
             {this.renderCarousel()}
           </Slider>
           <Divider />
