@@ -4,6 +4,8 @@ import linkButtonWithForm from '../HOCs/linkButtonWithForm'
 import styles from '../UserHeader/UserHeader.css.js'
 import { addCredits } from './AddCreditsActions'
 
+import { Button, Segment, Form } from 'semantic-ui-react'
+
 const AddCreditsForm = (props) => {
 
   const [credits, setCredits] = useState(0)
@@ -27,12 +29,14 @@ const AddCreditsForm = (props) => {
 
   return (
     <div id="outer-popup" onClick={handleClick} style={styles.SignInForm}>
-      <div id="inner-outer-popup" style={styles.content}>
-        <form id="credits-form" style={styles.form} onSubmit={handleSubmit}>
-          Add Credits!
-          <input id="credits" className="ma2" value={credits} type="number" onChange={handleChange}/>
-          <button id="sign-in-submit" className="ma2 f6 link dim ph3 pv2 mb2 dib white bg-black" type="submit">Add Credits</button>
-        </form>
+      <div id="inner-outer-popup" style={styles.addCreditsForm}>
+        <Segment inverted style={{width: "100%"}}>
+          <Form inverted id="credits-form" onSubmit={handleSubmit}>
+            Add Credits!
+            <input id="credits" className="ma2" value={credits} type="number" onChange={handleChange}/>
+            <Button inverted id="sign-in-submit" type="submit" style={{marginTop: "10px"}}>Add Credits</Button>
+          </Form>
+        </Segment>
       </div>
     </div>
   )

@@ -6,11 +6,11 @@ function withLoader(WrappedComponent, arrayOfFetches){
   return class extends React.Component{
 
     state={
-      loaded: true
+      loaded: false
     }
 
     componentDidMount(){
-      //putting this component on hold
+      console.log("hi!");
     }
 
     render(){
