@@ -32,6 +32,7 @@ function newOrEditHaunt(WrappedComponent){
     }
 
     componentDidMount(){
+      window.scrollTo(0, 0)
       if(this.props.match.params.id){
         Adapter.fetchHouse(parseInt(this.props.match.params.id))
         .then(r=>r.json())

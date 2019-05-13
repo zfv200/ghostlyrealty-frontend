@@ -5,19 +5,21 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { addBlankSearchError, clearBlankSearchError } from '../actions/actions'
 import BlankSearch from './BlankSearch'
 import styles from './NavBar.css.js'
+import { toggleMenu } from '../containers/AppActions'
 
 // TODO: is there a good way to abstract the blank search functionality to wrap all the search forms?
 // import { rootReducer } from '../index.js'
 
 interface StateProps {
-  blankSearchError: boolean
+  blankSearchError: boolean,
+  menuVisible: boolean
 }
 
 interface DispatchProps {
   searchSite: (searchTerm: string) => void,
   addBlankSearchError: () => void,
   clearBlankSearchError: () => void,
-  onClick: () => void
+  toggleMenu: (e: React.FormEvent<HTMLFormElement>, currentVal: boolean) => void
 }
 
 type Props = StateProps & DispatchProps & RouteComponentProps<any>
@@ -41,7 +43,7 @@ export class SearchBar extends React.Component<Props, State> {
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    this.props.onClick()
+    this.props.toggleMenu(e, this.props.menuVisible)
     if (this.state.searchTerm===''){
       return this.props.addBlankSearchError()
     } else {
@@ -72,8 +74,9 @@ export class SearchBar extends React.Component<Props, State> {
 
 const mapStateToProps = (state: any): StateProps => {
   return {
-    blankSearchError: state.searchReducer.blankSearch
+    blankSearchError: state.searchReducer.blankSearch,
+    menuVisible: state.userReducer.menuVisible
   }
 }
 
-export default connect(mapStateToProps, {searchSite, addBlankSearchError, clearBlankSearchError})(withRouter(SearchBar))
+export default connect(mapStateToProps, {searchSite, addBlankSearchError, clearBlankSearchError, toggleMenu})(withRouter(SearchBar))
