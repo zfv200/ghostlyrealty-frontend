@@ -6,6 +6,8 @@ import { signInButtonClick } from './userHeaderActions'
 import linkButtonWithForm from '../HOCs/linkButtonWithForm'
 import withAuth from '../HOCs/withAuth'
 
+import { Form, Button, Segment } from 'semantic-ui-react'
+
 class SignInForm extends React.Component{
   state={
     username: '',
@@ -41,13 +43,19 @@ class SignInForm extends React.Component{
     return (
       <div id="outer-popup" onClick={this.handleClick} style={styles.SignInForm}>
         <div id="inner-outer-popup" style={styles.content}>
-          <form id="sign-in-form" style={styles.form} onSubmit={this.handleSubmit}>
-            Username:
-            <input id="username" className="ma2" value={this.state.username} type="text" onChange={this.handleChange}/>
-            Password:
-            <input id="password" className="ma2" value={this.state.password} type="password" onChange={this.handleChange}/>
-            <button id="sign-in-submit" className="ma2 f6 link dim ph3 pv2 mb2 dib white bg-black" type="submit">Sign In</button>
-          </form>
+          <Segment inverted style={{width: "100%"}}>
+            <Form inverted id="sign-in-form" onSubmit={this.handleSubmit}>
+              <Form.Field>
+                <label>Username:</label>
+                <input id="username" onClick={e => e.stopPropagation()} value={this.state.username} type="text" onChange={this.handleChange}/>
+              </Form.Field>
+              <Form.Field>
+                <label>Password:</label>
+                <input id="password" onClick={e => e.stopPropagation()} value={this.state.password} type="password" onChange={this.handleChange}/>
+              </Form.Field>
+              <Button inverted id="sign-in-submit" type="submit">Sign In</Button>
+            </Form>
+          </Segment>
         </div>
       </div>
     )

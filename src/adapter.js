@@ -117,6 +117,7 @@ class Adapter{
       method: "POST",
       headers: {
         // "Content-Type":'application/json',
+        enctype: 'multipart/form-data',
         "Accept":'application/json',
         Authorization: `Bearer ${localStorage.getItem('jwt')}`
       },
@@ -201,15 +202,28 @@ class Adapter{
     }).then(r=>r.json())
   }
 
-  static editHaunt(data){
-    return fetch(`${apiUrl}/houses/${data.house.id}`, {
-      method: 'PATCH',
+  // static editHaunt(data){
+  //   return fetch(`${apiUrl}/houses/${data.house.id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       "Content-Type": 'application/json',
+  //       "Accept": 'application/json',
+  //       Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+  //     },
+  //     body: JSON.stringify(data)
+  //   }).then(r=>r.json())
+  // }
+
+  static editHaunt(formData){
+    return fetch(`${apiUrl}/houses/${formData.get('id')}`, {
+      method: "PATCH",
       headers: {
-        "Content-Type": 'application/json',
-        "Accept": 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        // "Content-Type":'application/json',
+        enctype: 'multipart/form-data',
+        "Accept":'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`
       },
-      body: JSON.stringify(data)
+      body: formData
     }).then(r=>r.json())
   }
 

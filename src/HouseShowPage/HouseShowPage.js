@@ -6,6 +6,8 @@ import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
+import { Grid, Divider, Header } from 'semantic-ui-react'
+
 const HouseShowPage = (props) => {
 
   const [house, addHouse] = useState({})
@@ -22,24 +24,39 @@ const HouseShowPage = (props) => {
   }, [])
 
   return (
-    <div>
-      <h1>{house.name}</h1>
-      <div style={{display: "flex"}}>
-        {house['image_url'] !== "" ?
-        <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
-        :
-        <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
-
-      }
-        <AgentCard {...medium}/>
-      </div>
-      <h3>{house.address}</h3>
+    <Grid padded>
+      <Grid.Row>
+        <Grid.Column width={13}>
+          <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
+        </Grid.Column>
+        <Grid.Column width={3}>
+          <h1>{house.name}</h1>
+          <h3>{house.address}</h3>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <h2>About this Haunt:</h2>
+        <p>{house.description}</p>
+      </Grid.Row>
+      <Grid.Row style={{height: "80px"}}>
       {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
-      <h2>About this Haunt:</h2>
-      <p>{house.description}</p>
-    </div>
+      </Grid.Row>
+      <Divider />
+      <Grid.Row>
+        <Header className="i" as="h3">Contact a Medium</Header>
+        <AgentCard {...medium}/>
+      </Grid.Row>
+    </Grid>
   )
 }
+
+// {house['image_url'] !== "" ?
+// <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
+// :
+// <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
+// }
+
+
 
 export default compose(
   withCurrentGhost

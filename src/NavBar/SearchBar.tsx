@@ -16,7 +16,8 @@ interface StateProps {
 interface DispatchProps {
   searchSite: (searchTerm: string) => void,
   addBlankSearchError: () => void,
-  clearBlankSearchError: () => void
+  clearBlankSearchError: () => void,
+  onClick: () => void
 }
 
 type Props = StateProps & DispatchProps & RouteComponentProps<any>
@@ -40,6 +41,7 @@ export class SearchBar extends React.Component<Props, State> {
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    this.props.onClick()
     if (this.state.searchTerm===''){
       return this.props.addBlankSearchError()
     } else {

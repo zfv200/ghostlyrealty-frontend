@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import { Menu, Button } from 'semantic-ui-react'
+
 function linkButtonWithForm(WrappedForm){
 
   class baseLink extends React.Component {
@@ -17,12 +19,12 @@ function linkButtonWithForm(WrappedForm){
 
     render(){
       return (
-        <div>
-          <button onClick={()=>this.handleClick(true)} className="f6 link dim ba ph3 pv2 mb2 dib black"> {this.props.title} </button>
+        <Menu.Item>
+          <Button inverted onClick={()=>this.handleClick(true)} className="f6 link dim ba ph3 pv2 mb2 dib black"> {this.props.title} </Button>
           {this.state.buttonClick &&
             <WrappedForm handleClick={()=>this.handleClick(false)} {...this.props}/>
           }
-        </div>
+        </Menu.Item>
       )
     }
   }

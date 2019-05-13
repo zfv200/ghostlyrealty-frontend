@@ -4,7 +4,8 @@ const defaultState = {
   currentUserSearches: [],
   signInForm: false,
   registerForm: false,
-  currentUserHouses: []
+  currentUserHouses: [],
+  menuVisible: false
 }
 
 export default function userReducer(state=defaultState, action){
@@ -37,6 +38,8 @@ export default function userReducer(state=defaultState, action){
       return {...state, currentUser: updatedGhost}
     case "FEATURE_AGENT":
       return {...state, currentUser: action.payload}
+    case "TOGGLE_MENU":
+      return {...state, menuVisible: action.payload}
     default:
       return state
   }

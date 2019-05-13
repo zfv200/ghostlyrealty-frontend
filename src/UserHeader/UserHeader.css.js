@@ -63,7 +63,18 @@ export default {
     border: "1px solid rgb(187, 187, 187)",
     padding: "5px",
     display: "flex",
-    width: "20%",
-    height: "50%"
+    width: "30%",
+    height: "40%"
+  },
+
+  registerContent: {
+    position: "relative",
+    background: "rgb(255, 255, 255)",
+    margin: "auto",
+    border: "1px solid rgb(187, 187, 187)",
+    padding: "5px",
+    display: "flex",
+    width: "30%",
+    height: "64%"
   }
 }

@@ -74,12 +74,12 @@ function newOrEditHaunt(WrappedComponent){
     handleSubmit = (e) => {
       e.preventDefault()
       let formData = this.createFormData(this.state)
-
       if(this.state.newHaunt){
         // this.props.createHaunt(this.state)
         this.props.createHaunt(formData)
       } else {
-        Adapter.editHaunt({house: this.state})
+        formData.append('id', parseInt(this.props.match.params.id))
+        Adapter.editHaunt(formData)
       }
     }
 

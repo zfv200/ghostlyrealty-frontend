@@ -4,6 +4,7 @@ import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import Root from './Root'
+import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
   <Root>

@@ -9,6 +9,8 @@ import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 import { fetchAgents } from './AgentPageActions'
 
+import { Divider } from 'semantic-ui-react'
+
 interface AgentAttributes {
   id: number,
   username: string,
@@ -40,7 +42,14 @@ class AgentsPage extends React.Component<StateProps & DispatchProps, any>{
   }
 
   renderAgents = () => {
-    return this.props.agents.map((agent: AgentAttributes) => <AgentCard key={agent.id} {...agent}/>)
+    return this.props.agents.map((agent: AgentAttributes) => {
+      return (
+        <div>
+          <AgentCard key={agent.id} {...agent}/>
+          <Divider />
+        </div>
+      )
+    })
   }
 
   render(){
