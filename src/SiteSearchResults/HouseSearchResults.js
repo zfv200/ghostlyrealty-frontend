@@ -11,7 +11,7 @@ class HouseSearchResults extends React.Component {
   }
 
   renderHouseResults = () =>{
-    if (localStorage.getItem('houseResults')){
+    if (localStorage.getItem('houseResults') && localStorage.getItem('houseResults') !== "undefined"){
       return JSON.parse(localStorage.getItem('houseResults')).map(result=>{
         return <HouseCard {...result} />
       })

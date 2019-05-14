@@ -8,7 +8,7 @@ import { Menu, Button } from 'semantic-ui-react'
 
 const LogOutButton = (props) => {
 
-  const paths = ["/newhaunt", "/dashboard", "/myhaunts", "/results", "/myhouses"]
+  const paths = ["/newhaunt", "/dashboard", "/myhaunts", "/results", "/myhouses", "/houses"]
 
   const logOut = () => {
     if (paths.includes(props.history.location.pathname)){
