@@ -10,6 +10,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { createHaunt } from '../NewHaunt/NewHauntActions'
 import { compose } from 'redux'
+import { withRouter } from 'react-router'
 import Adapter from '../adapter.js'
 import agentWithAuth from './agentWithAuth'
 import withCurrentGhost from './withCurrentGhost'
@@ -28,7 +29,7 @@ function newOrEditHaunt(WrappedComponent){
       new_family: false,
       rooms: 0,
       newHaunt: false,
-      images: []
+      images: [],
     }
 
     componentDidMount(){
@@ -73,14 +74,20 @@ function newOrEditHaunt(WrappedComponent){
     }
 
     handleSubmit = (e) => {
+      let id =
       e.preventDefault()
       let formData = this.createFormData(this.state)
       if(this.state.newHaunt){
         // this.props.createHaunt(this.state)
-        this.props.createHaunt(formData)
+        return this.props.createHaunt(formData)
+        .then(id=>{
+          this.props.history.push(`/houses/${id}`)
+        })
       } else {
-        formData.append('id', parseInt(this.props.match.params.id))
+        let id = parseInt(this.props.match.params.id)
+        formData.append('id', id)
         Adapter.editHaunt(formData)
+        this.props.history.push(`/houses/${id}`)
       }
     }
 
@@ -92,7 +99,6 @@ function newOrEditHaunt(WrappedComponent){
     }
 
     render(){
-      console.log(this.state.images);
       return (
         <WrappedComponent
           {...this.props}
@@ -109,6 +115,7 @@ function newOrEditHaunt(WrappedComponent){
   return compose(
     withCurrentGhost,
     agentWithAuth,
+    withRouter,
     connect(null, {createHaunt})
   )(BaseEdit)
   // return withCurrentGhost(agentWithAuth(connect(null)(BaseEdit))

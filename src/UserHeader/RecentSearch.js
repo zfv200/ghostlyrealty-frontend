@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import styles from './UserHeader.css.js'
 
-import { Header } from 'semantic-ui-react'
+import { Header, Segment } from 'semantic-ui-react'
 
 import { recentSearch } from '../actions/actions'
 
@@ -21,9 +21,9 @@ const RecentSearch = (props) => {
   }
 
   return (
-    <div style={{background: 'black', width: "500px", cursor: "pointer"}} onClick={handleRecentSearchClick}>
-      <Header inverted as='h3'>{props.description}</Header><br></br>
-    </div>
+    <Segment className="link dim black b" style={{background: 'black', width: "500px", cursor: "pointer"}} onClick={handleRecentSearchClick}>
+      <p style={{color: 'red'}} inverted as='h3'>{props.description}</p>
+    </Segment>
   )
 }
 

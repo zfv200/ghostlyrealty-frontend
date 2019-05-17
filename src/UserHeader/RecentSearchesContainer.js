@@ -11,14 +11,16 @@ class RecentSearchesContainer extends React.Component{
 
   renderRecentSearches = () => {
     return this.props.recentSearches.map(search=>{
-      return <RecentSearch key={search.id} {...search}/>
+      return (
+        <RecentSearch key={search.id} {...search}/>
+      )
     })
   }
 
   render(){
     return(
       <Menu.Item>
-        <Dropdown text='Recent Searches' options={this.renderRecentSearches()} fluid simple />
+        <Dropdown text='Recent Searches' options={this.renderRecentSearches()} fluid simple item />
       </Menu.Item>
     )
   }

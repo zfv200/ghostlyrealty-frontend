@@ -13,6 +13,7 @@ const HouseShowPage = (props) => {
 
   const [house, addHouse] = useState({})
   const [medium, addMedium] = useState({})
+  const [convertedAtts, addConvertedAtts] = useState({})
 
   useEffect(()=>{
     window.scrollTo(0, 0)
@@ -21,33 +22,76 @@ const HouseShowPage = (props) => {
     .then(json=>{
       addHouse({...json.house})
       addMedium({...json.medium})
+      addConvertedAtts(attributes(json.house))
     })
   }, [])
 
+  const attributes = (house) => {
+
+    const keyConverter = (oldKey, newKey, object) => {
+      if (oldKey !== newKey) {
+        Object.defineProperty(object, newKey, Object.getOwnPropertyDescriptor(object, oldKey));
+        delete object[oldKey];
+      }
+    }
+
+    const valueConverter = (value) => {
+      return value ? "Yes" : "No"
+    }
+
+    const {address, description, featured, id, image_url, images, name, rooms, ...converted_atts} = house
+
+    for (let key in converted_atts){
+      converted_atts[key] = valueConverter(converted_atts[key])
+      let newKey = key.split('_').map(word=>word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
+      keyConverter(key, newKey, converted_atts)
+    }
+
+    return converted_atts
+  }
+
+  const displayAttributes = () => {
+    if(convertedAtts){
+      return Object.keys(convertedAtts).map(key=>{
+        return (
+          <div>
+            <h3>{key}</h3>:<p>{convertedAtts[key]}</p>
+          </div>
+        )
+      })
+    } else {
+      return null
+    }
+  }
+
   return (
-    <Grid padded>
-      <Grid.Row>
-        <Grid.Column width={13}>
-          <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
-        </Grid.Column>
-        <Grid.Column width={3}>
-          <h1>{house.name}</h1>
-          <h3>{house.address}</h3>
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <h2>About this Haunt:</h2>
-        <p>{house.description}</p>
-      </Grid.Row>
-      <Grid.Row style={{height: "80px"}}>
-      {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
-      </Grid.Row>
-      <Divider />
-      <Grid.Row>
-        <Header className="i" as="h3">Contact a Medium</Header>
-        <AgentCard {...medium}/>
-      </Grid.Row>
-    </Grid>
+    <div>
+      <Header as='h1' style={{marginLeft: "18px"}}>{house.name}</Header>
+      <Grid padded>
+        <Grid.Row>
+          <Grid.Column width={13}>
+            <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <h1>{house.name}</h1>
+            <h3>{house.address}</h3>
+            {displayAttributes()}
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <h2>About this Haunt:</h2>
+          <p>{house.description}</p>
+        </Grid.Row>
+        <Grid.Row style={{height: "80px"}}>
+        {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
+        </Grid.Row>
+        <Divider />
+        <Grid.Row>
+          <Header className="i" as="h3">Contact a Medium</Header>
+          <AgentCard {...medium}/>
+        </Grid.Row>
+      </Grid>
+    </div>
   )
 }
 

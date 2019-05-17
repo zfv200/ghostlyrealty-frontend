@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { searchProperties, searchSite } from './HouseSearchActions'
 import styles from './HouseSearchForm.css.js'
 
-import { Form, Button, Segment } from 'semantic-ui-react'
+import { Form, Button, Segment, Divider } from 'semantic-ui-react'
 
 class HouseSearchForm extends React.Component{
 
@@ -16,7 +16,9 @@ class HouseSearchForm extends React.Component{
       solo_haunt: false,
       burial_ground: false,
       complexSearch: false,
-      new_family: false
+      new_family: false,
+      witch_friendly: false,
+      exact_search: false
     }
   }
 
@@ -44,16 +46,22 @@ class HouseSearchForm extends React.Component{
 
   render(){
     return (
-      <div className="pa4 db">
+      <div>
         <h3 id="houseSearchTitle">Houses for Haunt</h3>
-        <div className="pv2"><h2 className="dib">Sales</h2></div>
-        <form style={styles.form} className="w-100 ma0 flex items-start"onSubmit={this.handleSubmit}>
-          <input id="typedSearch" className="f4 w-100 mr4" style={styles.typedSearch} onChange={this.handleChange} placeholder="House or building name"/><br></br>
-          <input id="solo_haunt" type="checkbox" value={this.state.solo_haunt} onChange={this.handleChange}/><h3>Solo Haunt</h3>
-          <input id="burial_ground" type="checkbox" value={this.state.burial_ground} onChange={this.handleChange}/><h3>Built on top of Burial Ground</h3>
-          <input id="new_family" type="checkbox" value={this.state.new_family} onChange={this.handleChange}/><h3>New Family Hoping for a Fresh Start</h3>
-          <button style={styles.searchButton} className="f6 link dim ph3 pv2 mb2 dib white bg-black pointer" id="houseSearchSubmit" type="submit">Search</button>
-        </form>
+        <Segment inverted>
+          <Form inverted onSubmit={this.handleSubmit}>
+            <Form.Input id="typedSearch" onChange={this.handleChange} placeholder='House or building name'/>
+            <Form.Group widths='equal'>
+              <Form.Checkbox label='Solo Haunt' id="solo_haunt" value={this.state.solo_haunt} onChange={this.handleChange}/>
+              <Form.Checkbox label='Built on top of Burial Ground' id="burial_ground" value={this.state.burial_ground} onChange={this.handleChange}/>
+              <Form.Checkbox label='New Family Hoping for a Fresh Start' id="new_family" type="checkbox" value={this.state.new_family} onChange={this.handleChange}/>
+              <Form.Checkbox label='Witch Friendly' id="witch_friendly" type="checkbox" value={this.state.witch_friendly} onChange={this.handleChange}/>
+              <Form.Checkbox label='Exact Search' id="exact_search" type="checkbox" value={this.state.exact_search} onChange={this.handleChange}/>
+            </Form.Group>
+            <Button inverted id="houseSearchSubmit" type="submit">Search</Button>
+          </Form>
+        </Segment>
+        <Divider />
       </div>
     )
   }
