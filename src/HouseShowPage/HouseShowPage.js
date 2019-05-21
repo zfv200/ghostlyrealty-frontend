@@ -8,7 +8,7 @@ import Carousel from '../Carousel/Carousel'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
-import { Grid, Divider, Header } from 'semantic-ui-react'
+import { Grid, Divider, Header, Segment } from 'semantic-ui-react'
 
 const HouseShowPage = (props) => {
 
@@ -57,9 +57,9 @@ const HouseShowPage = (props) => {
     if(convertedAtts){
       return Object.keys(convertedAtts).map(key=>{
         return (
-          <div>
-            <h3>{key}</h3>:<p>{convertedAtts[key]}</p>
-          </div>
+          <Segment>
+            <div>{key}:{" "}<i>{convertedAtts[key]}</i></div>
+          </Segment>
         )
       })
     } else {
@@ -80,14 +80,13 @@ const HouseShowPage = (props) => {
             />
           </Grid.Column>
           <Grid.Column width={3}>
-            <h1>{house.name}</h1>
             <h3>{house.address}</h3>
             {displayAttributes()}
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <h2>About this Haunt:</h2>
-          <p>{house.description}</p>
+          <p style={{fontSize: "16px"}}>{house.description}</p>
         </Grid.Row>
         <Grid.Row style={{height: "80px"}}>
         {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
@@ -102,7 +101,6 @@ const HouseShowPage = (props) => {
   )
 }
 
-// <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
 
 
 
