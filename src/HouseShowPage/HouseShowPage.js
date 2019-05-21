@@ -4,6 +4,7 @@ import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 import ImageWithLoader from '../HOCs/ImageWithLoader'
+import Carousel from '../Carousel/Carousel'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
@@ -12,6 +13,7 @@ import { Grid, Divider, Header } from 'semantic-ui-react'
 const HouseShowPage = (props) => {
 
   const [house, addHouse] = useState({})
+  const [images, addImages] = useState([])
   const [medium, addMedium] = useState({})
   const [convertedAtts, addConvertedAtts] = useState({})
 
@@ -21,6 +23,7 @@ const HouseShowPage = (props) => {
     fetchHouse(id)
     .then(json=>{
       addHouse({...json.house})
+      addImages([...json.house.images])
       addMedium({...json.medium})
       addConvertedAtts(attributes(json.house))
     })
@@ -70,7 +73,11 @@ const HouseShowPage = (props) => {
       <Grid padded>
         <Grid.Row>
           <Grid.Column width={13}>
-            <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
+            <Carousel
+            images={images}
+            style={{height: "400px", width: "800px", border: "solid", margin: "auto"}}
+            id={house.id}
+            />
           </Grid.Column>
           <Grid.Column width={3}>
             <h1>{house.name}</h1>
@@ -95,11 +102,8 @@ const HouseShowPage = (props) => {
   )
 }
 
-// {house['image_url'] !== "" ?
-// <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
-// :
-// <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
-// }
+// <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
+
 
 
 

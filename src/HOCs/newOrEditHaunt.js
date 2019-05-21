@@ -38,6 +38,7 @@ function newOrEditHaunt(WrappedComponent){
         Adapter.fetchHouse(parseInt(this.props.match.params.id))
         .then(r=>r.json())
         .then(json=>{
+          json.house.images = []
           this.setState({...json.house})
         })
       } else {
