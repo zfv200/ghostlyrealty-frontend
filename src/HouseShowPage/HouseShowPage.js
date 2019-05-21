@@ -4,14 +4,16 @@ import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 import ImageWithLoader from '../HOCs/ImageWithLoader'
+import Carousel from '../Carousel/Carousel'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
-import { Grid, Divider, Header } from 'semantic-ui-react'
+import { Grid, Divider, Header, Segment } from 'semantic-ui-react'
 
 const HouseShowPage = (props) => {
 
   const [house, addHouse] = useState({})
+  const [images, addImages] = useState([])
   const [medium, addMedium] = useState({})
   const [convertedAtts, addConvertedAtts] = useState({})
 
@@ -21,6 +23,7 @@ const HouseShowPage = (props) => {
     fetchHouse(id)
     .then(json=>{
       addHouse({...json.house})
+      addImages([...json.house.images])
       addMedium({...json.medium})
       addConvertedAtts(attributes(json.house))
     })
@@ -54,9 +57,9 @@ const HouseShowPage = (props) => {
     if(convertedAtts){
       return Object.keys(convertedAtts).map(key=>{
         return (
-          <div>
-            <h3>{key}</h3>:<p>{convertedAtts[key]}</p>
-          </div>
+          <Segment>
+            <div>{key}:{" "}<i>{convertedAtts[key]}</i></div>
+          </Segment>
         )
       })
     } else {
@@ -70,17 +73,20 @@ const HouseShowPage = (props) => {
       <Grid padded>
         <Grid.Row>
           <Grid.Column width={13}>
-            <img style={{height: "400px", paddingRight: "20px"}} src={house.images ? house.images[0] : ""}/>
+            <Carousel
+            images={images}
+            style={{height: "400px", width: "800px", border: "solid", margin: "auto"}}
+            id={house.id}
+            />
           </Grid.Column>
           <Grid.Column width={3}>
-            <h1>{house.name}</h1>
             <h3>{house.address}</h3>
             {displayAttributes()}
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <h2>About this Haunt:</h2>
-          <p>{house.description}</p>
+          <p style={{fontSize: "16px"}}>{house.description}</p>
         </Grid.Row>
         <Grid.Row style={{height: "80px"}}>
         {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
@@ -95,11 +101,7 @@ const HouseShowPage = (props) => {
   )
 }
 
-// {house['image_url'] !== "" ?
-// <img style={{height: "400px", paddingRight: "20px"}} src={house['image_url']}/>
-// :
-// <img style={{height: "400px", paddingRight: "20px"}} src={house.images[0]}/>
-// }
+
 
 
 

@@ -3,16 +3,7 @@ import { Dot } from "pure-react-carousel";
 import React from "react";
 import { Button, Container } from "semantic-ui-react";
 
-const CustomDotGroup = ({ slides, size, images }) => {
-
-
-  const scrollToTop = () => {
-    const c = document.documentElement.scrollTop || document.body.scrollTop;
-    if (c > 0) {
-      window.requestAnimationFrame(scrollToTop);
-      window.scrollTo(0, c - c / 8);
-    }
-  };
+const CustomDotGroup = ({ slides, size, images, scrollToTop }) => {
 
   return (
   <Container textAlign="center">
@@ -37,7 +28,5 @@ CustomDotGroup.propTypes = {
   slides: PropTypes.number.isRequired,
   size: PropTypes.string
 };
-
-// <Button as={Dot} key={slide} icon="circle" slide={slide} />
 
 export default CustomDotGroup;

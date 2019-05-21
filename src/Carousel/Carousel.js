@@ -1,7 +1,7 @@
 import React from 'react'
 import CarouselTile from './CarouselTile'
 import { connect } from 'react-redux'
-import { changeCarousel } from './CarouselActions'
+// import { changeCarousel } from './CarouselActions'
 import styles from './Carousel.css.js'
 
 import CustomDotGroup from './CustomDotGroup'
@@ -14,23 +14,34 @@ import { CarouselProvider, ButtonBack, ButtonNext, DotGroup, Image, Slide, Slide
 class Carousel extends React.Component{
 
   renderCarousel = () =>{
-    return this.props.featuredHouses.map((house)=>{
-      return (
-        <Slide>
+    if(this.props.featuredHouses){
+      return this.props.featuredHouses.map((house)=>{
+        return (
+          <Slide>
           <h3 className="i pl2">{house.name}</h3>
-          <CarouselTile {...house}/>
-        </Slide>
-      )
-    })
+          <CarouselTile
+          {...house}
+          image={house.images[0]}/>
+          </Slide>
+        )
+      })
+    } else {
+      return this.props.images.map((image)=>{
+        return (
+          <Slide>
+            <CarouselTile image={image} id={this.props.id}/>
+          </Slide>
+        )
+      })
+    }
   }
 
-  carouselClick = (e) => {
-    this.props.changeCarousel(e.target.value)
+  length = () => {
+    return this.props.featuredHouses ? this.props.featuredHouses.length : (this.props.images ? this.props.images.length : 1)
   }
 
   render(){
-    const slideLength = this.props.featuredHouses.length
-    const images = this.props.featuredHouses.map(house=>house.images[0])
+    const slideLength = this.length()
     return (
         <CarouselProvider
           naturalSlideWidth={0.2}
@@ -39,23 +50,14 @@ class Carousel extends React.Component{
           isPlaying={true}
           interval={5000}
         >
-          <Slider style={{height: "400px", width: "925px", border: "solid", margin: "auto"}}>
+          <Slider style={this.props.style}>
             {this.renderCarousel()}
           </Slider>
           <Divider />
-          <CustomDotGroup images={images} slides={slideLength}/>
+          <CustomDotGroup scrollToTop={this.props.scrollToTop} images={this.props.images} slides={slideLength}/>
         </CarouselProvider>
     )
   }
 }
 
-const mapStateToProps = (state) =>{
-  return {
-    featuredHouses: state.houseReducer.featuredHouses,
-    featuredHouseIndex: state.houseReducer.featuredHouseIndex
-  }
-}
-
-
-
-export default connect(mapStateToProps, {changeCarousel})(Carousel)
+export default Carousel

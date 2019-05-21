@@ -7,7 +7,7 @@ const CarouselTile = (props) =>{
   if(props){
     return (
       <Link to={`/houses/${props.id}`} style={{ textDecoration: 'none' }}>
-        <Image style={{height: '370px', width: "1000px"}} className="" src={props.images[0]} alt={props.name}/>
+        <Image style={{height: '370px', width: "1000px"}} className="" src={props.image} alt={props.name}/>
       </Link>
     )
   }
