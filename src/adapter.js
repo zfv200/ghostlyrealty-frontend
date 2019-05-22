@@ -227,6 +227,18 @@ class Adapter{
     }).then(r=>r.json())
   }
 
+  static fetchSpookScore(id){
+    return fetch(`${apiUrl}/spook_score`, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      },
+      body: JSON.stringify({id: id})
+    }).then(r=>r.json())
+  }
+
 }
 
 export default Adapter

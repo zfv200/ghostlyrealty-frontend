@@ -4,6 +4,7 @@ import withCurrentGhost from '../HOCs/withCurrentGhost'
 import agentWithAuth from '../HOCs/agentWithAuth'
 import AddCreditsForm from '../AddCredits/AddCreditsForm'
 import HouseCard from '../SiteSearchResults/HouseCard.tsx'
+import SpookScoreGenerator from './SpookScoreGenerator'
 
 import { featureMedium } from './AgentDashboardActions'
 
@@ -21,7 +22,12 @@ const AgentDashboard = (props) => {
 
   const renderProperties = () =>{
     return props.currentUser.properties.map(property=>{
-      return <HouseCard key={property.id} {...property}/>
+      return (
+        <div>
+          <SpookScoreGenerator id={property.id}/>
+          <HouseCard key={property.id} {...property}/>
+        </div>
+      )
     })
   }
 
