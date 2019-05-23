@@ -13,7 +13,7 @@ function SpookFormContainer(props){
   const houseOptions = () => {
     return props.houses.map(house=>{
       return {
-        key: house,
+        key: house.id,
         text: house.name,
         value: house.id
       }
@@ -24,11 +24,9 @@ function SpookFormContainer(props){
     if(selectedId){
       Adapter.fetchSpookScore(selectedId)
       .then(json=>{
-        debugger
         addSpookScore(json.result)
-        // let classes = json.result.images[0].classifiers[0].classes
-        // return classes.length ? console.log(classes[0].score) : console.log("Image not clear enough!")
       }).catch(err=>{
+
       })
     }
   }
