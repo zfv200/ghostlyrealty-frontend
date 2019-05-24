@@ -89,5 +89,18 @@ export default {
     display: "flex",
     width: "10%",
     height: "10%"
+  },
+
+  loader: {
+    position: "relative",
+    background: "rgb(255, 255, 255)",
+    marginTop: "15%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    border: "1px solid rgb(187, 187, 187)",
+    padding: "5px",
+    display: "flex",
+    width: "30%",
+    height: "20%"
   }
 }

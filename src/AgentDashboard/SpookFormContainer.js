@@ -9,6 +9,8 @@ function SpookFormContainer(props){
 
   const [selectedId, changeSelectedId] = useState(null)
   const [newSpookScore, addSpookScore] = useState(null)
+  const [loading, changeLoadingStatus] = useState(false)
+  const [selectedHouseName, changeSelectedHouseName] = useState(null)
 
   const houseOptions = () => {
     return props.houses.map(house=>{
@@ -21,12 +23,15 @@ function SpookFormContainer(props){
   }
 
   const generateSpookScore = () => {
+    addSpookScore(null)
+    changeLoadingStatus(true)
     if(selectedId){
+      let house = props.houses.find(house=>house.id===selectedId).name
+      changeSelectedHouseName(house)
       Adapter.fetchSpookScore(selectedId)
       .then(json=>{
+        changeLoadingStatus(false)
         addSpookScore(json.result)
-      }).catch(err=>{
-
       })
     }
   }
@@ -35,12 +40,20 @@ function SpookFormContainer(props){
     changeSelectedId(data.value)
   }
 
+  const displaySpookScore = () => {
+    return (
+      <div>
+        <h1>{`${selectedHouseName}'s Spook Score is ${newSpookScore}! Try adding more photos to raise it!`}</h1>
+      </div>
+    )
+  }
+
   return (
     <div>
       <h1>Generate a Spook Score to Attract More Ghosts!</h1>
       <Select onChange={onChange} placeholder='Select house' options={houseOptions()}/>
-      <SpookScoreGenerator generateSpookScore={generateSpookScore} id={selectedId}/>
-      {newSpookScore ? <h1>{newSpookScore}</h1> : null}
+      <SpookScoreGenerator loading={loading} newSpookScore={newSpookScore} generateSpookScore={generateSpookScore} id={selectedId}/>
+      {newSpookScore ? displaySpookScore() : null}
     </div>
   )
 }

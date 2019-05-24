@@ -12,6 +12,7 @@ function linkButtonWithForm(WrappedForm){
     }
 
     handleClick = (bool) => {
+      debugger
       this.setState({
         buttonClick: bool
       })
