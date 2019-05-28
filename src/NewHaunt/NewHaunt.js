@@ -5,17 +5,36 @@ import { createHaunt } from './NewHauntActions'
 import agentWithAuth from '../HOCs/agentWithAuth'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 import newOrEditHaunt from '../HOCs/newOrEditHaunt'
+import HouseImageButton from './HouseImageButton'
 import styles from './NewHaunt.css.js'
 
-import { Segment, Button, Divider, Form, Grid } from 'semantic-ui-react'
+import { Segment, Button, Divider, Form, Grid, Image } from 'semantic-ui-react'
 
 class NewHaunt extends React.Component{
+
+  // state={
+  //   images: this.props.editImages.map((image, idx)=>idx)
+  // }
 
   createText = (newHaunt) => {
     if(newHaunt){
       return {title: "Add a new haunt!", button: "Create haunt"}
     } else {
       return {title: "Edit your haunt!", button: "Edit haunt"}
+    }
+  }
+
+  displayImages = () => {
+    if(this.props.editImages){
+      return (
+        <div style={{display: "flex"}}>
+          {this.props.editImages.map((image, idx)=>{
+            return (
+              <HouseImageButton idx={idx} handleImageClick={this.props.handleImageClick} image={image}/>
+            )
+          })}
+        </div>
+      )
     }
   }
 
@@ -37,6 +56,8 @@ class NewHaunt extends React.Component{
               <input id="address" value={this.props.address} onChange={this.props.handleChange}/>
             </Form.Field>
             <Form.Field>
+              <label>Current Images:</label>
+              {this.displayImages()}
               <label>Image URL:</label>
               <Button
               inverted

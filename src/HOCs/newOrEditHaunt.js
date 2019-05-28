@@ -30,6 +30,8 @@ function newOrEditHaunt(WrappedComponent){
       rooms: 0,
       newHaunt: false,
       images: [],
+      editImages: [],
+      imagesIndex: []
     }
 
     componentDidMount(){
@@ -38,6 +40,8 @@ function newOrEditHaunt(WrappedComponent){
         Adapter.fetchHouse(parseInt(this.props.match.params.id))
         .then(r=>r.json())
         .then(json=>{
+          json.house.editImages = json.house.images
+          json.house.imagesIndex = json.house.images.map((image, idx)=>{return {idx: true}})
           json.house.images = []
           this.setState({...json.house})
         })
@@ -46,6 +50,11 @@ function newOrEditHaunt(WrappedComponent){
           newHaunt: true
         })
       }
+    }
+
+    handleImageClick = (idx, status) => {
+      console.log(this.state.imagesIndex);
+      debugger
     }
 
     handleChange = (e) => {
@@ -108,6 +117,7 @@ function newOrEditHaunt(WrappedComponent){
           handleChecked={this.handleChecked}
           handleSubmit={this.handleSubmit}
           handleFile={this.handleFile}
+          handleImageClick={this.handleImageClick}
         />
       )
     }
