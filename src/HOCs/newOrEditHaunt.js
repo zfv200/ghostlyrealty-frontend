@@ -32,7 +32,8 @@ function newOrEditHaunt(WrappedComponent){
       newHaunt: false,
       images: [],
       editImages: [],
-      imagesToDestroy: []
+      imagesToDestroy: [],
+      filePreviews: []
     }
 
     componentDidMount(){
@@ -128,6 +129,16 @@ function newOrEditHaunt(WrappedComponent){
       })
     }
 
+    removePreview = (file) => {
+      let idx = this.state.images.indexOf(file)
+      let arr = [...this.state.images]
+      arr.splice(idx, 1)
+      debugger
+      this.setState({
+        images: arr
+      })
+    }
+
     render(){
       return (
         <WrappedComponent
@@ -138,6 +149,8 @@ function newOrEditHaunt(WrappedComponent){
           handleSubmit={this.handleSubmit}
           handleFile={this.handleFile}
           handleImageClick={this.handleImageClick}
+          filePreviews={this.state.filePreviews}
+          removePreview={this.removePreview}
         />
       )
     }

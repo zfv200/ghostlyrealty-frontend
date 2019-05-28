@@ -38,6 +38,22 @@ class NewHaunt extends React.Component{
     }
   }
 
+  displayImagePreviews = () => {
+    console.log(this.props.images);
+    return (
+      <div style={{display: "flex"}}>
+        {this.props.images.map(image=>{
+          let newPreview = URL.createObjectURL(image)
+          return (
+            <button onClick={()=>this.props.removePreview(image)}>
+              <Image src={newPreview} style={{height: "60px", width: "60px"}}/>
+            </button>
+          )
+        })}
+      </div>
+    )
+  }
+
   fileInputRef = React.createRef();
 
   render(){
@@ -58,6 +74,8 @@ class NewHaunt extends React.Component{
             <Form.Field>
               <label>Current Images:</label>
               {this.displayImages()}
+              <label>New Image Previews:</label>
+              {this.displayImagePreviews()}
               <label>Image URL:</label>
               <Button
               inverted
