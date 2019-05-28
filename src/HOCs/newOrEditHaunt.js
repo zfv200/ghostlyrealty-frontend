@@ -7,6 +7,7 @@
 //which will also be lifted to the hoc
 
 import React from 'react'
+import update from 'immutability-helper';
 import { connect } from 'react-redux'
 import { createHaunt } from '../NewHaunt/NewHauntActions'
 import { compose } from 'redux'
@@ -31,7 +32,7 @@ function newOrEditHaunt(WrappedComponent){
       newHaunt: false,
       images: [],
       editImages: [],
-      imagesIndex: []
+      imagesToDestroy: []
     }
 
     componentDidMount(){
@@ -41,7 +42,6 @@ function newOrEditHaunt(WrappedComponent){
         .then(r=>r.json())
         .then(json=>{
           json.house.editImages = json.house.images
-          json.house.imagesIndex = json.house.images.map((image, idx)=>{return {idx: true}})
           json.house.images = []
           this.setState({...json.house})
         })
@@ -53,8 +53,28 @@ function newOrEditHaunt(WrappedComponent){
     }
 
     handleImageClick = (idx, status) => {
-      console.log(this.state.imagesIndex);
-      debugger
+      // let newArr = [...this.state.imagesToDestroy, idx]
+      //
+      // this.setState()
+      // const newData = update(this.state, {
+      //   imagesToDestroy: [$push: [idx]]
+      // })
+      // this.setState({
+      //   imagesToDestroy: newData
+      // })
+      const arr = this.state.imagesToDestroy;
+
+      if(!status){
+        const newArr = update(arr, {$push: [idx]});
+        this.setState({
+          imagesToDestroy: newArr
+        })
+      } else {
+        const newArr = update(arr, {$splice: [[arr.indexOf(idx), 1]]})
+        this.setState({
+          imagesToDestroy: newArr
+        })
+      }
     }
 
     handleChange = (e) => {
