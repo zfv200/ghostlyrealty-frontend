@@ -5,6 +5,7 @@ import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 import ImageWithLoader from '../HOCs/ImageWithLoader'
 import Carousel from '../Carousel/Carousel'
+import EditHauntButton from '../MyHaunts/EditHauntButton'
 
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
@@ -67,6 +68,8 @@ const HouseShowPage = (props) => {
     }
   }
 
+  const houseId = parseInt(props.match.params.id)
+
   return (
     <div>
       <Header as='h1' style={{marginLeft: "18px"}}>{house.name}</Header>
@@ -89,7 +92,8 @@ const HouseShowPage = (props) => {
           <p style={{fontSize: "16px"}}>{house.description}</p>
         </Grid.Row>
         <Grid.Row style={{height: "80px"}}>
-        {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
+        {props.currentUser ? <HauntHouseButton id={houseId}/> : null}
+        {props.currentUser && medium.id === props.currentUser.id ? <EditHauntButton id={houseId} /> : null}
         </Grid.Row>
         <Divider />
         <Grid.Row>

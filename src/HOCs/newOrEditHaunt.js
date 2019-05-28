@@ -133,7 +133,6 @@ function newOrEditHaunt(WrappedComponent){
       let idx = this.state.images.indexOf(file)
       let arr = [...this.state.images]
       arr.splice(idx, 1)
-      debugger
       this.setState({
         images: arr
       })
