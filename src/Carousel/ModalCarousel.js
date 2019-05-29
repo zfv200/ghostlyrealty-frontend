@@ -5,7 +5,6 @@ import { changeCarousel } from './CarouselActions'
 import styles from './Carousel.css.js'
 
 
-// TODO: have the carousel slide back and forth
 class Carousel extends React.Component{
 
   renderCarousel = () =>{

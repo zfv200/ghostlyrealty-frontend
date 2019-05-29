@@ -4,9 +4,10 @@ import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 import ImageWithLoader from '../HOCs/ImageWithLoader'
-import Carousel from '../Carousel/Carousel'
+import Carousel, { ModalCarousel } from '../Carousel/Carousel'
 import EditHauntButton from '../MyHaunts/EditHauntButton'
 
+import linkButtonWithForm from '../HOCs/linkButtonWithForm'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 import { Grid, Divider, Header, Segment } from 'semantic-ui-react'
@@ -80,6 +81,13 @@ const HouseShowPage = (props) => {
             images={images}
             style={{height: "400px", width: "800px", border: "solid", margin: "auto"}}
             id={house.id}
+            isPlaying={true}
+            />
+            <ModalCarousel
+            images={images}
+            style={{border: "solid", margin: "auto"}}
+            id={house.id}
+            isPlaying={false}
             />
           </Grid.Column>
           <Grid.Column width={3}>
