@@ -7,9 +7,9 @@ function modalWrapper(WrappedComponent){
 
   const baseModal = (props) => {
     return (
-      <div id="outer-popup" onClick={props.handleClick} style={styles.houseShowPageModal}>
-        <div id="inner-outer-popup" style={styles.content}>
-          <WrappedComponent {...props}/>
+      <div id="outer-popup" onClick={props.handleClick} style={styles.signInForm}>
+        <div id="inner-outer-popup" style={styles.addCreditsForm}>
+          <WrappedComponent {...props} />
         </div>
       </div>
     )

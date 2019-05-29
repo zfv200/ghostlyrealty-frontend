@@ -4,21 +4,42 @@ import { connect } from 'react-redux'
 import { changeCarousel } from './CarouselActions'
 import styles from './Carousel.css.js'
 
+import linkButtonWithForm from '../HOCs/linkButtonWithForm'
+
 
 class Carousel extends React.Component{
 
+  state={
+    index: 0
+  }
+
   renderCarousel = () =>{
-    let house = this.props.featuredHouses[this.props.featuredHouseIndex]
+    let image = this.props.images[this.state.index]
     // const { name, image_url } = house.props
     return (
       <React.Fragment>
-        <CarouselTile {...house}/>
+        <CarouselTile image={image}/>
       </React.Fragment>
     )
   }
 
   carouselClick = (e) => {
     this.props.changeCarousel(e.target.value)
+  }
+
+  carouselClick = (e) => {
+    // console.log(this.state.index);
+    if(e.target.value){
+      let newIndex = this.state.index += 1
+      this.setState({
+        index: newIndex
+      })
+    } else {
+      let newIndex = this.state.index -= 1
+      this.setState({
+        index: newIndex
+      })
+    }
   }
 
   render(){
@@ -35,13 +56,13 @@ class Carousel extends React.Component{
         <button
           className="bg-black db absolute transparent h2 left-50 white pointer"
           style={styles.button}
-          value="back"
+          value={false}
           onClick={this.carouselClick}>{back}
         </button>
         <button
           className="bg-black db absolute transparent h2 right-0 white pointer"
           style={{...styles.button, right: "127.5px"}}
-          value="foward"
+          value={true}
           onClick={this.carouselClick}>{forward}
         </button>
       </div>
@@ -58,4 +79,4 @@ const mapStateToProps = (state) =>{
 
 
 
-export default connect(mapStateToProps, {changeCarousel})(Carousel)
+export default connect(mapStateToProps, {changeCarousel})(linkButtonWithForm(Carousel))

@@ -61,6 +61,4 @@ class Carousel extends React.Component{
   }
 }
 
-export const ModalCarousel = linkButtonWithForm(modalWrapper(Carousel))
-
 export default Carousel

@@ -4,13 +4,18 @@ import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 import ImageWithLoader from '../HOCs/ImageWithLoader'
-import Carousel, { ModalCarousel } from '../Carousel/Carousel'
+import Carousel from '../Carousel/Carousel'
 import EditHauntButton from '../MyHaunts/EditHauntButton'
+import SignInForm from '../UserHeader/SignInForm'
+import ModalCarousel from '../Carousel/ModalCarousel'
 
 import linkButtonWithForm from '../HOCs/linkButtonWithForm'
+// import modalWrapper from '../HOCs/modalWrapper'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 import { Grid, Divider, Header, Segment } from 'semantic-ui-react'
+//
+// const ModalCarousel = linkButtonWithForm(ModalCarousel)
 
 const HouseShowPage = (props) => {
 
@@ -70,7 +75,6 @@ const HouseShowPage = (props) => {
   }
 
   const houseId = parseInt(props.match.params.id)
-
   return (
     <div>
       <Header as='h1' style={{marginLeft: "18px"}}>{house.name}</Header>
@@ -85,8 +89,8 @@ const HouseShowPage = (props) => {
             />
             <ModalCarousel
             images={images}
-            style={{border: "solid", margin: "auto"}}
-            id={house.id}
+            style={{height: "800px"}}
+            house={house}
             isPlaying={false}
             />
           </Grid.Column>
