@@ -4,13 +4,22 @@ import { connect } from 'react-redux'
 import { changeCarousel } from './CarouselActions'
 import styles from './Carousel.css.js'
 
-// import linkButtonWithForm from '../HOCs/linkButtonWithForm'
-
-
 class ModalCarousel extends React.Component{
 
   state={
     index: 0
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    window.scrollTo(0, 0)
   }
 
   renderCarousel = () =>{
@@ -63,7 +72,7 @@ class ModalCarousel extends React.Component{
     let forward = ">"
     return (
       <div
-        style={{zIndex: 4, position: "absolute", top: "80px", left: "0px", width: "100%", background: "gray"}}
+        style={{zIndex: 4, position: "absolute", top: "80px", left: "0px", width: "100%", height: window.innerHeight, background: "gray"}}
         onClick={this.hideCarousel}>
         <div>
           <ul>
@@ -78,7 +87,7 @@ class ModalCarousel extends React.Component{
         </button>
         <button
           className="bg-black db absolute transparent h2 right-0 white pointer"
-          style={{...styles.button, right: "127.5px"}}
+          style={{...styles.button}}
           value={"forward"}
           onClick={this.carouselClick}>{forward}
         </button>
@@ -93,28 +102,5 @@ const mapStateToProps = (state) =>{
     featuredHouseIndex: state.houseReducer.featuredHouseIndex
   }
 }
-
-
-// <div>
-//   <div className="ma0 db relative" style={styles.carousel}>
-//     <ul className="pa0 ma0 relative w-100">
-//       {this.renderCarousel()}
-//     </ul>
-//   </div>
-//   <button
-//     className="bg-black db absolute transparent h2 left-50 white pointer"
-//     style={styles.button}
-//     value={"back"}
-//     onClick={this.carouselClick}>{back}
-//   </button>
-//   <button
-//     className="bg-black db absolute transparent h2 right-0 white pointer"
-//     style={{...styles.button, right: "127.5px"}}
-//     value={"forward"}
-//     onClick={this.carouselClick}>{forward}
-//   </button>
-// </div>
-
-
 
 export default connect(mapStateToProps, {changeCarousel})(ModalCarousel)

@@ -6,16 +6,13 @@ const ModalCarouselTile = (props) =>{
   if(props){
     return (
       <div>
-        <li>
-          <img src={props.image} alt={props.name}/>
+        <li style={{display: "flex"}}>
+          <img style={{height: window.innerHeight - 140, width: "95%"}} src={props.image} alt={props.name}/>
         </li>
       </div>
     )
   }
 }
 
-// <div className="caption relative bottom-2 bg-black white h2">
-//   <p className="relative pa1 ml5">{props.name}</p>
-// </div>
 
 export default ModalCarouselTile

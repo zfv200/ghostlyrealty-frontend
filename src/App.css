@@ -1,3 +1,4 @@
+body.dialog-open { overflow: hidden; }
 
 .dropdown-children{
   visibility: hidden; /* hides sub-menu */
