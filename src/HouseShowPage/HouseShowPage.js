@@ -23,6 +23,7 @@ const HouseShowPage = (props) => {
   const [images, addImages] = useState([])
   const [medium, addMedium] = useState({})
   const [convertedAtts, addConvertedAtts] = useState({})
+  const [carouselShowing, changeCarouselShowing] = useState(false)
 
   useEffect(()=>{
     window.scrollTo(0, 0)
@@ -77,21 +78,25 @@ const HouseShowPage = (props) => {
   const houseId = parseInt(props.match.params.id)
   return (
     <div>
+      {carouselShowing ?
+        <ModalCarousel
+        changeCarouselShowing={()=>changeCarouselShowing(false)}
+        images={images}
+        style={{height: "800px"}}
+        house={house}
+        isPlaying={false}
+        />
+      : null }
       <Header as='h1' style={{marginLeft: "18px"}}>{house.name}</Header>
       <Grid padded>
         <Grid.Row>
           <Grid.Column width={13}>
             <Carousel
+            changeCarouselShowing={()=>changeCarouselShowing(true)}
             images={images}
             style={{height: "400px", width: "800px", border: "solid", margin: "auto"}}
             id={house.id}
             isPlaying={true}
-            />
-            <ModalCarousel
-            images={images}
-            style={{height: "800px"}}
-            house={house}
-            isPlaying={false}
             />
           </Grid.Column>
           <Grid.Column width={3}>

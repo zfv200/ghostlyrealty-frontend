@@ -30,7 +30,10 @@ class Carousel extends React.Component{
       return this.props.images.map((image)=>{
         return (
           <Slide>
-            <CarouselTile image={image} id={this.props.id}/>
+            <CarouselTile
+            image={image}
+            id={this.props.id}
+            changeCarouselShowing={this.props.changeCarouselShowing}/>
           </Slide>
         )
       })
