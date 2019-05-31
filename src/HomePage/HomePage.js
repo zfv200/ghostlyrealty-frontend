@@ -37,6 +37,7 @@ class HomePage extends React.Component {
           scrollToTop={this.scrollToTop}
           images={this.props.images}
           featuredHouses={this.props.featuredHouses}
+          isPlaying={true}
           style={{height: "400px", width: "925px", border: "solid", margin: "auto"}}
           />
           <HouseSearchForm />

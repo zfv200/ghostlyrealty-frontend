@@ -5,10 +5,17 @@ import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
 import ImageWithLoader from '../HOCs/ImageWithLoader'
 import Carousel from '../Carousel/Carousel'
+import EditHauntButton from '../MyHaunts/EditHauntButton'
+import SignInForm from '../UserHeader/SignInForm'
+import ModalCarousel from '../Carousel/ModalCarousel'
 
+import linkButtonWithForm from '../HOCs/linkButtonWithForm'
+// import modalWrapper from '../HOCs/modalWrapper'
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 
 import { Grid, Divider, Header, Segment } from 'semantic-ui-react'
+//
+// const ModalCarousel = linkButtonWithForm(ModalCarousel)
 
 const HouseShowPage = (props) => {
 
@@ -16,6 +23,7 @@ const HouseShowPage = (props) => {
   const [images, addImages] = useState([])
   const [medium, addMedium] = useState({})
   const [convertedAtts, addConvertedAtts] = useState({})
+  const [carouselShowing, changeCarouselShowing] = useState(false)
 
   useEffect(()=>{
     window.scrollTo(0, 0)
@@ -67,16 +75,28 @@ const HouseShowPage = (props) => {
     }
   }
 
+  const houseId = parseInt(props.match.params.id)
   return (
     <div>
+      {carouselShowing ?
+        <ModalCarousel
+        changeCarouselShowing={()=>changeCarouselShowing(false)}
+        images={images}
+        style={{height: "800px"}}
+        house={house}
+        isPlaying={false}
+        />
+      : null }
       <Header as='h1' style={{marginLeft: "18px"}}>{house.name}</Header>
       <Grid padded>
         <Grid.Row>
           <Grid.Column width={13}>
             <Carousel
+            changeCarouselShowing={()=>changeCarouselShowing(true)}
             images={images}
             style={{height: "400px", width: "800px", border: "solid", margin: "auto"}}
             id={house.id}
+            isPlaying={true}
             />
           </Grid.Column>
           <Grid.Column width={3}>
@@ -89,7 +109,8 @@ const HouseShowPage = (props) => {
           <p style={{fontSize: "16px"}}>{house.description}</p>
         </Grid.Row>
         <Grid.Row style={{height: "80px"}}>
-        {props.currentUser ? <HauntHouseButton id={parseInt(props.match.params.id)}/> : null}
+        {props.currentUser ? <HauntHouseButton id={houseId}/> : null}
+        {props.currentUser && medium.id === props.currentUser.id ? <EditHauntButton id={houseId} /> : null}
         </Grid.Row>
         <Divider />
         <Grid.Row>

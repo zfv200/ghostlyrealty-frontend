@@ -7,6 +7,7 @@
 //which will also be lifted to the hoc
 
 import React from 'react'
+import update from 'immutability-helper';
 import { connect } from 'react-redux'
 import { createHaunt } from '../NewHaunt/NewHauntActions'
 import { compose } from 'redux'
@@ -30,6 +31,9 @@ function newOrEditHaunt(WrappedComponent){
       rooms: 0,
       newHaunt: false,
       images: [],
+      editImages: [],
+      imagesToDestroy: [],
+      filePreviews: []
     }
 
     componentDidMount(){
@@ -38,12 +42,38 @@ function newOrEditHaunt(WrappedComponent){
         Adapter.fetchHouse(parseInt(this.props.match.params.id))
         .then(r=>r.json())
         .then(json=>{
+          json.house.editImages = json.house.images
           json.house.images = []
           this.setState({...json.house})
         })
       } else {
         this.setState({
           newHaunt: true
+        })
+      }
+    }
+
+    handleImageClick = (idx, status) => {
+      // let newArr = [...this.state.imagesToDestroy, idx]
+      //
+      // this.setState()
+      // const newData = update(this.state, {
+      //   imagesToDestroy: [$push: [idx]]
+      // })
+      // this.setState({
+      //   imagesToDestroy: newData
+      // })
+      const arr = this.state.imagesToDestroy;
+
+      if(!status){
+        const newArr = update(arr, {$push: [idx]});
+        this.setState({
+          imagesToDestroy: newArr
+        })
+      } else {
+        const newArr = update(arr, {$splice: [[arr.indexOf(idx), 1]]})
+        this.setState({
+          imagesToDestroy: newArr
         })
       }
     }
@@ -99,6 +129,15 @@ function newOrEditHaunt(WrappedComponent){
       })
     }
 
+    removePreview = (file) => {
+      let idx = this.state.images.indexOf(file)
+      let arr = [...this.state.images]
+      arr.splice(idx, 1)
+      this.setState({
+        images: arr
+      })
+    }
+
     render(){
       return (
         <WrappedComponent
@@ -108,6 +147,9 @@ function newOrEditHaunt(WrappedComponent){
           handleChecked={this.handleChecked}
           handleSubmit={this.handleSubmit}
           handleFile={this.handleFile}
+          handleImageClick={this.handleImageClick}
+          filePreviews={this.state.filePreviews}
+          removePreview={this.removePreview}
         />
       )
     }

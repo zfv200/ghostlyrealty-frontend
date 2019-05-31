@@ -13,6 +13,7 @@
     "@types/react-router-dom": "^4.3.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
+    "immutability-helper": "^3.0.0",
     "lodash": "^4.17.11",
     "lodash.isequal": "^4.5.0",
     "pure-react-carousel": "^1.19.4",
