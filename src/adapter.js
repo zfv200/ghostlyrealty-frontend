@@ -139,7 +139,7 @@ class Adapter{
   // }
 
   static featureHaunt(id, boolean){
-    return fetch(`${apiUrl}/houses/${id}`, {
+    return fetch(`${apiUrl}/houses/${id}/feature_haunt`, {
       method: 'PATCH',
       headers: {
         "Content-Type": 'application/json',

@@ -4,11 +4,6 @@ export const featureHaunt = (id, boolean) => {
   return (dispatch) => {
     Adapter.featureHaunt(id, boolean)
     .then(json=>{
-      if(json.error){
-        alert("sorry, no more credits!")
-        console.log(json.error)
-        return "fail"
-      }
       let haunt = json.house
       let id = parseInt(json.house.id)
       if(boolean){

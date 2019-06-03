@@ -33,7 +33,8 @@ function newOrEditHaunt(WrappedComponent){
       images: [],
       editImages: [],
       imagesToDestroy: [],
-      filePreviews: []
+      filePreviews: [],
+      featured: false
     }
 
     componentDidMount(){

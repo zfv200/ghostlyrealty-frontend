@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 import SpookScoreGenerator from './SpookScoreGenerator'
 import Adapter from '../adapter'
 
+import { connect } from 'react-redux'
+
+import withCurrentGhost from '../HOCs/withCurrentGhost'
+
 import { Select } from 'semantic-ui-react'
 
 function SpookFormContainer(props){
@@ -28,11 +32,16 @@ function SpookFormContainer(props){
     if(selectedId){
       let house = props.houses.find(house=>house.id===selectedId).name
       changeSelectedHouseName(house)
-      Adapter.fetchSpookScore(selectedId)
-      .then(json=>{
-        changeLoadingStatus(false)
-        addSpookScore(json.result)
-      })
+      if(props.currentUser.credits > 3){
+        Adapter.fetchSpookScore(selectedId)
+        .then(json=>{
+          changeLoadingStatus(false)
+          addSpookScore(json.result)
+          props.dispatch({type: "UPDATE_CREDITS", payload: props.currentUser.credits - 3})
+        })
+      } else {
+        alert("please add more credits to receive a spook score!")
+      }
     }
   }
 
@@ -58,4 +67,4 @@ function SpookFormContainer(props){
   )
 }
 
-export default SpookFormContainer
+export default connect(null)(withCurrentGhost(SpookFormContainer))
