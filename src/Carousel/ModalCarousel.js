@@ -75,9 +75,7 @@ class ModalCarousel extends React.Component{
         style={{zIndex: 4, position: "absolute", top: "80px", left: "0px", width: "100%", height: window.innerHeight, background: "gray"}}
         onClick={this.hideCarousel}>
         <div>
-          <ul>
-            {this.renderCarousel()}
-          </ul>
+          {this.renderCarousel()}
         </div>
         <button
           className="bg-black db absolute transparent h2 left-50 white pointer"
