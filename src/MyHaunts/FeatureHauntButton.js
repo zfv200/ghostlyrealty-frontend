@@ -11,11 +11,13 @@ class FeatureHauntButton extends React.Component {
 
   handleClick = () => {
     let newState = !this.state.featured
-    this.props.featureHaunt(this.props.id, newState)
     if(newState === false || this.props.currentUser.credits >= 1){
+      this.props.featureHaunt(this.props.id, newState)
       this.setState({
         featured: newState
       })
+    } else {
+      alert("sorry, no more credits!")
     }
   }
 
