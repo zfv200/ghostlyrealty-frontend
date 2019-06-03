@@ -11,31 +11,10 @@ export default {
     height: "550px",
   },
   button: {
-    top: "350px",
-    width: "80px",
+    top: "200px",
+    width: "60px",
+    margin: "30px",
+    borderRadius: "100%",
+    height: "80px"
   }
-
-  // carousel: {
-  //   backgroundColor: 'white',
-  //   display: 'flex',
-  //   flexDirection: 'row',
-  //   alignItems: 'center',
-  // },
-  //
-  // image: {
-  //   width: '1000px',
-  //   height: '600px',
-  //   padding: '10px',
-  // },
-  //
-  // carouselChild: {
-  //   flex: 1,
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   alignItems: 'center',
-  // },
-  //
-  // carouselButton: {
-  //   height: '100px'
-  // }
 }
