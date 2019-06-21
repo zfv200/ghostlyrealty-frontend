@@ -98,6 +98,9 @@ class NewHaunt extends React.Component{
               <Form.Checkbox id="new_family" label='Family Searching For a Fresh Start' checked={this.props.new_family} value={this.props.new_family} onChange={this.props.handleChecked}/>
             </Form.Field>
             <Form.Field>
+              <Form.Checkbox id="witch_friendly" label='Witch Friendly' checked={this.props.witch_friendly} value={this.props.witch_friendly} onChange={this.props.handleChecked}/>
+            </Form.Field>
+            <Form.Field>
               <label>Haunt Description</label>
               <textarea id="description" value={this.props.description} onChange={this.props.handleChange}></textarea>
             </Form.Field>

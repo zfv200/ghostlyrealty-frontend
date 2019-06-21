@@ -8,9 +8,9 @@ const EditHauntButton = (props) => {
 
   return (
     <NavLink to={`/houses/${props.id}/edit`}>
-      <button className="f6 link dim ph3 pv2 mb2 dib white bg-black pointer w5">
+      <Button style={{height: '55px'}} basic color='black'>
       Edit Haunt
-      </button>
+      </Button>
     </NavLink>
   )
 }

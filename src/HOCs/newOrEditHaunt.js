@@ -28,6 +28,7 @@ function newOrEditHaunt(WrappedComponent){
       burial_ground: false,
       description: "",
       new_family: false,
+      witch_friend: false,
       rooms: 0,
       newHaunt: false,
       images: [],
@@ -106,7 +107,6 @@ function newOrEditHaunt(WrappedComponent){
     }
 
     handleSubmit = (e) => {
-      let id =
       e.preventDefault()
       let formData = this.createFormData(this.state)
       if(this.state.newHaunt){

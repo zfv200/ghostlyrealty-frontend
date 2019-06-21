@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Popup from 'reactjs-popup'
 import { signInButtonClick } from './userHeaderActions'
 import { connect } from 'react-redux'
@@ -14,7 +14,7 @@ const SignInLink = (props) => {
   const handleClick = () => {
     props.signInButtonClick(true)
   }
-  // 
+  //
   // return (
   // )
 }

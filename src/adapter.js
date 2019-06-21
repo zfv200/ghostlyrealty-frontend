@@ -98,19 +98,19 @@ class Adapter{
     }).then(res=>res.json())
   }
 
-  static searchSite(searchTerm){
-    return fetch(`${apiUrl}/search`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        searchTerm: searchTerm
-      })
-    }).then(res=>res.json())
-  }
+  // static searchSite(searchTerm){
+  //   return fetch(`${apiUrl}/search`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       searchTerm: searchTerm
+  //     })
+  //   }).then(res=>res.json())
+  // }
 
   static createHaunt(formData){
     return fetch(`${apiUrl}/houses`, {
