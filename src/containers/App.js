@@ -21,7 +21,7 @@ import HouseShowPage from '../HouseShowPage/HouseShowPage'
 import MediumShowPage from '../MediumShowPage/MediumShowPage'
 import EditAgent from '../AgentDashboard/EditAgent'
 
-import { Sidebar, Menu, Icon, Segment } from 'semantic-ui-react'
+import { Sidebar, Menu, Segment } from 'semantic-ui-react'
 
 class App extends Component {
   // state={

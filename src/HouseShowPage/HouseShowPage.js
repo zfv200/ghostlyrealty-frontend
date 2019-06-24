@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { compose } from 'redux'
+import ReactDOM from 'react-dom'
 import { fetchHouse } from './HouseShowPageActions'
 import AgentCard from '../AgentPage/AgentCard.tsx'
 import HauntHouseButton from '../SiteSearchResults/HauntHouseButton'
@@ -75,6 +76,10 @@ const HouseShowPage = (props) => {
     }
   }
 
+  const address = () => {
+    return house.address !== "null" ? house.address : ""
+  }
+
   const houseId = parseInt(props.match.params.id)
   return (
     <div>
@@ -94,13 +99,13 @@ const HouseShowPage = (props) => {
             <Carousel
             changeCarouselShowing={()=>changeCarouselShowing(true)}
             images={images}
-            style={{height: "400px", width: "800px", border: "solid", margin: "auto"}}
+            style={{height: "100%", width: "100%", border: "solid", paddingBottom: "0%"}}
             id={house.id}
             isPlaying={true}
             />
           </Grid.Column>
           <Grid.Column width={3}>
-            <h3>{house.address}</h3>
+            <h3>{address()}</h3>
             {displayAttributes()}
           </Grid.Column>
         </Grid.Row>

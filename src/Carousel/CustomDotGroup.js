@@ -10,7 +10,7 @@ const CustomDotGroup = ({ slides, size, images, scrollToTop }) => {
     <Button.Group size={size}>
       {[...Array(slides).keys()].map((slide, index) => (
         <Button onClick={scrollToTop} style={{opacity: 1, color: 'white'}} as={Dot} key={slide} icon="circle" slide={slide}>
-          {<img src={images[index]}
+          {<img alt="house" src={images[index]}
           style={{width: "40px", height: "40px"}}
           >
           </img>}
