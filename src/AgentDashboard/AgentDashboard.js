@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
 import withCurrentGhost from '../HOCs/withCurrentGhost'
 import agentWithAuth from '../HOCs/agentWithAuth'
-import AddCreditsForm from '../AddCredits/AddCreditsForm'
+import AddCreditsForm from '../AddCredits/AddCreditsForm.tsx'
 import HouseCard from '../SiteSearchResults/HouseCard.tsx'
 import SpookFormContainer from './SpookFormContainer'
 
 import { featureMedium } from './AgentDashboardActions'
 
-import { Header, Divider, Grid } from 'semantic-ui-react'
+import { Header, Divider, Grid, Button } from 'semantic-ui-react'
 
 const AgentDashboard = (props) => {
 
@@ -38,9 +40,12 @@ const AgentDashboard = (props) => {
           <img src={props.currentUser.image}/>
           <h4>Spook Credits: {props.currentUser.credits}</h4>
           {!props.currentUser.featured &&
-            <button onClick={handleFeatureClick} className="f6 link dim ba ph3 pv2 mb2 dib black">Become the featured Medium! (10 credits)</button>
+            <Button onClick={handleFeatureClick} className="f6 link dim ba ph3 pv2 mb2 dib black">Feature</Button>
           }
-          <AddCreditsForm title='Add Credits'/>
+          <div className="dib"><AddCreditsForm credits={props.currentUser.credits} id={props.currentUser.id} title='Add Credits'/></div>
+          <Link to={`mediums/${props.currentUser.id}/edit`}>
+          <Button className="f6 link dim ba ph3 pv2 mb2 dib black">Edit Profile</Button>
+          </Link>
         </Grid.Column>
         <Grid.Column width={8}>
           <SpookFormContainer houses={props.currentUser.properties}/>
